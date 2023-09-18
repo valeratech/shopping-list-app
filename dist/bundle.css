@@ -1,0 +1,96 @@
+/*!***************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/styles/index.css ***!
+  \***************************************************************************************************************/
+@import url(https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap);
+/*!*******************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/styles/index.css (1) ***!
+  \*******************************************************************************************************************/
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #EDF1FD;
+  color: #fff;
+  line-height: 1.6;
+}
+
+ul {
+  list-style: none;
+}
+
+.container {
+  max-width: 900px;
+  margin: auto;
+  padding: 0 20px;
+}
+
+header {
+  height: 70px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.card {
+  background-color: #fff;
+  color: #333;
+  border-radius: 15px;
+  padding: 40px 50px;
+  margin: 20px 0;
+  position: relative;
+}
+
+.card h2 {
+  font-size: 22px;
+  font-weight: 600;
+  text-align: center;
+}
+
+li {
+  padding: 10px;
+  font-size: 19px;
+  border-bottom: 1px #cccccc solid;
+  transition: 0.3s;
+  padding: 20px;
+}
+
+.form-input {
+  display: flex;
+  flex-direction: row;
+  border: 1px solid #ccc;
+  padding: 8px 10px;
+  border-radius: 8px;
+}
+
+input {
+  flex-grow: 2;
+  border: none;
+  font-size: 16px;
+}
+
+input:focus {
+  outline: none;
+}
+
+.btn {
+  border: 0;
+  border-radius: 8px;
+  color: #fff;
+  width: 100px;
+  height: 40px;
+  cursor: pointer;
+  background-color: #ff6a95;
+}
+
+.btn:hover {
+  transform: scale(0.98);
+  opacity: 0.9;
+}
+
+/*# sourceMappingURL=bundle.css.map*/
