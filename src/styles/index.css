@@ -124,6 +124,14 @@ input:focus {
     opacity: 100%;
 }
 
+.active {
+    display: inline-block;
+}
+
+.inactive {
+    display: none;
+}
+
 
 
 

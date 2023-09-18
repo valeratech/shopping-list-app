@@ -6066,6 +6066,10 @@ function userInterface() {
     console.log('Hello World');
 }
 
+function init() {
+    document.addEventListener('')
+}
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (userInterface);
 
 /***/ })
@@ -6168,4 +6172,4 @@ document.addEventListener('DOMContentLoaded', _modules_UserInterface__WEBPACK_IM
 
 /******/ })()
 ;
-//# sourceMappingURL=bundle9a2dde612ea34b4ebc7f.js.map
+//# sourceMappingURL=bundlea153925e8f7448a63e69.js.map
