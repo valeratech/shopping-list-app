@@ -119,6 +119,11 @@ input:focus {
     opacity: 0.9;
 }
 
+.btn:active {
+    transform: scale(100%);
+    opacity: 100%;
+}
+
 
 
 
