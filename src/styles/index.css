@@ -32,6 +32,10 @@ header {
     background-color: #ffffff;
 }
 
+.form-input {
+    display: flex;
+}
+
 .card {
     background-color: #fff;
     color: #333;
@@ -67,11 +71,11 @@ li {
     padding: 20px;
 }
 
-.form-input {
+.filter-input {
     position: relative;
     display: flex;
     flex-direction: row;
-    /*border: 1px solid #ccc;*/
+    border: 1px solid #ccc;
     border-radius: 8px;
 }
 
