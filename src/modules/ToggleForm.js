@@ -1,22 +1,27 @@
 function toggleForm(event) {
     event.preventDefault();
     if (event.target.id === 'add-item') {
-        toggleActiveClass(event.target);
+        toggleActiveClass(event.target.nextElementSibling);
+        toggleInactiveClass(event.target.nextElementSibling);
         toggleInactiveClass(event.target);
-    } else if (event.target.id === 'cancel-from') {
-        // event.target.classList.toggle('inactive');
-        // event.target.nextElementSibling.classList.toggle('active');
-        // event.target.nextElementSibling.classList.toggle('inactive');
+    } else if (event.target.id === 'cancel-form') {
+        toggleInactiveClass(event.target.parentElement.parentElement);
+        toggleInactiveClass(event.target.parentElement.parentElement.previousElementSibling);
+        toggleActiveClass(event.target.parentElement.parentElement.previousElementSibling);
+        clearFormValue(event.target.previousElementSibling);
     }
 }
 
 function toggleActiveClass(element) {
-    element.nextElementSibling.classList.toggle('active');
+    element.classList.toggle('active');
 }
 
 function toggleInactiveClass(element) {
     element.classList.toggle('inactive');
-    element.nextElementSibling.classList.toggle('inactive');
+}
+
+function clearFormValue(element) {
+    element.value = '';
 }
 
 

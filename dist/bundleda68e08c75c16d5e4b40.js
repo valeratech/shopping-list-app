@@ -6065,22 +6065,27 @@ __webpack_require__.r(__webpack_exports__);
 function toggleForm(event) {
     event.preventDefault();
     if (event.target.id === 'add-item') {
-        toggleActiveClass(event.target);
+        toggleActiveClass(event.target.nextElementSibling);
+        toggleInactiveClass(event.target.nextElementSibling);
         toggleInactiveClass(event.target);
-    } else if (event.target.id === 'cancel-from') {
-        // event.target.classList.toggle('inactive');
-        // event.target.nextElementSibling.classList.toggle('active');
-        // event.target.nextElementSibling.classList.toggle('inactive');
+    } else if (event.target.id === 'cancel-form') {
+        toggleInactiveClass(event.target.parentElement.parentElement);
+        toggleInactiveClass(event.target.parentElement.parentElement.previousElementSibling);
+        toggleActiveClass(event.target.parentElement.parentElement.previousElementSibling);
+        clearFormValue(event.target.previousElementSibling);
     }
 }
 
 function toggleActiveClass(element) {
-    element.nextElementSibling.classList.toggle('active');
+    element.classList.toggle('active');
 }
 
 function toggleInactiveClass(element) {
     element.classList.toggle('inactive');
-    element.nextElementSibling.classList.toggle('inactive');
+}
+
+function clearFormValue(element) {
+    element.value = '';
 }
 
 
@@ -6216,4 +6221,4 @@ document.addEventListener('DOMContentLoaded', _modules_UserInterface__WEBPACK_IM
 
 /******/ })()
 ;
-//# sourceMappingURL=bundle975f0d773863ddcd3516.js.map
+//# sourceMappingURL=bundleda68e08c75c16d5e4b40.js.map
