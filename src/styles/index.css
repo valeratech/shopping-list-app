@@ -74,6 +74,10 @@ input:focus {
     outline: none;
 }
 
+.filter-container {
+    display: flex;
+}
+
 .btn {
     border: 0;
     border-radius: 8px;
