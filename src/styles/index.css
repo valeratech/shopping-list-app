@@ -57,6 +57,7 @@ li {
 }
 
 .form-input {
+    position: relative;
     display: flex;
     flex-direction: row;
     border: 1px solid #ccc;
@@ -72,6 +73,17 @@ input {
 
 input:focus {
     outline: none;
+}
+
+.svg-inline--fa {
+    position: absolute;
+    right: 70px;
+    bottom: 57px;
+    font-size: 30px;
+}
+
+#filter {
+    padding: 20px 10px;
 }
 
 .filter-container {
