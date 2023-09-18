@@ -6065,15 +6065,24 @@ __webpack_require__.r(__webpack_exports__);
 function toggleForm(event) {
     event.preventDefault();
     if (event.target.id === 'add-item') {
-        event.target.classList.toggle('inactive');
-        event.target.nextElementSibling.classList.toggle('active');
-        event.target.nextElementSibling.classList.toggle('inactive');
-    } else if (event.target.id === 'add-item-form') {
-        event.target.classList.toggle('inactive');
-        event.target.nextElementSibling.classList.toggle('active');
-        event.target.nextElementSibling.classList.toggle('inactive');
+        toggleActiveClass(event.target);
+        toggleInactiveClass(event.target);
+    } else if (event.target.id === 'cancel-from') {
+        // event.target.classList.toggle('inactive');
+        // event.target.nextElementSibling.classList.toggle('active');
+        // event.target.nextElementSibling.classList.toggle('inactive');
     }
 }
+
+function toggleActiveClass(element) {
+    element.nextElementSibling.classList.toggle('active');
+}
+
+function toggleInactiveClass(element) {
+    element.classList.toggle('inactive');
+    element.nextElementSibling.classList.toggle('inactive');
+}
+
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (toggleForm);
 
@@ -6207,4 +6216,4 @@ document.addEventListener('DOMContentLoaded', _modules_UserInterface__WEBPACK_IM
 
 /******/ })()
 ;
-//# sourceMappingURL=bundle40a5a25ddef84adbeef8.js.map
+//# sourceMappingURL=bundle975f0d773863ddcd3516.js.map
