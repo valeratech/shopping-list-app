@@ -29,6 +29,7 @@ header {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 30px;
+    background-color: #ffffff;
 }
 
 .card {
@@ -41,7 +42,8 @@ header {
 }
 
 .form-container {
-    flex-basis: 50%;
+    flex-basis: 40%;
+    margin: 15px 30px;
 }
 
 .card h2 {
@@ -69,7 +71,7 @@ li {
     position: relative;
     display: flex;
     flex-direction: row;
-    border: 1px solid #ccc;
+    /*border: 1px solid #ccc;*/
     border-radius: 8px;
 }
 
@@ -112,6 +114,7 @@ input:focus {
     transform: scale(0.98);
     opacity: 0.9;
 }
+
 
 
 
