@@ -48,6 +48,13 @@ header {
     text-align: center;
 }
 
+h3 {
+    margin-bottom: 10px;
+    background-color: #cccccc;
+    padding: 7px 14px;
+    border-radius: 15px;
+}
+
 li {
     padding: 10px;
     font-size: 19px;
