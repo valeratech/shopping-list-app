@@ -6064,7 +6064,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 function toggleForm(event) {
     event.preventDefault();
-    console.log(event.target);
+    if (event.target.id === 'add-item') {
+        event.target.classList.toggle('inactive');
+        event.target.nextElementSibling.classList.toggle('active');
+        event.target.nextElementSibling.classList.toggle('inactive');
+    } else if (event.target.id === 'add-item-form') {
+        event.target.classList.toggle('inactive');
+        event.target.nextElementSibling.classList.toggle('active');
+        event.target.nextElementSibling.classList.toggle('inactive');
+    }
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (toggleForm);
@@ -6090,8 +6098,9 @@ function userInterface() {
 }
 
 function init() {
-    const addItemButton = document.getElementById('add-item')
-    addItemButton.addEventListener('click', _ToggleForm__WEBPACK_IMPORTED_MODULE_0__["default"]);
+    // The event listener will listen for clicks on the nested button elements 'add-item' and 'cancel-form'
+    const formContainer = document.querySelector('.form-container');
+    formContainer.addEventListener('click', _ToggleForm__WEBPACK_IMPORTED_MODULE_0__["default"]);
     const addItemForm = document.getElementById('add-item-form');
 }
 
@@ -6198,4 +6207,4 @@ document.addEventListener('DOMContentLoaded', _modules_UserInterface__WEBPACK_IM
 
 /******/ })()
 ;
-//# sourceMappingURL=bundlee9696edeb06014a39c3d.js.map
+//# sourceMappingURL=bundle40a5a25ddef84adbeef8.js.map
