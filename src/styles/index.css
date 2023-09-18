@@ -40,6 +40,9 @@ header {
     position: relative;
 }
 
+.form-container {
+    flex-basis: 50%;
+}
 
 .card h2 {
     font-size: 22px;
