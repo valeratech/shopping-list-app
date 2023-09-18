@@ -1,9 +1,14 @@
+import toggleForm from "./ToggleForm";
+
 function userInterface() {
-    console.log('Hello World');
+    init();
 }
 
 function init() {
-    document.addEventListener('')
+    const addItemButton = document.getElementById('add-item')
+    addItemButton.addEventListener('click', toggleForm);
+    const addItemForm = document.getElementById('add-item-form');
 }
+
 
 export default userInterface;

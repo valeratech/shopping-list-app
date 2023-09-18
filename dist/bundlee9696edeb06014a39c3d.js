@@ -6051,6 +6051,26 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./src/modules/ToggleForm.js":
+/*!***********************************!*\
+  !*** ./src/modules/ToggleForm.js ***!
+  \***********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+function toggleForm(event) {
+    event.preventDefault();
+    console.log(event.target);
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (toggleForm);
+
+/***/ }),
+
 /***/ "./src/modules/UserInterface.js":
 /*!**************************************!*\
   !*** ./src/modules/UserInterface.js ***!
@@ -6062,13 +6082,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var _ToggleForm__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ToggleForm */ "./src/modules/ToggleForm.js");
+
+
 function userInterface() {
-    console.log('Hello World');
+    init();
 }
 
 function init() {
-    document.addEventListener('')
+    const addItemButton = document.getElementById('add-item')
+    addItemButton.addEventListener('click', _ToggleForm__WEBPACK_IMPORTED_MODULE_0__["default"]);
+    const addItemForm = document.getElementById('add-item-form');
 }
+
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (userInterface);
 
@@ -6172,4 +6198,4 @@ document.addEventListener('DOMContentLoaded', _modules_UserInterface__WEBPACK_IM
 
 /******/ })()
 ;
-//# sourceMappingURL=bundlea153925e8f7448a63e69.js.map
+//# sourceMappingURL=bundlee9696edeb06014a39c3d.js.map
