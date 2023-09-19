@@ -6069,7 +6069,7 @@ __webpack_require__.r(__webpack_exports__);
 
 function addListItem(event) {
     const item = getItemValue(event);
-    if (event.key === 'Enter') {
+    if (event.key === 'Enter' && item !== '') {
         (0,_CreateDOMListItem__WEBPACK_IMPORTED_MODULE_0__["default"])(item);
         (0,_ClearFormValue__WEBPACK_IMPORTED_MODULE_1__["default"])(event.target);
     }
@@ -6317,4 +6317,4 @@ document.addEventListener('DOMContentLoaded', _modules_UserInterface__WEBPACK_IM
 
 /******/ })()
 ;
-//# sourceMappingURL=bundle99154602bade30aa9552.js.map
+//# sourceMappingURL=bundle3e20eaa02dbb791fe1fb.js.map

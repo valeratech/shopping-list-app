@@ -3,7 +3,7 @@ import clearFormValue from "./ClearFormValue";
 
 function addListItem(event) {
     const item = getItemValue(event);
-    if (event.key === 'Enter') {
+    if (event.key === 'Enter' && item !== '') {
         createDOMListItem(item);
         clearFormValue(event.target);
     }
