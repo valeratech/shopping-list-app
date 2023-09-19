@@ -18,5 +18,4 @@ function clearFormValue(element) {
     element.value = '';
 }
 
-
 export default toggleForm;
