@@ -6063,13 +6063,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _CreateDOMListItem__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CreateDOMListItem */ "./src/modules/CreateDOMListItem.js");
+/* harmony import */ var _ClearFormValue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ClearFormValue */ "./src/modules/ClearFormValue.js");
+
 
 
 function addListItem(event) {
     const item = getItemValue(event);
     if (event.key === 'Enter') {
         (0,_CreateDOMListItem__WEBPACK_IMPORTED_MODULE_0__["default"])(item);
-        clearItemValue(event.target);
+        (0,_ClearFormValue__WEBPACK_IMPORTED_MODULE_1__["default"])(event.target);
     }
 }
 
@@ -6077,11 +6079,26 @@ function getItemValue(event) {
     return event.target.value;
 }
 
-function clearItemValue(item) {
-    item.value = '';
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (addListItem);
+
+/***/ }),
+
+/***/ "./src/modules/ClearFormValue.js":
+/*!***************************************!*\
+  !*** ./src/modules/ClearFormValue.js ***!
+  \***************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+function clearFormValue(input) {
+    input.value = '';
 }
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (addListItem);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (clearFormValue);
 
 /***/ }),
 
@@ -6144,6 +6161,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var _ClearFormValue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ClearFormValue */ "./src/modules/ClearFormValue.js");
+
+
 function toggleForm(event) {
     event.preventDefault();
     if (event.target.classList.contains('add-item')) {
@@ -6152,16 +6172,12 @@ function toggleForm(event) {
     } else if (event.target.id === 'cancel-form') {
         toggleActiveClass(event.target.parentElement.parentElement);
         toggleActiveClass(event.target.parentElement.parentElement.previousElementSibling);
-        clearFormValue(event.target.previousElementSibling);
+        (0,_ClearFormValue__WEBPACK_IMPORTED_MODULE_0__["default"])(event.target.previousElementSibling);
     }
 }
 
 function toggleActiveClass(element) {
     element.classList.toggle('active');
-}
-
-function clearFormValue(element) {
-    element.value = '';
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (toggleForm);
@@ -6301,4 +6317,4 @@ document.addEventListener('DOMContentLoaded', _modules_UserInterface__WEBPACK_IM
 
 /******/ })()
 ;
-//# sourceMappingURL=bundlec3574560fdc365a0db0f.js.map
+//# sourceMappingURL=bundle99154602bade30aa9552.js.map

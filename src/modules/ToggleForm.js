@@ -1,3 +1,5 @@
+import clearFormValue from "./ClearFormValue";
+
 function toggleForm(event) {
     event.preventDefault();
     if (event.target.classList.contains('add-item')) {
@@ -12,10 +14,6 @@ function toggleForm(event) {
 
 function toggleActiveClass(element) {
     element.classList.toggle('active');
-}
-
-function clearFormValue(element) {
-    element.value = '';
 }
 
 export default toggleForm;
