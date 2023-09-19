@@ -6117,7 +6117,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 function createDOMListItem(itemText) {
-    const list = document.querySelector('.item-list');
+    const list = document.querySelector('.sl-list--container');
     const listItem = document.createElement('li');
     listItem.appendChild(createItemLabel(itemText));
     list.appendChild(listItem);
@@ -6169,7 +6169,7 @@ function displayItemCount() {
 }
 
 function countListItems() {
-    const itemList = document.querySelectorAll('li');
+    const itemList = document.querySelectorAll('.shopping-list--item');
     console.log(Array.from(itemList));
 
 }
@@ -6345,4 +6345,4 @@ document.addEventListener('DOMContentLoaded', _modules_UserInterface__WEBPACK_IM
 
 /******/ })()
 ;
-//# sourceMappingURL=bundle3a632faaa65b94193705.js.map
+//# sourceMappingURL=bundle3a70263628f11a1182be.js.map

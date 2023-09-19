@@ -1,5 +1,5 @@
 function createDOMListItem(itemText) {
-    const list = document.querySelector('.item-list');
+    const list = document.querySelector('.sl-list--container');
     const listItem = document.createElement('li');
     listItem.appendChild(createItemLabel(itemText));
     list.appendChild(listItem);

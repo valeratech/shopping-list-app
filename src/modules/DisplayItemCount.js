@@ -3,7 +3,7 @@ function displayItemCount() {
 }
 
 function countListItems() {
-    const itemList = document.querySelectorAll('li');
+    const itemList = document.querySelectorAll('.shopping-list--item');
     console.log(Array.from(itemList));
 
 }
