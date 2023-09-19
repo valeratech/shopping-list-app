@@ -6062,18 +6062,69 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var _CreateDOMListItem__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CreateDOMListItem */ "./src/modules/CreateDOMListItem.js");
+
+
 function addListItem(event) {
     const item = getItemValue(event);
-    console.log(item);
+    if (event.key === 'Enter')
+        (0,_CreateDOMListItem__WEBPACK_IMPORTED_MODULE_0__["default"])(item);
 }
 
 function getItemValue(event) {
-    if (event.key === 'Enter') {
-        return event.target.value;
-    }
+    return event.target.value;
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (addListItem);
+
+/***/ }),
+
+/***/ "./src/modules/CreateDOMListItem.js":
+/*!******************************************!*\
+  !*** ./src/modules/CreateDOMListItem.js ***!
+  \******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+function createDOMListItem(itemText) {
+    const list = document.querySelector('.item-list');
+    const listItem = document.createElement('li');
+    listItem.appendChild(createItemLabel(itemText));
+    list.appendChild(listItem);
+}
+
+function createItemLabel(itemText) {
+    const label = document.createElement('label');
+    label.append(createCheckbox(), createSpan(), createItemText(itemText));
+    label.className = 'box-container';
+    return label;
+
+}
+
+function createCheckbox() {
+    const checkbox = document.createElement('input');
+    checkbox.setAttribute('type', 'checkbox');
+    return checkbox;
+}
+
+function createSpan() {
+    const span = document.createElement('span');
+    span.className = 'checkmark';
+    return span;
+}
+
+function createItemText(itemText) {
+    console.log('Testing')
+    const textNode = document.createTextNode(itemText);
+    return textNode;
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (createDOMListItem);
+
 
 /***/ }),
 
@@ -6245,4 +6296,4 @@ document.addEventListener('DOMContentLoaded', _modules_UserInterface__WEBPACK_IM
 
 /******/ })()
 ;
-//# sourceMappingURL=bundle33cd460299e4a975c213.js.map
+//# sourceMappingURL=bundleb53315d7e0acec1ed58f.js.map

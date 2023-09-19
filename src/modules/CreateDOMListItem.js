@@ -1,10 +1,15 @@
-function createDOMListItem() {
-    const list = document.querySelector('ul');
-    const listItem = document.createElement('li')
+function createDOMListItem(itemText) {
+    const list = document.querySelector('.item-list');
+    const listItem = document.createElement('li');
+    listItem.appendChild(createItemLabel(itemText));
+    list.appendChild(listItem);
 }
 
-function createItemLabel() {
+function createItemLabel(itemText) {
     const label = document.createElement('label');
+    label.append(createCheckbox(), createSpan(), createItemText(itemText));
+    label.className = 'box-container';
+    return label;
 
 }
 
@@ -21,15 +26,9 @@ function createSpan() {
 }
 
 function createItemText(itemText) {
+    console.log('Testing')
     const textNode = document.createTextNode(itemText);
     return textNode;
 }
 
-
-// <li>
-//     <label class="box-container">
-//         <input type="checkbox">
-//         <span class="checkmark"></span>
-//         My Item Goes Here
-//     </label>
-// </li>
+export default createDOMListItem;
