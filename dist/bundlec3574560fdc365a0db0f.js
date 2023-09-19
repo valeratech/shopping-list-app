@@ -6067,12 +6067,18 @@ __webpack_require__.r(__webpack_exports__);
 
 function addListItem(event) {
     const item = getItemValue(event);
-    if (event.key === 'Enter')
+    if (event.key === 'Enter') {
         (0,_CreateDOMListItem__WEBPACK_IMPORTED_MODULE_0__["default"])(item);
+        clearItemValue(event.target);
+    }
 }
 
 function getItemValue(event) {
     return event.target.value;
+}
+
+function clearItemValue(item) {
+    item.value = '';
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (addListItem);
@@ -6118,7 +6124,6 @@ function createSpan() {
 }
 
 function createItemText(itemText) {
-    console.log('Testing')
     const textNode = document.createTextNode(itemText);
     return textNode;
 }
@@ -6296,4 +6301,4 @@ document.addEventListener('DOMContentLoaded', _modules_UserInterface__WEBPACK_IM
 
 /******/ })()
 ;
-//# sourceMappingURL=bundleb53315d7e0acec1ed58f.js.map
+//# sourceMappingURL=bundlec3574560fdc365a0db0f.js.map

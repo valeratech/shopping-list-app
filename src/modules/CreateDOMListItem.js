@@ -26,7 +26,6 @@ function createSpan() {
 }
 
 function createItemText(itemText) {
-    console.log('Testing')
     const textNode = document.createTextNode(itemText);
     return textNode;
 }
