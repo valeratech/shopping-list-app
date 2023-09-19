@@ -65,7 +65,15 @@ header {
 }
 
 #add-item-form {
-  flex-basis: 30%;
+  flex-basis: 25%;
+}
+
+.active {
+  display: inline-block;
+}
+
+.inactive {
+  display: none;
 }
 
 .card h2 {
@@ -114,6 +122,12 @@ input:focus {
   font-size: 30px;
 }
 
+.fa-cart-shopping {
+  font-size: 40px;
+  padding-right: 20px;
+  color: #8b8b8b;
+}
+
 #filter {
   padding: 20px 10px;
 }
@@ -140,14 +154,6 @@ input:focus {
 .btn:active {
   transform: scale(100%);
   opacity: 100%;
-}
-
-.active {
-  display: inline-block;
-}
-
-.inactive {
-  display: none;
 }
 
 /*# sourceMappingURL=bundle.css.map*/
