@@ -1,8 +1,12 @@
+function addListItem(event) {
+    const item = getItemValue(event);
+    console.log(item);
+}
+
 function getItemValue(event) {
     if (event.key === 'Enter') {
-        event.preventDefault();
-        console.log(event.target.value);
+        return event.target.value;
     }
 }
 
-export {getItemValue};
+export default addListItem;

@@ -6060,16 +6060,20 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   getItemValue: () => (/* binding */ getItemValue)
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+function addListItem(event) {
+    const item = getItemValue(event);
+    console.log(item);
+}
+
 function getItemValue(event) {
     if (event.key === 'Enter') {
-        event.preventDefault();
-        console.log(event.target.value);
+        return event.target.value;
     }
 }
 
-
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (addListItem);
 
 /***/ }),
 
@@ -6135,7 +6139,7 @@ function init() {
     const addItemForm = document.getElementById('add-item-form');
 
     // Event listener for submitting the input value from the add-item textbox
-    formContainer.addEventListener('keyup', _AddItem__WEBPACK_IMPORTED_MODULE_1__.getItemValue);
+    formContainer.addEventListener('keyup', _AddItem__WEBPACK_IMPORTED_MODULE_1__["default"]);
 }
 
 
@@ -6241,4 +6245,4 @@ document.addEventListener('DOMContentLoaded', _modules_UserInterface__WEBPACK_IM
 
 /******/ })()
 ;
-//# sourceMappingURL=bundle3c82a446b10a701529bd.js.map
+//# sourceMappingURL=bundle33cd460299e4a975c213.js.map
