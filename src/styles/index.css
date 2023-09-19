@@ -60,16 +60,22 @@ header {
     flex-basis: 100%;
 }
 
-#add-item-form {
-    flex-basis: 25%;
-}
-
-.active {
+.add-item {
     display: inline-block;
 }
 
-.inactive {
+.add-item-form {
+    flex-basis: 25%;
     display: none;
+}
+
+.add-item.active {
+    display: none;
+}
+
+.add-item-form.active {
+    flex-basis: 25%;
+    display: inline-block;
 }
 
 
