@@ -62,6 +62,7 @@ header {
   display: flex;
   margin: 15px 30px;
   flex-basis: 100%;
+  align-items: center;
 }
 
 .add-item {
@@ -129,9 +130,19 @@ input:focus {
 }
 
 .fa-cart-shopping {
-  font-size: 40px;
+  position: relative;
+  font-size: 63px;
   padding-right: 20px;
   color: #8b8b8b;
+}
+
+#count-cart {
+  position: absolute;
+  top: 16px;
+  left: 46px;
+  font-size: 23px;
+  font-weight: bolder;
+  color: #00ffdc;
 }
 
 #filter {

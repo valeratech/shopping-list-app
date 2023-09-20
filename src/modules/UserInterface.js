@@ -1,5 +1,6 @@
 import toggleForm from "./ToggleForm";
 import addListItem from "./AddItem";
+import displayItemCount from "./DisplayItemCount";
 
 function userInterface() {
     init();
@@ -13,6 +14,7 @@ function init() {
 
     // Event listener for submitting the input value from the add-item textbox
     formContainer.addEventListener('keyup', addListItem);
+    displayItemCount();
 }
 
 

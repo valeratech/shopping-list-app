@@ -1,6 +1,7 @@
 function createDOMListItem(itemText) {
     const list = document.querySelector('.sl-list--container');
     const listItem = document.createElement('li');
+    listItem.className = 'shopping-list--item';
     listItem.appendChild(createItemLabel(itemText));
     list.appendChild(listItem);
 }

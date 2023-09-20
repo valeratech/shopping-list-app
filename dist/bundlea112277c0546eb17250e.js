@@ -6119,6 +6119,7 @@ __webpack_require__.r(__webpack_exports__);
 function createDOMListItem(itemText) {
     const list = document.querySelector('.sl-list--container');
     const listItem = document.createElement('li');
+    listItem.className = 'shopping-list--item';
     listItem.appendChild(createItemLabel(itemText));
     list.appendChild(listItem);
 }
@@ -6165,13 +6166,34 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 function displayItemCount() {
-    countListItems();
+    const cart = document.getElementById('count-cart');
+    const itemCount = countListItems();
+    if (itemCount === 0) {
+        // do nothing
+    } else if (itemCount < 10) {
+        if (itemCount === 1) {
+            cart.appendChild(document.createTextNode('\u00A0\u00A0\u00A0\u00A0' + itemCount));
+        } else {
+            cart.removeChild(cart.firstChild);
+            cart.appendChild(document.createTextNode('\u00A0\u00A0\u00A0' + itemCount));
+        }
+    } else if (itemCount < 100) {
+        if (itemCount === 11) {
+            cart.removeChild(cart.firstChild);
+            cart.appendChild(document.createTextNode('\u00A0\u00A0\u00A0' + itemCount));
+        } else {
+            cart.removeChild(cart.firstChild);
+            cart.appendChild(document.createTextNode('\u00A0\u00A0' + itemCount));
+        }
+    } else {
+        cart.removeChild(cart.firstChild);
+        cart.appendChild(document.createTextNode(itemCount));
+    }
 }
 
 function countListItems() {
     const itemList = document.querySelectorAll('.shopping-list--item');
-    console.log(Array.from(itemList));
-
+    return Array.from(itemList).length;
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (displayItemCount);
@@ -6225,6 +6247,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _ToggleForm__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ToggleForm */ "./src/modules/ToggleForm.js");
 /* harmony import */ var _AddItem__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AddItem */ "./src/modules/AddItem.js");
+/* harmony import */ var _DisplayItemCount__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./DisplayItemCount */ "./src/modules/DisplayItemCount.js");
+
 
 
 
@@ -6240,6 +6264,7 @@ function init() {
 
     // Event listener for submitting the input value from the add-item textbox
     formContainer.addEventListener('keyup', _AddItem__WEBPACK_IMPORTED_MODULE_1__["default"]);
+    (0,_DisplayItemCount__WEBPACK_IMPORTED_MODULE_2__["default"])();
 }
 
 
@@ -6345,4 +6370,4 @@ document.addEventListener('DOMContentLoaded', _modules_UserInterface__WEBPACK_IM
 
 /******/ })()
 ;
-//# sourceMappingURL=bundle3a70263628f11a1182be.js.map
+//# sourceMappingURL=bundlea112277c0546eb17250e.js.map
