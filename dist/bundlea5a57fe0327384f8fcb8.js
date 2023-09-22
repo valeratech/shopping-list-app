@@ -6259,11 +6259,16 @@ function userInterface() {
 function init() {
     // The event listener will listen for clicks on the nested button elements 'add-item' and 'cancel-form'
     const formContainer = document.querySelector('.form-container');
-    formContainer.addEventListener('click', _ToggleForm__WEBPACK_IMPORTED_MODULE_0__["default"]);
-    const addItemForm = document.getElementById('add-item-form');
+    // formContainer.addEventListener('click', toggleForm);
+    ['click', 'keyup'].forEach(event => formContainer.addEventListener(event, _ToggleForm__WEBPACK_IMPORTED_MODULE_0__["default"]));
+
+    // EDIT LATER
+    // const addItemForm = document.getElementById('add-item-form');
 
     // Event listener for submitting the input value from the add-item textbox
     formContainer.addEventListener('keyup', _AddItem__WEBPACK_IMPORTED_MODULE_1__["default"]);
+
+    // Counts the amount of items in the DOM shopping-list and append to the shopping-cart
     (0,_DisplayItemCount__WEBPACK_IMPORTED_MODULE_2__["default"])();
 }
 
@@ -6370,4 +6375,4 @@ document.addEventListener('DOMContentLoaded', _modules_UserInterface__WEBPACK_IM
 
 /******/ })()
 ;
-//# sourceMappingURL=bundlea112277c0546eb17250e.js.map
+//# sourceMappingURL=bundlea5a57fe0327384f8fcb8.js.map
