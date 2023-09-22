@@ -2,6 +2,7 @@ import toggleForm from "./ToggleForm";
 import addListItem from "./AddItem";
 import displayItemCount from "./DisplayItemCount";
 import toggleItemList from "./ToggleItemList";
+import filterItems from "./FilterItems";
 
 function userInterface() {
     init();
@@ -22,6 +23,10 @@ function init() {
     // Event listener for checking if a checkbox is checked or unchecked
     const listContainers = document.querySelector('.container');
     listContainers.addEventListener('change', toggleItemList);
+
+    // Event listener for filtering items on 'keydown' strokes using a text-input box
+    const filter = document.querySelector('.filter-input');
+    filter.addEventListener('keydown', filterItems);
 
     // Counts the amount of items in the DOM shopping-list and append to the shopping-cart
     displayItemCount();

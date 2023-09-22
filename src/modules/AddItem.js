@@ -5,6 +5,7 @@ import displayItemCount from "./DisplayItemCount";
 function addListItem(event) {
     const item = getItemValue(event);
     if (event.key === 'Enter' && item !== '') {
+        console.log('Here')
         createDOMListItem(item);
         clearFormValue(event.target);
         displayItemCount();
