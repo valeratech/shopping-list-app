@@ -6220,6 +6220,7 @@ function toggleForm(event) {
         toggleActiveClass(event.target);
         toggleActiveClass(event.target.nextElementSibling);
     } else if (event.target.id === 'cancel-form') {
+        // Export this into a function
         toggleActiveClass(event.target.parentElement.parentElement);
         toggleActiveClass(event.target.parentElement.parentElement.previousElementSibling);
         (0,_ClearFormValue__WEBPACK_IMPORTED_MODULE_0__["default"])(event.target.previousElementSibling);
@@ -6375,4 +6376,4 @@ document.addEventListener('DOMContentLoaded', _modules_UserInterface__WEBPACK_IM
 
 /******/ })()
 ;
-//# sourceMappingURL=bundlea5a57fe0327384f8fcb8.js.map
+//# sourceMappingURL=bundle9071aa7fa846d5722897.js.map

@@ -6,6 +6,7 @@ function toggleForm(event) {
         toggleActiveClass(event.target);
         toggleActiveClass(event.target.nextElementSibling);
     } else if (event.target.id === 'cancel-form') {
+        // Export this into a function
         toggleActiveClass(event.target.parentElement.parentElement);
         toggleActiveClass(event.target.parentElement.parentElement.previousElementSibling);
         clearFormValue(event.target.previousElementSibling);
