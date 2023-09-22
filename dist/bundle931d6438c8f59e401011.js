@@ -6235,6 +6235,25 @@ function toggleActiveClass(element) {
 
 /***/ }),
 
+/***/ "./src/modules/ToggleItemList.js":
+/*!***************************************!*\
+  !*** ./src/modules/ToggleItemList.js ***!
+  \***************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+function toggleItemList(event) {
+    console.log(event.target.checked);
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (toggleItemList);
+
+/***/ }),
+
 /***/ "./src/modules/UserInterface.js":
 /*!**************************************!*\
   !*** ./src/modules/UserInterface.js ***!
@@ -6249,6 +6268,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ToggleForm__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ToggleForm */ "./src/modules/ToggleForm.js");
 /* harmony import */ var _AddItem__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AddItem */ "./src/modules/AddItem.js");
 /* harmony import */ var _DisplayItemCount__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./DisplayItemCount */ "./src/modules/DisplayItemCount.js");
+/* harmony import */ var _ToggleItemList__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ToggleItemList */ "./src/modules/ToggleItemList.js");
+
 
 
 
@@ -6268,6 +6289,10 @@ function init() {
 
     // Event listener for submitting the input value from the add-item textbox
     formContainer.addEventListener('keyup', _AddItem__WEBPACK_IMPORTED_MODULE_1__["default"]);
+
+    // Event listener for checking if a checkbox is checked or unchecked
+    const listContainers = document.querySelector('.container');
+    listContainers.addEventListener('change', _ToggleItemList__WEBPACK_IMPORTED_MODULE_3__["default"]);
 
     // Counts the amount of items in the DOM shopping-list and append to the shopping-cart
     (0,_DisplayItemCount__WEBPACK_IMPORTED_MODULE_2__["default"])();
@@ -6376,4 +6401,4 @@ document.addEventListener('DOMContentLoaded', _modules_UserInterface__WEBPACK_IM
 
 /******/ })()
 ;
-//# sourceMappingURL=bundle9071aa7fa846d5722897.js.map
+//# sourceMappingURL=bundle931d6438c8f59e401011.js.map
