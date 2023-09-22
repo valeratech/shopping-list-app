@@ -6247,7 +6247,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 function toggleItemList(event) {
-    console.log(event.target.checked);
+    const shoppingContainer = document.querySelector('.sl-list--container');
+    const completedContainer = document.querySelector('.cl-list--container');
+
+   if (event.target.checked) {
+       completedContainer.insertBefore(event.target.parentElement.parentElement, completedContainer.firstChild);
+   } else {
+       shoppingContainer.appendChild(event.target.parentElement.parentElement);
+   }
+
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (toggleItemList);
@@ -6401,4 +6409,4 @@ document.addEventListener('DOMContentLoaded', _modules_UserInterface__WEBPACK_IM
 
 /******/ })()
 ;
-//# sourceMappingURL=bundle931d6438c8f59e401011.js.map
+//# sourceMappingURL=bundle3a37b7072f054c136631.js.map
