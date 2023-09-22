@@ -1,3 +1,5 @@
+import displayItemCount from "./DisplayItemCount";
+
 function toggleItemList(event) {
     const shoppingContainer = document.querySelector('.sl-list--container');
     const completedContainer = document.querySelector('.cl-list--container');
@@ -8,9 +10,10 @@ function toggleItemList(event) {
        toggleClassName(listItem, 'completed-list--item', 'shopping-list--item');
        completedContainer.insertBefore(listItem, completedContainer.firstChild);
    } else {
-       toggleClassName(listItem, 'shopping-list--item', 'completed-list--item');
+       toggleClassName(listItem, 'shopping-list--item',  );
        shoppingContainer.appendChild(listItem);
    }
+    displayItemCount();
 }
 
 function toggleClassName(item, add, remove) {

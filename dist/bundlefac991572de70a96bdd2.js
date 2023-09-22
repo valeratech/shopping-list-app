@@ -6169,7 +6169,7 @@ function displayItemCount() {
     const cart = document.getElementById('count-cart');
     const itemCount = countListItems();
     if (itemCount === 0) {
-        // do nothing
+        cart.removeChild(cart.firstChild);
     } else if (itemCount < 10) {
         if (itemCount === 1) {
             cart.appendChild(document.createTextNode('\u00A0\u00A0\u00A0\u00A0' + itemCount));
@@ -6246,6 +6246,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var _DisplayItemCount__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./DisplayItemCount */ "./src/modules/DisplayItemCount.js");
+
+
 function toggleItemList(event) {
     const shoppingContainer = document.querySelector('.sl-list--container');
     const completedContainer = document.querySelector('.cl-list--container');
@@ -6256,9 +6259,10 @@ function toggleItemList(event) {
        toggleClassName(listItem, 'completed-list--item', 'shopping-list--item');
        completedContainer.insertBefore(listItem, completedContainer.firstChild);
    } else {
-       toggleClassName(listItem, 'shopping-list--item', 'completed-list--item');
+       toggleClassName(listItem, 'shopping-list--item',  );
        shoppingContainer.appendChild(listItem);
    }
+    (0,_DisplayItemCount__WEBPACK_IMPORTED_MODULE_0__["default"])();
 }
 
 function toggleClassName(item, add, remove) {
@@ -6419,4 +6423,4 @@ document.addEventListener('DOMContentLoaded', _modules_UserInterface__WEBPACK_IM
 
 /******/ })()
 ;
-//# sourceMappingURL=bundle6fcbacd9bcd2c00f0e26.js.map
+//# sourceMappingURL=bundlefac991572de70a96bdd2.js.map

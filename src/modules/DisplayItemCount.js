@@ -2,7 +2,7 @@ function displayItemCount() {
     const cart = document.getElementById('count-cart');
     const itemCount = countListItems();
     if (itemCount === 0) {
-        // do nothing
+        cart.removeChild(cart.firstChild);
     } else if (itemCount < 10) {
         if (itemCount === 1) {
             cart.appendChild(document.createTextNode('\u00A0\u00A0\u00A0\u00A0' + itemCount));
