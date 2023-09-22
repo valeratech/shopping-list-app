@@ -2,12 +2,22 @@ function toggleItemList(event) {
     const shoppingContainer = document.querySelector('.sl-list--container');
     const completedContainer = document.querySelector('.cl-list--container');
 
-   if (event.target.checked) {
-       completedContainer.insertBefore(event.target.parentElement.parentElement, completedContainer.firstChild);
-   } else {
-       shoppingContainer.appendChild(event.target.parentElement.parentElement);
-   }
+    const listItem = event.target.parentElement.parentElement
 
+   if (event.target.checked) {
+       toggleClassName(listItem, 'completed-list--item', 'shopping-list--item');
+       completedContainer.insertBefore(listItem, completedContainer.firstChild);
+   } else {
+       toggleClassName(listItem, 'shopping-list--item', 'completed-list--item');
+       shoppingContainer.appendChild(listItem);
+   }
 }
+
+function toggleClassName(item, add, remove) {
+    item.classList.remove(remove);
+    item.classList.add(add);
+}
+
+
 
 export default toggleItemList;

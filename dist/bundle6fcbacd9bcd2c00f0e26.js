@@ -6250,13 +6250,23 @@ function toggleItemList(event) {
     const shoppingContainer = document.querySelector('.sl-list--container');
     const completedContainer = document.querySelector('.cl-list--container');
 
-   if (event.target.checked) {
-       completedContainer.insertBefore(event.target.parentElement.parentElement, completedContainer.firstChild);
-   } else {
-       shoppingContainer.appendChild(event.target.parentElement.parentElement);
-   }
+    const listItem = event.target.parentElement.parentElement
 
+   if (event.target.checked) {
+       toggleClassName(listItem, 'completed-list--item', 'shopping-list--item');
+       completedContainer.insertBefore(listItem, completedContainer.firstChild);
+   } else {
+       toggleClassName(listItem, 'shopping-list--item', 'completed-list--item');
+       shoppingContainer.appendChild(listItem);
+   }
 }
+
+function toggleClassName(item, add, remove) {
+    item.classList.remove(remove);
+    item.classList.add(add);
+}
+
+
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (toggleItemList);
 
@@ -6409,4 +6419,4 @@ document.addEventListener('DOMContentLoaded', _modules_UserInterface__WEBPACK_IM
 
 /******/ })()
 ;
-//# sourceMappingURL=bundle3a37b7072f054c136631.js.map
+//# sourceMappingURL=bundle6fcbacd9bcd2c00f0e26.js.map
