@@ -10,7 +10,7 @@ function toggleItemList(event) {
        toggleClassName(listItem, 'completed-list--item', 'shopping-list--item');
        completedContainer.insertBefore(listItem, completedContainer.firstChild);
    } else {
-       toggleClassName(listItem, 'shopping-list--item',  );
+       toggleClassName(listItem, 'shopping-list--item', 'completed-list--item');
        shoppingContainer.appendChild(listItem);
    }
     displayItemCount();

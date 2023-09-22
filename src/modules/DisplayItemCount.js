@@ -1,25 +1,25 @@
 function displayItemCount() {
     const cart = document.getElementById('count-cart');
+
     const itemCount = countListItems();
+
+    cart.textContent = '';
+
     if (itemCount === 0) {
-        cart.removeChild(cart.firstChild);
+        // do nothing
     } else if (itemCount < 10) {
         if (itemCount === 1) {
             cart.appendChild(document.createTextNode('\u00A0\u00A0\u00A0\u00A0' + itemCount));
         } else {
-            cart.removeChild(cart.firstChild);
             cart.appendChild(document.createTextNode('\u00A0\u00A0\u00A0' + itemCount));
         }
     } else if (itemCount < 100) {
         if (itemCount === 11) {
-            cart.removeChild(cart.firstChild);
             cart.appendChild(document.createTextNode('\u00A0\u00A0\u00A0' + itemCount));
         } else {
-            cart.removeChild(cart.firstChild);
             cart.appendChild(document.createTextNode('\u00A0\u00A0' + itemCount));
         }
     } else {
-        cart.removeChild(cart.firstChild);
         cart.appendChild(document.createTextNode(itemCount));
     }
 }
