@@ -11,8 +11,8 @@ function userInterface() {
 function init() {
     // The event listener will listen for clicks on the nested button elements 'add-item' and 'cancel-form'
     const formContainer = document.querySelector('.form-container');
-    // formContainer.addEventListener('click', toggleForm);
-    ['click', 'keyup'].forEach(event => formContainer.addEventListener(event, toggleForm));
+    formContainer.addEventListener('click', toggleForm);
+    // ['click', 'keyup'].forEach(event => formContainer.addEventListener(event, toggleForm));
 
     // EDIT LATER
     // const addItemForm = document.getElementById('add-item-form');
@@ -25,8 +25,8 @@ function init() {
     listContainers.addEventListener('change', toggleItemList);
 
     // Event listener for filtering items on 'keydown' strokes using a text-input box
-    const filter = document.querySelector('.filter-input');
-    filter.addEventListener('keydown', filterItems);
+    const filter = document.getElementById('filter');
+    filter.addEventListener('input', filterItems);
 
     // Counts the amount of items in the DOM shopping-list and append to the shopping-cart
     displayItemCount();

@@ -6214,7 +6214,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 function filterItems(event) {
     event.preventDefault();
-    console.log(event.target.value)
+    // console.log(event.target.value)
+    //
+    // const items = document.querySelectorAll('li');
+    // console.log(filterValue)
+    // items.forEach(item => {
+    //     console.log()
+    //     console.log(item.firstElementChild.lastChild);
+    // })
+
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (filterItems);
@@ -6326,8 +6334,8 @@ function userInterface() {
 function init() {
     // The event listener will listen for clicks on the nested button elements 'add-item' and 'cancel-form'
     const formContainer = document.querySelector('.form-container');
-    // formContainer.addEventListener('click', toggleForm);
-    ['click', 'keyup'].forEach(event => formContainer.addEventListener(event, _ToggleForm__WEBPACK_IMPORTED_MODULE_0__["default"]));
+    formContainer.addEventListener('click', _ToggleForm__WEBPACK_IMPORTED_MODULE_0__["default"]);
+    // ['click', 'keyup'].forEach(event => formContainer.addEventListener(event, toggleForm));
 
     // EDIT LATER
     // const addItemForm = document.getElementById('add-item-form');
@@ -6340,8 +6348,8 @@ function init() {
     listContainers.addEventListener('change', _ToggleItemList__WEBPACK_IMPORTED_MODULE_3__["default"]);
 
     // Event listener for filtering items on 'keydown' strokes using a text-input box
-    const filter = document.querySelector('.filter-input');
-    filter.addEventListener('keydown', _FilterItems__WEBPACK_IMPORTED_MODULE_4__["default"]);
+    const filter = document.getElementById('filter');
+    filter.addEventListener('input', _FilterItems__WEBPACK_IMPORTED_MODULE_4__["default"]);
 
     // Counts the amount of items in the DOM shopping-list and append to the shopping-cart
     (0,_DisplayItemCount__WEBPACK_IMPORTED_MODULE_2__["default"])();
@@ -6450,4 +6458,4 @@ document.addEventListener('DOMContentLoaded', _modules_UserInterface__WEBPACK_IM
 
 /******/ })()
 ;
-//# sourceMappingURL=bundle7f5968784d72057eaca6.js.map
+//# sourceMappingURL=bundle60ab274265cc1b2fb8a6.js.map
