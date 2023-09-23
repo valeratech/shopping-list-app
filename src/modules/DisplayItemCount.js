@@ -1,15 +1,16 @@
 function displayItemCount() {
-    const cart = document.getElementById('count-cart');
+    const cart = document.querySelector('.count-cart');
 
     const itemCount = countListItems();
 
     cart.textContent = '';
 
     if (itemCount === 0) {
-        // do nothing
+        cart.classList.add('hide-count')
     } else if (itemCount < 10) {
         if (itemCount === 1) {
             cart.appendChild(document.createTextNode(itemCount));
+            cart.classList.remove('hide-count')
         } else {
             cart.appendChild(document.createTextNode(itemCount));
         }

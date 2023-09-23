@@ -6167,17 +6167,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 function displayItemCount() {
-    const cart = document.getElementById('count-cart');
+    const cart = document.querySelector('.count-cart');
 
     const itemCount = countListItems();
 
     cart.textContent = '';
 
     if (itemCount === 0) {
-        // do nothing
+        cart.classList.add('hide-count')
     } else if (itemCount < 10) {
         if (itemCount === 1) {
             cart.appendChild(document.createTextNode(itemCount));
+            cart.classList.remove('hide-count')
         } else {
             cart.appendChild(document.createTextNode(itemCount));
         }
@@ -6461,4 +6462,4 @@ document.addEventListener('DOMContentLoaded', _modules_UserInterface__WEBPACK_IM
 
 /******/ })()
 ;
-//# sourceMappingURL=bundleacdd2c8a17e8f92e6b21.js.map
+//# sourceMappingURL=bundle35b022eb6ea42a5d3214.js.map

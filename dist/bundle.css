@@ -136,7 +136,7 @@ input:focus {
   color: #8b8b8b;
 }
 
-#count-cart {
+.count-cart {
   height: 35px;
   width: 35px;
   position: absolute;
@@ -151,6 +151,10 @@ input:focus {
   border-radius: 50%;
   justify-content: center;
   align-items: center;
+}
+
+.hide-count {
+  display: none;
 }
 
 #filter {
