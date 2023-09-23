@@ -6177,15 +6177,15 @@ function displayItemCount() {
         // do nothing
     } else if (itemCount < 10) {
         if (itemCount === 1) {
-            cart.appendChild(document.createTextNode('\u00A0\u00A0\u00A0\u00A0' + itemCount));
+            cart.appendChild(document.createTextNode(itemCount));
         } else {
-            cart.appendChild(document.createTextNode('\u00A0\u00A0\u00A0' + itemCount));
+            cart.appendChild(document.createTextNode(itemCount));
         }
     } else if (itemCount < 100) {
         if (itemCount === 11) {
-            cart.appendChild(document.createTextNode('\u00A0\u00A0\u00A0' + itemCount));
+            cart.appendChild(document.createTextNode(itemCount));
         } else {
-            cart.appendChild(document.createTextNode('\u00A0\u00A0' + itemCount));
+            cart.appendChild(document.createTextNode(itemCount));
         }
     } else {
         cart.appendChild(document.createTextNode(itemCount));
@@ -6461,4 +6461,4 @@ document.addEventListener('DOMContentLoaded', _modules_UserInterface__WEBPACK_IM
 
 /******/ })()
 ;
-//# sourceMappingURL=bundle974ace0798add06f2f8f.js.map
+//# sourceMappingURL=bundleacdd2c8a17e8f92e6b21.js.map

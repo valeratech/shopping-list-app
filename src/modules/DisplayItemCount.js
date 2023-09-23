@@ -9,15 +9,15 @@ function displayItemCount() {
         // do nothing
     } else if (itemCount < 10) {
         if (itemCount === 1) {
-            cart.appendChild(document.createTextNode('\u00A0\u00A0\u00A0\u00A0' + itemCount));
+            cart.appendChild(document.createTextNode(itemCount));
         } else {
-            cart.appendChild(document.createTextNode('\u00A0\u00A0\u00A0' + itemCount));
+            cart.appendChild(document.createTextNode(itemCount));
         }
     } else if (itemCount < 100) {
         if (itemCount === 11) {
-            cart.appendChild(document.createTextNode('\u00A0\u00A0\u00A0' + itemCount));
+            cart.appendChild(document.createTextNode(itemCount));
         } else {
-            cart.appendChild(document.createTextNode('\u00A0\u00A0' + itemCount));
+            cart.appendChild(document.createTextNode(itemCount));
         }
     } else {
         cart.appendChild(document.createTextNode(itemCount));

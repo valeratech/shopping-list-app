@@ -131,18 +131,26 @@ input:focus {
 
 .fa-cart-shopping {
   position: relative;
-  font-size: 63px;
+  font-size: 50px;
   padding-right: 20px;
   color: #8b8b8b;
 }
 
 #count-cart {
+  height: 35px;
+  width: 35px;
   position: absolute;
-  top: 16px;
-  left: 46px;
-  font-size: 23px;
+  display: flex;
+  top: 5px;
+  left: 20px;
+  font-size: 18px;
   font-weight: bolder;
-  color: #00ffdc;
+  color: #ffffff;
+  border: 1px solid #ffffff;
+  background-color: #13e7c6;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
 }
 
 #filter {
