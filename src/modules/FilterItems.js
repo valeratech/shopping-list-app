@@ -7,12 +7,11 @@ function filterItems(event) {
     items.forEach(item => {
         if ((item.firstElementChild.lastChild.textContent.trim().toLowerCase())
             .indexOf(textInput) !== -1) {
-            item.style.display = 'block'
+            item.classList.remove('filtered');
         } else {
-            item.style.display = 'none'
+            item.classList.add('filtered');
         }
     })
-
 }
 
 export default filterItems;

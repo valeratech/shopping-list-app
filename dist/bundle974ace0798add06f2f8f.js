@@ -6221,12 +6221,11 @@ function filterItems(event) {
     items.forEach(item => {
         if ((item.firstElementChild.lastChild.textContent.trim().toLowerCase())
             .indexOf(textInput) !== -1) {
-            item.style.display = 'block'
+            item.classList.remove('filtered');
         } else {
-            item.style.display = 'none'
+            item.classList.add('filtered');
         }
     })
-
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (filterItems);
@@ -6462,4 +6461,4 @@ document.addEventListener('DOMContentLoaded', _modules_UserInterface__WEBPACK_IM
 
 /******/ })()
 ;
-//# sourceMappingURL=bundle70420d77423a2d1a379c.js.map
+//# sourceMappingURL=bundle974ace0798add06f2f8f.js.map
