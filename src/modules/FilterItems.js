@@ -1,13 +1,17 @@
 function filterItems(event) {
     event.preventDefault();
-    // console.log(event.target.value)
-    //
-    // const items = document.querySelectorAll('li');
-    // console.log(filterValue)
-    // items.forEach(item => {
-    //     console.log()
-    //     console.log(item.firstElementChild.lastChild);
-    // })
+
+    const items = document.querySelectorAll('li');
+    const textInput = event.target.value.toLowerCase();
+    console.log(textInput);
+    items.forEach(item => {
+        if ((item.firstElementChild.lastChild.textContent.trim().toLowerCase())
+            .indexOf(textInput) !== -1) {
+            item.style.display = 'block'
+        } else {
+            item.style.display = 'none'
+        }
+    })
 
 }
 

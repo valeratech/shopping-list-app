@@ -21,7 +21,7 @@ function init() {
     formContainer.addEventListener('keyup', addListItem);
 
     // Event listener for checking if a checkbox is checked or unchecked
-    const listContainers = document.querySelector('.container');
+    const listContainers = document.querySelector('.lists-container');
     listContainers.addEventListener('change', toggleItemList);
 
     // Event listener for filtering items on 'keydown' strokes using a text-input box

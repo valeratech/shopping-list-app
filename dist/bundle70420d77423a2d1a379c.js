@@ -6214,14 +6214,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 function filterItems(event) {
     event.preventDefault();
-    // console.log(event.target.value)
-    //
-    // const items = document.querySelectorAll('li');
-    // console.log(filterValue)
-    // items.forEach(item => {
-    //     console.log()
-    //     console.log(item.firstElementChild.lastChild);
-    // })
+
+    const items = document.querySelectorAll('li');
+    const textInput = event.target.value.toLowerCase();
+    console.log(textInput);
+    items.forEach(item => {
+        if ((item.firstElementChild.lastChild.textContent.trim().toLowerCase())
+            .indexOf(textInput) !== -1) {
+            item.style.display = 'block'
+        } else {
+            item.style.display = 'none'
+        }
+    })
 
 }
 
@@ -6344,7 +6348,7 @@ function init() {
     formContainer.addEventListener('keyup', _AddItem__WEBPACK_IMPORTED_MODULE_1__["default"]);
 
     // Event listener for checking if a checkbox is checked or unchecked
-    const listContainers = document.querySelector('.container');
+    const listContainers = document.querySelector('.lists-container');
     listContainers.addEventListener('change', _ToggleItemList__WEBPACK_IMPORTED_MODULE_3__["default"]);
 
     // Event listener for filtering items on 'keydown' strokes using a text-input box
@@ -6458,4 +6462,4 @@ document.addEventListener('DOMContentLoaded', _modules_UserInterface__WEBPACK_IM
 
 /******/ })()
 ;
-//# sourceMappingURL=bundle60ab274265cc1b2fb8a6.js.map
+//# sourceMappingURL=bundle70420d77423a2d1a379c.js.map
