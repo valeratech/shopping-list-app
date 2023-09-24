@@ -127,7 +127,7 @@ input:focus {
 }
 
 .fa-fa-xmark--button {
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
     position: absolute;
@@ -157,6 +157,10 @@ input:focus {
     font-size: 50px;
     padding-right: 20px;
     color: #8b8b8b;
+}
+
+.show-x {
+    display: flex;
 }
 
 .count-cart {

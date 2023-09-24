@@ -6218,15 +6218,27 @@ function filterItems(event) {
 
     const items = document.querySelectorAll('li');
     const textInput = event.target.value.toLowerCase();
-    console.log(textInput);
     items.forEach(item => {
-        if ((item.firstElementChild.lastChild.textContent.trim().toLowerCase())
+        if ((item.firstElementChild.lastChild.textContent
+            .trim()
+            .toLowerCase())
             .indexOf(textInput) !== -1) {
             item.classList.remove('filtered');
+            toggleClearFilterBtn(textInput);
         } else {
             item.classList.add('filtered');
+            toggleClearFilterBtn(textInput);
         }
     })
+}
+
+function toggleClearFilterBtn(text) {
+    const clearBtn = document.querySelector('.fa-fa-xmark--button')
+    if (text.length !== 0) {
+        clearBtn.classList.add('show-x');
+    } else {
+        clearBtn.classList.remove('show-x');
+    }
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (filterItems);
@@ -6462,4 +6474,4 @@ document.addEventListener('DOMContentLoaded', _modules_UserInterface__WEBPACK_IM
 
 /******/ })()
 ;
-//# sourceMappingURL=bundle35b022eb6ea42a5d3214.js.map
+//# sourceMappingURL=bundle1cd2a379bfda48673603.js.map
