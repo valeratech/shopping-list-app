@@ -121,9 +121,35 @@ input:focus {
 
 .fa-magnifying-glass {
     position: absolute;
-    right: 70px;
+    left: 70px;
     bottom: 57px;
     font-size: 30px;
+}
+
+.fa-fa-xmark--button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: 70px;
+    bottom: 57px;
+    font-size: 18px;
+    background-color: transparent;
+    border: none;
+    font-weight: bolder;
+    height: 18px;
+    width: 18px;
+    padding: 12px
+}
+
+.fa-fa-xmark--button:hover {
+    border-radius: 25px;
+    background-color: red;
+    color: #ffffff;
+}
+
+.fa-fa-xmark--button:active {
+    opacity: 0.6;
 }
 
 .fa-cart-shopping {
@@ -155,7 +181,7 @@ input:focus {
 }
 
 #filter {
-    padding: 20px 10px;
+    padding: 20px 10px 20px 60px;
 }
 
 .filter-container {
