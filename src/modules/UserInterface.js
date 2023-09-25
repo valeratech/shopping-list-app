@@ -2,7 +2,7 @@ import toggleForm from "./ToggleForm";
 import addListItem from "./AddItem";
 import displayItemCount from "./DisplayItemCount";
 import toggleItemList from "./ToggleItemList";
-import filterItems from "./FilterItems";
+import {filterItems, clearFilter} from "./FilterItems";
 
 function userInterface() {
     init();
@@ -27,6 +27,10 @@ function init() {
     // Event listener for filtering items on 'keydown' strokes using a text-input box
     const filter = document.getElementById('filter');
     filter.addEventListener('input', filterItems);
+
+    // Event listener for clearing the filter input-text box on click
+    const clearFilterBtn = document.querySelector('.clear-filter');
+    clearFilterBtn.addEventListener('click', clearFilter);
 
     // Counts the amount of items in the DOM shopping-list and append to the shopping-cart
     displayItemCount();

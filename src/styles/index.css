@@ -126,7 +126,7 @@ input:focus {
     font-size: 30px;
 }
 
-.fa-fa-xmark--button {
+.clear-filter {
     display: none;
     justify-content: center;
     align-items: center;
@@ -139,16 +139,16 @@ input:focus {
     font-weight: bolder;
     height: 18px;
     width: 18px;
-    padding: 12px
+    padding: 15px
 }
 
-.fa-fa-xmark--button:hover {
+.clear-filter:hover {
     border-radius: 25px;
     background-color: red;
     color: #ffffff;
 }
 
-.fa-fa-xmark--button:active {
+.clear-filter:active {
     opacity: 0.6;
 }
 

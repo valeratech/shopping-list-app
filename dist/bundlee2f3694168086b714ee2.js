@@ -6211,13 +6211,14 @@ function countListItems() {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */   clearFilter: () => (/* binding */ clearFilter),
+/* harmony export */   filterItems: () => (/* binding */ filterItems)
 /* harmony export */ });
 function filterItems(event) {
-    event.preventDefault();
 
     const items = document.querySelectorAll('li');
     const textInput = event.target.value.toLowerCase();
+    console.log(textInput)
     items.forEach(item => {
         if ((item.firstElementChild.lastChild.textContent
             .trim()
@@ -6233,7 +6234,7 @@ function filterItems(event) {
 }
 
 function toggleClearFilterBtn(text) {
-    const clearBtn = document.querySelector('.fa-fa-xmark--button')
+    const clearBtn = document.querySelector('.clear-filter')
     if (text.length !== 0) {
         clearBtn.classList.add('show-x');
     } else {
@@ -6241,7 +6242,23 @@ function toggleClearFilterBtn(text) {
     }
 }
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (filterItems);
+function clearFilter(event) {
+    console.log(event.target.parentElement.firstElementChild)
+    if (event.target.parentElement.firstElementChild.classList.contains('filter-input')) {
+        event.target.parentElement.firstElementChild.value = '';
+        toggleClearFilterBtn(event.target.parentElement.firstElementChild.value);
+    } else if (event.target.parentElement.parentElement.firstElementChild.classList.contains('filter-input')) {
+        event.target.parentElement.parentElement.firstElementChild.value = '';
+        toggleClearFilterBtn(event.target.parentElement.parentElement.firstElementChild.value);
+    } else if (event.target.parentElement.parentElement.parentElement.firstElementChild.classList.contains('filter-input')) {
+        event.target.parentElement.parentElement.parentElement.firstElementChild.value = '';
+        toggleClearFilterBtn(event.target.parentElement.parentElement.parentElement.firstElementChild.value);
+
+    }
+}
+
+
+
 
 /***/ }),
 
@@ -6365,7 +6382,11 @@ function init() {
 
     // Event listener for filtering items on 'keydown' strokes using a text-input box
     const filter = document.getElementById('filter');
-    filter.addEventListener('input', _FilterItems__WEBPACK_IMPORTED_MODULE_4__["default"]);
+    filter.addEventListener('input', _FilterItems__WEBPACK_IMPORTED_MODULE_4__.filterItems);
+
+    // Event listener for clearing the filter input-text box on click
+    const clearFilterBtn = document.querySelector('.clear-filter');
+    clearFilterBtn.addEventListener('click', _FilterItems__WEBPACK_IMPORTED_MODULE_4__.clearFilter);
 
     // Counts the amount of items in the DOM shopping-list and append to the shopping-cart
     (0,_DisplayItemCount__WEBPACK_IMPORTED_MODULE_2__["default"])();
@@ -6474,4 +6495,4 @@ document.addEventListener('DOMContentLoaded', _modules_UserInterface__WEBPACK_IM
 
 /******/ })()
 ;
-//# sourceMappingURL=bundle1cd2a379bfda48673603.js.map
+//# sourceMappingURL=bundlee2f3694168086b714ee2.js.map
