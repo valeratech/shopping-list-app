@@ -98,7 +98,7 @@ h3 {
     border-radius: 15px;
 }
 
-li {
+.list-item {
     padding: 10px;
     font-size: 19px;
     border-bottom: 1px #cccccc solid;

@@ -5,12 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="155b8fc2-f810-41cc-93d6-ac777cec3577" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/bundle.css" beforeDir="false" afterPath="$PROJECT_DIR$/dist/bundle.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/bundle.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/dist/bundle.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/bundle4620d084c6c4f1ef139d.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/bundle4620d084c6c4f1ef139d.js.map" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/dist/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/CreateDOMListItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/CreateDOMListItem.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/styles/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/template.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/template.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,7 +58,7 @@
       <workItem from="1695226936147" duration="1335000" />
       <workItem from="1695252769709" duration="2024000" />
       <workItem from="1695345990549" duration="1410000" />
-      <workItem from="1695654471966" duration="6176000" />
+      <workItem from="1695654471966" duration="6481000" />
     </task>
     <servers />
   </component>

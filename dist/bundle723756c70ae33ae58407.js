@@ -6120,6 +6120,7 @@ __webpack_require__.r(__webpack_exports__);
 function createDOMListItem(itemText) {
     const list = document.querySelector('.sl-list--container');
     const listItem = document.createElement('li');
+    listItem.classList.add('list-item');
     listItem.className = 'shopping-list--item';
     listItem.appendChild(createItemLabel(itemText));
     list.appendChild(listItem);
@@ -6503,4 +6504,4 @@ document.addEventListener('DOMContentLoaded', _modules_UserInterface__WEBPACK_IM
 
 /******/ })()
 ;
-//# sourceMappingURL=bundle4620d084c6c4f1ef139d.js.map
+//# sourceMappingURL=bundle723756c70ae33ae58407.js.map
