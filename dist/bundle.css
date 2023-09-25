@@ -18,6 +18,10 @@ body {
   line-height: 1.6;
 }
 
+main {
+  display: flex;
+}
+
 ul {
   list-style: none;
 }

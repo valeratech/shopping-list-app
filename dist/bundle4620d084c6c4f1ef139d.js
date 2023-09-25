@@ -6221,18 +6221,6 @@ function filterItems(event) {
     const textInput = event.target.value.toLowerCase();
 
     toggleFilterClass(items, textInput);
-    // items.forEach(item => {
-    //     if ((item.firstElementChild.lastChild.textContent
-    //         .trim()
-    //         .toLowerCase())
-    //         .indexOf(textInput) !== -1) {
-    //         item.classList.remove('filtered');
-    //         toggleClearFilterBtn(textInput);
-    //     } else {
-    //         item.classList.add('filtered');
-    //         toggleClearFilterBtn(textInput);
-    //     }
-    // })
 }
 
 function toggleFilterClass(items, text) {
@@ -6515,4 +6503,4 @@ document.addEventListener('DOMContentLoaded', _modules_UserInterface__WEBPACK_IM
 
 /******/ })()
 ;
-//# sourceMappingURL=bundlee85246b772c190454804.js.map
+//# sourceMappingURL=bundle4620d084c6c4f1ef139d.js.map
