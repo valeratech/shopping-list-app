@@ -1,18 +1,23 @@
-function filterItems(event) {
 
+
+function filterItems(event) {
     const items = document.querySelectorAll('li');
     const textInput = event.target.value.toLowerCase();
-    console.log(textInput)
+
+    toggleFilterClass(items, textInput);
+}
+
+function toggleFilterClass(items, text) {
     items.forEach(item => {
         if ((item.firstElementChild.lastChild.textContent
             .trim()
             .toLowerCase())
-            .indexOf(textInput) !== -1) {
+            .indexOf(text) !== -1) {
             item.classList.remove('filtered');
-            toggleClearFilterBtn(textInput);
+            toggleClearFilterBtn(text);
         } else {
             item.classList.add('filtered');
-            toggleClearFilterBtn(textInput);
+            toggleClearFilterBtn(text);
         }
     })
 }
@@ -27,17 +32,20 @@ function toggleClearFilterBtn(text) {
 }
 
 function clearFilter(event) {
+    const items = document.querySelectorAll('li');
     console.log(event.target.parentElement.firstElementChild)
     if (event.target.parentElement.firstElementChild.classList.contains('filter-input')) {
-        event.target.parentElement.firstElementChild.value = '';
+        const textInput = event.target.parentElement.firstElementChild.value = '';
         toggleClearFilterBtn(event.target.parentElement.firstElementChild.value);
+        toggleFilterClass(items, textInput);
     } else if (event.target.parentElement.parentElement.firstElementChild.classList.contains('filter-input')) {
-        event.target.parentElement.parentElement.firstElementChild.value = '';
+        const textInput = event.target.parentElement.parentElement.firstElementChild.value = '';
         toggleClearFilterBtn(event.target.parentElement.parentElement.firstElementChild.value);
+        toggleFilterClass(items, textInput);
     } else if (event.target.parentElement.parentElement.parentElement.firstElementChild.classList.contains('filter-input')) {
-        event.target.parentElement.parentElement.parentElement.firstElementChild.value = '';
+        const textInput = event.target.parentElement.parentElement.parentElement.firstElementChild.value = '';
         toggleClearFilterBtn(event.target.parentElement.parentElement.parentElement.firstElementChild.value);
-
+        toggleFilterClass(items, textInput);
     }
 }
 

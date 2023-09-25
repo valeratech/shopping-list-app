@@ -6214,21 +6214,38 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   clearFilter: () => (/* binding */ clearFilter),
 /* harmony export */   filterItems: () => (/* binding */ filterItems)
 /* harmony export */ });
-function filterItems(event) {
 
+
+function filterItems(event) {
     const items = document.querySelectorAll('li');
     const textInput = event.target.value.toLowerCase();
-    console.log(textInput)
+
+    toggleFilterClass(items, textInput);
+    // items.forEach(item => {
+    //     if ((item.firstElementChild.lastChild.textContent
+    //         .trim()
+    //         .toLowerCase())
+    //         .indexOf(textInput) !== -1) {
+    //         item.classList.remove('filtered');
+    //         toggleClearFilterBtn(textInput);
+    //     } else {
+    //         item.classList.add('filtered');
+    //         toggleClearFilterBtn(textInput);
+    //     }
+    // })
+}
+
+function toggleFilterClass(items, text) {
     items.forEach(item => {
         if ((item.firstElementChild.lastChild.textContent
             .trim()
             .toLowerCase())
-            .indexOf(textInput) !== -1) {
+            .indexOf(text) !== -1) {
             item.classList.remove('filtered');
-            toggleClearFilterBtn(textInput);
+            toggleClearFilterBtn(text);
         } else {
             item.classList.add('filtered');
-            toggleClearFilterBtn(textInput);
+            toggleClearFilterBtn(text);
         }
     })
 }
@@ -6243,17 +6260,20 @@ function toggleClearFilterBtn(text) {
 }
 
 function clearFilter(event) {
+    const items = document.querySelectorAll('li');
     console.log(event.target.parentElement.firstElementChild)
     if (event.target.parentElement.firstElementChild.classList.contains('filter-input')) {
-        event.target.parentElement.firstElementChild.value = '';
+        const textInput = event.target.parentElement.firstElementChild.value = '';
         toggleClearFilterBtn(event.target.parentElement.firstElementChild.value);
+        toggleFilterClass(items, textInput);
     } else if (event.target.parentElement.parentElement.firstElementChild.classList.contains('filter-input')) {
-        event.target.parentElement.parentElement.firstElementChild.value = '';
+        const textInput = event.target.parentElement.parentElement.firstElementChild.value = '';
         toggleClearFilterBtn(event.target.parentElement.parentElement.firstElementChild.value);
+        toggleFilterClass(items, textInput);
     } else if (event.target.parentElement.parentElement.parentElement.firstElementChild.classList.contains('filter-input')) {
-        event.target.parentElement.parentElement.parentElement.firstElementChild.value = '';
+        const textInput = event.target.parentElement.parentElement.parentElement.firstElementChild.value = '';
         toggleClearFilterBtn(event.target.parentElement.parentElement.parentElement.firstElementChild.value);
-
+        toggleFilterClass(items, textInput);
     }
 }
 
@@ -6495,4 +6515,4 @@ document.addEventListener('DOMContentLoaded', _modules_UserInterface__WEBPACK_IM
 
 /******/ })()
 ;
-//# sourceMappingURL=bundlee2f3694168086b714ee2.js.map
+//# sourceMappingURL=bundlee85246b772c190454804.js.map
