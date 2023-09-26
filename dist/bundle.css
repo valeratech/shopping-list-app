@@ -68,21 +68,81 @@ aside {
 }
 
 #menu-list {
-  position: absolute;
+  display: none;
+}
+
+#menu-list:checked + label {
+  color: #ff6a95;
+}
+
+.menu {
+  border: 1px solid #cecfd5;
   border-style: none;
-  font-size: 35px;
-  color: #3f3f3f;
-  padding: 10px 15px;
-  top: 0;
-  left: 25px;
-  z-index: 2;
+  position: absolute;
+  color: #8b8b8b;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+  text-align: center;
+  transition: all 0.05s ease;
+  width: 50px;
+  height: 50px;
+  left: 28px;
+  z-index: 999;
+}
+
+.menu:hover {
+  color: #8b8b8b;
+  outline: 3px #8b8b8b solid;
+  border-radius: 50%;
+}
+
+.menu:active {
+  font-size: 30px;
+  color: #8b8b8b;
+  outline: 3px #8b8b8b solid;
+}
+
+/* The max-height property defines the maximum height of an element. */
+/* If the content is larger than the maximum height, it will overflow. */
+/* sets the max height to 0. Since there is content inside the overflow property hides content */
+nav {
+  position: absolute;
+  display: inline-block;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.15s 0.04s;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+/* Upon clicking the label, input/label box gains shadow and changes (gray) color */
+#toggle:checked + label {
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.15);
+  /*color: #9799a7;*/
+  color: #1ece1e;
+}
+
+.menu-nav li:hover {
+  background-color: #eeeeee;
+}
+
+.menu-nav li:active {
+  filter: opacity(55%);
+}
+
+.menu-nav li:first-child:hover {
   background-color: transparent;
 }
 
-#menu-list:hover {
-  border: #cccccc 1px solid;
-  border-radius: 50px;
-  font-size: 35px;
+/* upon being check sets the max-height large enough to display content */
+#toggle:checked ~ nav {
+  max-height: 500px;
+  background-color: #f7f7fc;
+  box-shadow: 10px 10px 10px -6px gray;
+  transition: all 0.15s 0.04s;
 }
 
 #list-sidebar {
