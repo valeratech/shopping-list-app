@@ -63,6 +63,63 @@ header {
   position: relative;
 }
 
+aside {
+  position: relative;
+}
+
+#menu-list {
+  position: absolute;
+  border-style: none;
+  font-size: 35px;
+  color: #3f3f3f;
+  padding: 10px 15px;
+  top: 0;
+  left: 25px;
+  z-index: 2;
+  background-color: transparent;
+}
+
+#menu-list:hover {
+  border: #cccccc 1px solid;
+  border-radius: 50px;
+  font-size: 35px;
+}
+
+#list-sidebar {
+  padding: 70px 30px 30px;
+  position: absolute;
+  z-index: 1;
+}
+
+.list-name, .add-list-name {
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  color: #333;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  padding: 10px 20px;
+  position: relative;
+  width: 350px;
+  border: 1px solid #a8a8a8;
+}
+
+.list-name:hover {
+  background-color: #cccccc;
+  cursor: pointer;
+}
+
+.list-name:active {
+  opacity: 0.7;
+}
+
+.add-list-name {
+  border-style: none;
+  font-size: 18px;
+  background-color: #ff6a95;
+  color: #ffffff;
+}
+
 .form-container {
   display: flex;
   margin: 15px 30px;

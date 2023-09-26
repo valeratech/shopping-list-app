@@ -20,11 +20,21 @@
 </header>
 <main>
     <aside>
-        <button><i class="fa-solid fa-bars"></i></button>
-        <ul>
-            <li>List 1</li>
-            <li>List 2</li>
-            <li>List 3</li>
+        <button id="menu-list"><i class="fa-solid fa-bars"></i></button>
+        <ul id="list-sidebar">
+            <li class="list-name">
+                <i class="fa-solid fa-list-ul"></i>
+                List 1
+            </li>
+            <li class="list-name">
+                <i class="fa-solid fa-list-ul"></i>
+                List 2
+            </li>
+            <li class="list-name">
+                <i class="fa-solid fa-list-ul"></i>
+                List 3
+            </li>
+            <button type="button" class="add-list-name"><i class="fa-solid fa-plus"></i> Create List</button>
         </ul>
     </aside>
     <article class="container">
@@ -42,9 +52,7 @@
                         <label class="box-container">
                             <input type="checkbox">
                             <span class="checkmark"></span>
-                            <div>
-                                eggs
-                            </div>
+                            eggs
                         </label>
                     </li>
                     <li class="shopping-list--item list-item">
