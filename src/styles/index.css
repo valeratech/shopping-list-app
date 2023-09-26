@@ -67,8 +67,9 @@ aside {
     display: none;
 }
 
+/* Upon clicking the label, input/label box gains shadow and changes (gray) color */
 #menu-list:checked + label {
-    color: #ff6a95;
+    color: #13e7c6;
 }
 
 .menu {
@@ -112,25 +113,6 @@ nav {
     transition: all .15s .04s;
     padding: 20px;
     border-radius: 10px;
-}
-
-/* Upon clicking the label, input/label box gains shadow and changes (gray) color */
-#toggle:checked + label {
-    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.15);
-    /*color: #9799a7;*/
-    color: #1ece1e;
-}
-
-.menu-nav li:hover {
-    background-color: #eeeeee;
-}
-
-.menu-nav li:active {
-    filter: opacity(55%);
-}
-
-.menu-nav li:first-child:hover {
-    background-color: transparent;
 }
 
 /* upon being check sets the max-height large enough to display content */
@@ -178,6 +160,16 @@ nav {
     font-size: 18px;
     background-color: #ff6a95;
     color: #ffffff;
+}
+
+.add-list-name:hover {
+    transform: scale(0.98);
+    opacity: 0.9;
+}
+
+.add-list-name:active {
+    transform: scale(1);
+    opacity: 1;
 }
 
 .form-container {
@@ -382,7 +374,7 @@ input:focus {
 
 /* When the checkbox is checked, add a blue background */
 .box-container input:checked ~ .checkmark {
-    background-color: #ff6a95;
+    background-color: #13e7c6;
 }
 
 /* Create the checkmark/indicator (hidden when not checked) */

@@ -3,13 +3,14 @@ import addListItem from "./AddItem";
 import displayItemCount from "./DisplayItemCount";
 import toggleItemList from "./ToggleItemList";
 import {filterItems, clearFilter} from "./FilterItems";
+import addShoppingList from "./AddShoppingList";
 
 function userInterface() {
     init();
 }
 
 function init() {
-    // The event listener will listen for clicks on the nested button elements 'add-item' and 'cancel-form'
+    // Listen for clicks on the nested button elements 'add-item' and 'cancel-form'
     const formContainer = document.querySelector('.form-container');
     formContainer.addEventListener('click', toggleForm);
     // ['click', 'keyup'].forEach(event => formContainer.addEventListener(event, toggleForm));
@@ -17,20 +18,24 @@ function init() {
     // EDIT LATER
     // const addItemForm = document.getElementById('add-item-form');
 
-    // Event listener for submitting the input value from the add-item textbox
+    // Listen for a 'keyup' record the value from the add-item textbox
     formContainer.addEventListener('keyup', addListItem);
 
-    // Event listener for checking if a checkbox is checked or unchecked
+    // Check if a shopping/completed list checkbox is checked or unchecked
     const listContainers = document.querySelector('.lists-container');
     listContainers.addEventListener('change', toggleItemList);
 
-    // Event listener for filtering items on 'keydown' strokes using a text-input box
+    // Filter items on each 'keydown' stroke from the text-input box
     const filter = document.getElementById('filter');
     filter.addEventListener('input', filterItems);
 
-    // Event listener for clearing the filter input-text box on click
+    // Clear the filter contents of the text-input box by clicking the 'x' icon
     const clearFilterBtn = document.querySelector('.clear-filter');
     clearFilterBtn.addEventListener('click', clearFilter);
+
+    // Add separate shopping-lists by name which will contain the individual items added
+    const addShoppingListBtn = document.querySelector('.add-list-name');
+    addShoppingListBtn.addEventListener('click', addShoppingList)
 
     // Counts the amount of items in the DOM shopping-list and append to the shopping-cart
     displayItemCount();

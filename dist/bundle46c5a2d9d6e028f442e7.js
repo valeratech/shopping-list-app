@@ -6363,6 +6363,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _DisplayItemCount__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./DisplayItemCount */ "./src/modules/DisplayItemCount.js");
 /* harmony import */ var _ToggleItemList__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ToggleItemList */ "./src/modules/ToggleItemList.js");
 /* harmony import */ var _FilterItems__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./FilterItems */ "./src/modules/FilterItems.js");
+/* harmony import */ var _addShoppingList__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./addShoppingList */ "./src/modules/addShoppingList.js");
+
 
 
 
@@ -6374,7 +6376,7 @@ function userInterface() {
 }
 
 function init() {
-    // The event listener will listen for clicks on the nested button elements 'add-item' and 'cancel-form'
+    // Listen for clicks on the nested button elements 'add-item' and 'cancel-form'
     const formContainer = document.querySelector('.form-container');
     formContainer.addEventListener('click', _ToggleForm__WEBPACK_IMPORTED_MODULE_0__["default"]);
     // ['click', 'keyup'].forEach(event => formContainer.addEventListener(event, toggleForm));
@@ -6382,27 +6384,50 @@ function init() {
     // EDIT LATER
     // const addItemForm = document.getElementById('add-item-form');
 
-    // Event listener for submitting the input value from the add-item textbox
+    // Listen for a 'keyup' record the value from the add-item textbox
     formContainer.addEventListener('keyup', _AddItem__WEBPACK_IMPORTED_MODULE_1__["default"]);
 
-    // Event listener for checking if a checkbox is checked or unchecked
+    // Check if a shopping/completed list checkbox is checked or unchecked
     const listContainers = document.querySelector('.lists-container');
     listContainers.addEventListener('change', _ToggleItemList__WEBPACK_IMPORTED_MODULE_3__["default"]);
 
-    // Event listener for filtering items on 'keydown' strokes using a text-input box
+    // Filter items on each 'keydown' stroke from the text-input box
     const filter = document.getElementById('filter');
     filter.addEventListener('input', _FilterItems__WEBPACK_IMPORTED_MODULE_4__.filterItems);
 
-    // Event listener for clearing the filter input-text box on click
+    // Clear the filter contents of the text-input box by clicking the 'x' icon
     const clearFilterBtn = document.querySelector('.clear-filter');
     clearFilterBtn.addEventListener('click', _FilterItems__WEBPACK_IMPORTED_MODULE_4__.clearFilter);
 
+    // Add separate shopping-lists by name which will contain the individual items added
+    const addShoppingListBtn = document.querySelector('.add-list-name');
+    addShoppingListBtn.addEventListener('click', _addShoppingList__WEBPACK_IMPORTED_MODULE_5__["default"])
+
     // Counts the amount of items in the DOM shopping-list and append to the shopping-cart
-    (0,_DisplayItemCount__WEBPACK_IMPORTED_MODULE_2__["default"])();
+    ;(0,_DisplayItemCount__WEBPACK_IMPORTED_MODULE_2__["default"])();
 }
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (userInterface);
+
+/***/ }),
+
+/***/ "./src/modules/addShoppingList.js":
+/*!****************************************!*\
+  !*** ./src/modules/addShoppingList.js ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+function addShoppingList(event) {
+    console.log('Hello');
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (addShoppingList);
 
 /***/ })
 
@@ -6504,4 +6529,4 @@ document.addEventListener('DOMContentLoaded', _modules_UserInterface__WEBPACK_IM
 
 /******/ })()
 ;
-//# sourceMappingURL=bundle723756c70ae33ae58407.js.map
+//# sourceMappingURL=bundle46c5a2d9d6e028f442e7.js.map
