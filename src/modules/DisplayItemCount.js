@@ -6,11 +6,11 @@ function displayItemCount() {
     cart.textContent = '';
 
     if (itemCount === 0) {
-        cart.classList.add('hide-count')
+        cart.classList.add('hide')
     } else if (itemCount < 10) {
         if (itemCount === 1) {
             cart.appendChild(document.createTextNode(itemCount));
-            cart.classList.remove('hide-count')
+            cart.classList.remove('hide')
         } else {
             cart.appendChild(document.createTextNode(itemCount));
         }

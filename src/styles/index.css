@@ -98,8 +98,6 @@ aside {
 
 .menu:active {
     font-size: 30px;
-    color: #8b8b8b;
-    outline: 3px #8b8b8b solid;
 }
 
 /* The max-height property defines the maximum height of an element. */
@@ -298,7 +296,7 @@ input:focus {
     align-items: center;
 }
 
-.hide-count {
+.hide {
     display: none;
 }
 

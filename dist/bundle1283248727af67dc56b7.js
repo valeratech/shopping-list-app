@@ -6087,6 +6087,25 @@ function getItemValue(event) {
 
 /***/ }),
 
+/***/ "./src/modules/AddShoppingList.js":
+/*!****************************************!*\
+  !*** ./src/modules/AddShoppingList.js ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+function addShoppingList(event) {
+    console.log('Hello');
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (addShoppingList);
+
+/***/ }),
+
 /***/ "./src/modules/ClearFormValue.js":
 /*!***************************************!*\
   !*** ./src/modules/ClearFormValue.js ***!
@@ -6175,11 +6194,11 @@ function displayItemCount() {
     cart.textContent = '';
 
     if (itemCount === 0) {
-        cart.classList.add('hide-count')
+        cart.classList.add('hide')
     } else if (itemCount < 10) {
         if (itemCount === 1) {
             cart.appendChild(document.createTextNode(itemCount));
-            cart.classList.remove('hide-count')
+            cart.classList.remove('hide')
         } else {
             cart.appendChild(document.createTextNode(itemCount));
         }
@@ -6347,6 +6366,30 @@ function toggleClassName(item, add, remove) {
 
 /***/ }),
 
+/***/ "./src/modules/ToggleSideBarMenu.js":
+/*!******************************************!*\
+  !*** ./src/modules/ToggleSideBarMenu.js ***!
+  \******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+function toggleSideBarMenu(event) {
+    const listSidebar = document.getElementById('list-sidebar');
+    if (event.target.checked) {
+        listSidebar.classList.remove('hide');
+    } else {
+        listSidebar.classList.add('hide');
+    }
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (toggleSideBarMenu);
+
+/***/ }),
+
 /***/ "./src/modules/UserInterface.js":
 /*!**************************************!*\
   !*** ./src/modules/UserInterface.js ***!
@@ -6363,7 +6406,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _DisplayItemCount__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./DisplayItemCount */ "./src/modules/DisplayItemCount.js");
 /* harmony import */ var _ToggleItemList__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ToggleItemList */ "./src/modules/ToggleItemList.js");
 /* harmony import */ var _FilterItems__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./FilterItems */ "./src/modules/FilterItems.js");
-/* harmony import */ var _addShoppingList__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./addShoppingList */ "./src/modules/addShoppingList.js");
+/* harmony import */ var _AddShoppingList__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./AddShoppingList */ "./src/modules/AddShoppingList.js");
+/* harmony import */ var _ToggleSideBarMenu__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./ToggleSideBarMenu */ "./src/modules/ToggleSideBarMenu.js");
+
 
 
 
@@ -6401,33 +6446,18 @@ function init() {
 
     // Add separate shopping-lists by name which will contain the individual items added
     const addShoppingListBtn = document.querySelector('.add-list-name');
-    addShoppingListBtn.addEventListener('click', _addShoppingList__WEBPACK_IMPORTED_MODULE_5__["default"])
+    addShoppingListBtn.addEventListener('click', _AddShoppingList__WEBPACK_IMPORTED_MODULE_5__["default"]);
+
+    // Toggle the sidebar menu by listening for a change which displays the shopping-lists/names
+    const menu = document.getElementById('menu-list');
+    menu.addEventListener('change', _ToggleSideBarMenu__WEBPACK_IMPORTED_MODULE_6__["default"]);
 
     // Counts the amount of items in the DOM shopping-list and append to the shopping-cart
-    ;(0,_DisplayItemCount__WEBPACK_IMPORTED_MODULE_2__["default"])();
+    (0,_DisplayItemCount__WEBPACK_IMPORTED_MODULE_2__["default"])();
 }
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (userInterface);
-
-/***/ }),
-
-/***/ "./src/modules/addShoppingList.js":
-/*!****************************************!*\
-  !*** ./src/modules/addShoppingList.js ***!
-  \****************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-function addShoppingList(event) {
-    console.log('Hello');
-}
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (addShoppingList);
 
 /***/ })
 
@@ -6529,4 +6559,4 @@ document.addEventListener('DOMContentLoaded', _modules_UserInterface__WEBPACK_IM
 
 /******/ })()
 ;
-//# sourceMappingURL=bundle46c5a2d9d6e028f442e7.js.map
+//# sourceMappingURL=bundle1283248727af67dc56b7.js.map

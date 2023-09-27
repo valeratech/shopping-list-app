@@ -4,6 +4,7 @@ import displayItemCount from "./DisplayItemCount";
 import toggleItemList from "./ToggleItemList";
 import {filterItems, clearFilter} from "./FilterItems";
 import addShoppingList from "./AddShoppingList";
+import toggleSideBarMenu from "./ToggleSideBarMenu";
 
 function userInterface() {
     init();
@@ -35,7 +36,11 @@ function init() {
 
     // Add separate shopping-lists by name which will contain the individual items added
     const addShoppingListBtn = document.querySelector('.add-list-name');
-    addShoppingListBtn.addEventListener('click', addShoppingList)
+    addShoppingListBtn.addEventListener('click', addShoppingList);
+
+    // Toggle the sidebar menu by listening for a change which displays the shopping-lists/names
+    const menu = document.getElementById('menu-list');
+    menu.addEventListener('change', toggleSideBarMenu);
 
     // Counts the amount of items in the DOM shopping-list and append to the shopping-cart
     displayItemCount();
