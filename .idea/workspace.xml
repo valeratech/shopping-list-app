@@ -5,17 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="155b8fc2-f810-41cc-93d6-ac777cec3577" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/modules/AddItemLocalStorage.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modules/GetItemLocalStorage.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/bundle.css" beforeDir="false" afterPath="$PROJECT_DIR$/dist/bundle.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/bundle.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/dist/bundle.css.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/dist/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/index.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/template.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/template.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -34,7 +40,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/home/ryan/JavaScript/Odin/Calculator",
+    "last_opened_file_path": "/home/ryan/JavaScript/Traversy/JavaScript/javascript-sandbox",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -57,7 +63,7 @@
       <workItem from="1695226936147" duration="1335000" />
       <workItem from="1695252769709" duration="2024000" />
       <workItem from="1695345990549" duration="1410000" />
-      <workItem from="1695654471966" duration="19742000" />
+      <workItem from="1695654471966" duration="33939000" />
     </task>
     <servers />
   </component>
