@@ -43,7 +43,7 @@ header {
     gap: 5px;
 }
 
-.form-textbox {
+.form-textbox, .input-add-list-popup {
     border-bottom: solid 4px #ff6a95;
     border-radius: 5px;
     background-color: #cccccc;
@@ -400,5 +400,50 @@ input:focus {
     transform: rotate(45deg);
 }
 
+.input-add-list-popup {
+    width: 100%;
+}
 
+.add-list-popup {
+    display: none;
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+}
+
+.add-list-popup.active {
+    display: block;
+}
+
+.input-add-list-popup {
+    border: 1px solid #aaa;
+    margin-bottom: 10px;
+}
+
+.add-list-popup-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.button-add-list-popup {
+    /*border: 1px solid #99dd99;*/
+    background-color: #13e7c6;
+    font-weight: bold;
+}
+
+.button-cancel-list-popup {
+    /*border: 1px solid #eeadad;*/
+    background-color: #ff6a95;
+    font-weight: bold;
+}
+
+.button-add-list-popup:hover {
+    opacity: 0.7;
+}
+
+.button-cancel-list-popup:hover {
+    opacity: 0.7;
+}
 
