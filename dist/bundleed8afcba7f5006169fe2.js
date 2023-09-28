@@ -6087,25 +6087,6 @@ function getItemValue(event) {
 
 /***/ }),
 
-/***/ "./src/modules/AddShoppingList.js":
-/*!****************************************!*\
-  !*** ./src/modules/AddShoppingList.js ***!
-  \****************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-function addShoppingList(event) {
-    console.log('Hello');
-}
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (addShoppingList);
-
-/***/ }),
-
 /***/ "./src/modules/ClearFormValue.js":
 /*!***************************************!*\
   !*** ./src/modules/ClearFormValue.js ***!
@@ -6366,6 +6347,27 @@ function toggleClassName(item, add, remove) {
 
 /***/ }),
 
+/***/ "./src/modules/ToggleShoppingListInput.js":
+/*!************************************************!*\
+  !*** ./src/modules/ToggleShoppingListInput.js ***!
+  \************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+function toggleShoppingListInput(event) {
+    document.querySelector('.add-list-name').classList.remove('active');
+    document.querySelector('.add-list-popup').classList.add('active');
+
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (toggleShoppingListInput);
+
+/***/ }),
+
 /***/ "./src/modules/ToggleSideBarMenu.js":
 /*!******************************************!*\
   !*** ./src/modules/ToggleSideBarMenu.js ***!
@@ -6406,7 +6408,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _DisplayItemCount__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./DisplayItemCount */ "./src/modules/DisplayItemCount.js");
 /* harmony import */ var _ToggleItemList__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ToggleItemList */ "./src/modules/ToggleItemList.js");
 /* harmony import */ var _FilterItems__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./FilterItems */ "./src/modules/FilterItems.js");
-/* harmony import */ var _AddShoppingList__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./AddShoppingList */ "./src/modules/AddShoppingList.js");
+/* harmony import */ var _ToggleShoppingListInput__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./ToggleShoppingListInput */ "./src/modules/ToggleShoppingListInput.js");
 /* harmony import */ var _ToggleSideBarMenu__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./ToggleSideBarMenu */ "./src/modules/ToggleSideBarMenu.js");
 
 
@@ -6446,7 +6448,7 @@ function init() {
 
     // Add separate shopping-lists by name which will contain the individual items added
     const addShoppingListBtn = document.querySelector('.add-list-name');
-    addShoppingListBtn.addEventListener('click', _AddShoppingList__WEBPACK_IMPORTED_MODULE_5__["default"]);
+    addShoppingListBtn.addEventListener('click', _ToggleShoppingListInput__WEBPACK_IMPORTED_MODULE_5__["default"]);
 
     // Toggle the sidebar menu by listening for a change which displays the shopping-lists/names
     const menu = document.getElementById('menu-list');
@@ -6559,4 +6561,4 @@ document.addEventListener('DOMContentLoaded', _modules_UserInterface__WEBPACK_IM
 
 /******/ })()
 ;
-//# sourceMappingURL=bundle1283248727af67dc56b7.js.map
+//# sourceMappingURL=bundleed8afcba7f5006169fe2.js.map

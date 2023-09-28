@@ -154,10 +154,15 @@ nav {
 }
 
 .add-list-name {
+  display: none;
   border-style: none;
   font-size: 18px;
   background-color: #ff6a95;
   color: #ffffff;
+}
+
+.add-list-name.active {
+  display: inline-block;
 }
 
 .add-list-name:hover {
@@ -406,7 +411,6 @@ input:focus {
 .add-list-popup {
   display: none;
   width: 100%;
-  padding: 10px;
   text-align: center;
 }
 

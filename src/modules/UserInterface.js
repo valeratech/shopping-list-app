@@ -3,7 +3,7 @@ import addListItem from "./AddItem";
 import displayItemCount from "./DisplayItemCount";
 import toggleItemList from "./ToggleItemList";
 import {filterItems, clearFilter} from "./FilterItems";
-import addShoppingList from "./AddShoppingList";
+import toggleShoppingListInput from "./ToggleShoppingListInput";
 import toggleSideBarMenu from "./ToggleSideBarMenu";
 
 function userInterface() {
@@ -36,7 +36,7 @@ function init() {
 
     // Add separate shopping-lists by name which will contain the individual items added
     const addShoppingListBtn = document.querySelector('.add-list-name');
-    addShoppingListBtn.addEventListener('click', addShoppingList);
+    addShoppingListBtn.addEventListener('click', toggleShoppingListInput);
 
     // Toggle the sidebar menu by listening for a change which displays the shopping-lists/names
     const menu = document.getElementById('menu-list');
