@@ -121,7 +121,7 @@ nav {
 #toggle:checked ~ nav {
   max-height: 500px;
   background-color: #f7f7fc;
-  box-shadow: 10px 10px 10px -6px gray;
+  box-shadow: 10px 10px 10px -6px #828282;
   transition: all 0.15s 0.04s;
 }
 

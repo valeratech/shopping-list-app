@@ -35,7 +35,20 @@
 <!--                <i class="fa-solid fa-list-ul"></i>-->
 <!--                List 3-->
 <!--            </li>-->
-            <button type="button" class="add-list-name"><i class="fa-solid fa-plus"></i> Create List</button>
+            <div id="add-list-container">
+                <button type="button" class="add-list-name"><i class="fa-solid fa-plus"></i> Create List</button>
+                <div class="add-list-popup active" id="add-list-popup">
+                    <input class="input-add-list-popup" id="input-add-list-popup" type="text">
+                    <div class="add-list-popup-buttons">
+                        <button class="button-add-list-popup" id="button-add-list-popup">
+                            Add
+                        </button>
+                        <button class="button-cancel-list-popup" id="button-cancel-list-popup">
+                            Cancel
+                        </button>
+                    </div>
+                </div>
+            </div>
         </ul>
     </aside>
     <article class="container">
@@ -103,4 +116,3 @@
 </main>
 </body>
 </html>
-
