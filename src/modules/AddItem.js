@@ -1,6 +1,6 @@
 import createDOMListItem from "./CreateDOMListItem";
 import clearFormValue from "./ClearFormValue";
-import displayItemCount from "./DisplayItemCount";
+
 
 function addListItem(event) {
     const item = getItemValue(event);
@@ -8,7 +8,7 @@ function addListItem(event) {
         console.log('Here')
         createDOMListItem(item, true);
         clearFormValue(event.target);
-        displayItemCount();
+
     }
 }
 

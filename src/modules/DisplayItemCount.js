@@ -3,6 +3,7 @@ function displayItemCount() {
 
     const itemCount = countListItems();
 
+    // Clear the current cart count before appending a new count (number)
     cart.textContent = '';
 
     if (itemCount === 0) {

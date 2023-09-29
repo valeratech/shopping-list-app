@@ -6064,7 +6064,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _CreateDOMListItem__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CreateDOMListItem */ "./src/modules/CreateDOMListItem.js");
 /* harmony import */ var _ClearFormValue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ClearFormValue */ "./src/modules/ClearFormValue.js");
-/* harmony import */ var _DisplayItemCount__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./DisplayItemCount */ "./src/modules/DisplayItemCount.js");
 
 
 
@@ -6075,7 +6074,7 @@ function addListItem(event) {
         console.log('Here')
         ;(0,_CreateDOMListItem__WEBPACK_IMPORTED_MODULE_0__["default"])(item, true);
         (0,_ClearFormValue__WEBPACK_IMPORTED_MODULE_1__["default"])(event.target);
-        (0,_DisplayItemCount__WEBPACK_IMPORTED_MODULE_2__["default"])();
+
     }
 }
 
@@ -6158,14 +6157,24 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var _DisplayItemCount__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./DisplayItemCount */ "./src/modules/DisplayItemCount.js");
+
+
 function createDOMListItem(itemText, completed) {
     const shopList = document.querySelector('.sl-list--container');
     const compList = document.querySelector('.cl-list--container');
     const listItem = document.createElement('li');
     listItem.classList.add('list-item');
-    listItem.className = 'shopping-list--item';
     listItem.appendChild(createItemLabel(itemText, completed));
-    completed ? compList.appendChild(listItem) : shopList.appendChild(listItem);
+
+
+    if (completed) {
+        listItem.className = 'completed-list--item';
+        compList.appendChild(listItem);
+    } else {
+        listItem.className = 'shopping-list--item';
+        shopList.appendChild(listItem)
+    }
 }
 
 function createItemLabel(itemText, completed) {
@@ -6243,6 +6252,7 @@ function displayItemCount() {
 
     const itemCount = countListItems();
 
+    // Clear the current cart count before appending a new count (number)
     cart.textContent = '';
 
     if (itemCount === 0) {
@@ -6693,4 +6703,4 @@ document.addEventListener('DOMContentLoaded', _modules_UserInterface__WEBPACK_IM
 
 /******/ })()
 ;
-//# sourceMappingURL=bundlec20020bfea9ef7b1f838.js.map
+//# sourceMappingURL=bundle4c546b3ec3423cd2d40a.js.map

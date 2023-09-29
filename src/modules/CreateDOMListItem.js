@@ -1,11 +1,19 @@
+import displayItemCount from "./DisplayItemCount";
+
 function createDOMListItem(itemText, completed) {
     const shopList = document.querySelector('.sl-list--container');
     const compList = document.querySelector('.cl-list--container');
     const listItem = document.createElement('li');
     listItem.classList.add('list-item');
-    listItem.className = 'shopping-list--item';
     listItem.appendChild(createItemLabel(itemText, completed));
-    completed ? compList.appendChild(listItem) : shopList.appendChild(listItem);
+
+    if (completed) {
+        listItem.className = 'completed-list--item';
+        compList.appendChild(listItem);
+    } else {
+        listItem.className = 'shopping-list--item';
+        shopList.appendChild(listItem)
+    }
 }
 
 function createItemLabel(itemText, completed) {
