@@ -6073,7 +6073,7 @@ function addListItem(event) {
     const item = getItemValue(event);
     if (event.key === 'Enter' && item !== '') {
         console.log('Here')
-        ;(0,_CreateDOMListItem__WEBPACK_IMPORTED_MODULE_0__["default"])(item);
+        ;(0,_CreateDOMListItem__WEBPACK_IMPORTED_MODULE_0__["default"])(item, true);
         (0,_ClearFormValue__WEBPACK_IMPORTED_MODULE_1__["default"])(event.target);
         (0,_DisplayItemCount__WEBPACK_IMPORTED_MODULE_2__["default"])();
     }
@@ -6158,26 +6158,29 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-function createDOMListItem(itemText) {
-    const list = document.querySelector('.sl-list--container');
+function createDOMListItem(itemText, completed) {
+    const shopList = document.querySelector('.sl-list--container');
+    const compList = document.querySelector('.cl-list--container');
     const listItem = document.createElement('li');
     listItem.classList.add('list-item');
     listItem.className = 'shopping-list--item';
-    listItem.appendChild(createItemLabel(itemText));
-    list.appendChild(listItem);
+    listItem.appendChild(createItemLabel(itemText, completed));
+    completed ? compList.appendChild(listItem) : shopList.appendChild(listItem);
 }
 
-function createItemLabel(itemText) {
+function createItemLabel(itemText, completed) {
     const label = document.createElement('label');
-    label.append(createCheckbox(), createSpan(), createItemText(itemText));
+    label.append(createCheckbox(completed), createSpan(), createItemText(itemText));
     label.className = 'box-container';
     return label;
 
 }
 
-function createCheckbox() {
+function createCheckbox(completed) {
+    console.log(completed)
     const checkbox = document.createElement('input');
     checkbox.setAttribute('type', 'checkbox');
+    completed ? checkbox.checked = completed : checkbox.check = completed;
     return checkbox;
 }
 
@@ -6584,8 +6587,7 @@ function init() {
     // Counts the amount of items in the DOM shopping-list and append to the shopping-cart
     (0,_DisplayItemCount__WEBPACK_IMPORTED_MODULE_2__["default"])();
 
-    (0,_AddItemLocalStorage__WEBPACK_IMPORTED_MODULE_8__["default"])();
-    console.log((0,_GetItemLocalStorage__WEBPACK_IMPORTED_MODULE_9__["default"])())
+    (0,_GetItemLocalStorage__WEBPACK_IMPORTED_MODULE_9__["default"])();
 }
 
 
@@ -6691,4 +6693,4 @@ document.addEventListener('DOMContentLoaded', _modules_UserInterface__WEBPACK_IM
 
 /******/ })()
 ;
-//# sourceMappingURL=bundlec36c810aeafd1853d566.js.map
+//# sourceMappingURL=bundlec20020bfea9ef7b1f838.js.map

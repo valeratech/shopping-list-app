@@ -6,7 +6,7 @@ function addListItem(event) {
     const item = getItemValue(event);
     if (event.key === 'Enter' && item !== '') {
         console.log('Here')
-        createDOMListItem(item);
+        createDOMListItem(item, true);
         clearFormValue(event.target);
         displayItemCount();
     }
