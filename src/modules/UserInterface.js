@@ -5,6 +5,9 @@ import toggleItemList from "./ToggleItemList";
 import {filterItems, clearFilter} from "./FilterItems";
 import toggleShoppingListInput from "./ToggleShoppingListInput";
 import toggleSideBarMenu from "./ToggleSideBarMenu";
+import createShoppingList from "./CreateShoppingList";
+import addItemLocalStorage from "./AddItemLocalStorage";
+import getItemLocalStorage from "./GetItemLocalStorage";
 
 function userInterface() {
     init();
@@ -38,12 +41,20 @@ function init() {
     const addShoppingListBtn = document.querySelector('.add-list-name');
     addShoppingListBtn.addEventListener('click', toggleShoppingListInput);
 
+    // Cancel and hide the display of the 'add-list-popup' container
+    const addListContainer = document.querySelector('.add-list-popup');
+    addListContainer.addEventListener('click', createShoppingList);
+
+
     // Toggle the sidebar menu by listening for a change which displays the shopping-lists/names
     const menu = document.getElementById('menu-list');
     menu.addEventListener('change', toggleSideBarMenu);
 
     // Counts the amount of items in the DOM shopping-list and append to the shopping-cart
     displayItemCount();
+
+    addItemLocalStorage();
+    console.log(getItemLocalStorage())
 }
 
 
