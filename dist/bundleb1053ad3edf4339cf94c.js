@@ -6072,7 +6072,7 @@ function addListItem(event) {
     const item = getItemValue(event);
     if (event.key === 'Enter' && item !== '') {
         console.log('Here')
-        ;(0,_CreateDOMListItem__WEBPACK_IMPORTED_MODULE_0__["default"])(item, true);
+        ;(0,_CreateDOMListItem__WEBPACK_IMPORTED_MODULE_0__["default"])(item, false);
         (0,_ClearFormValue__WEBPACK_IMPORTED_MODULE_1__["default"])(event.target);
 
     }
@@ -6152,10 +6152,10 @@ function createDOMListItem(itemText, completed) {
     listItem.appendChild(createItemLabel(itemText, completed));
 
     if (completed) {
-        listItem.className = 'completed-list--item';
+        listItem.classList.add('completed-list--item');
         compList.appendChild(listItem);
     } else {
-        listItem.className = 'shopping-list--item';
+        listItem.classList.add('shopping-list--item');
         shopList.appendChild(listItem)
     }
 }
@@ -6267,6 +6267,34 @@ function countListItems() {
 
 /***/ }),
 
+/***/ "./src/modules/DisplayListItems.js":
+/*!*****************************************!*\
+  !*** ./src/modules/DisplayListItems.js ***!
+  \*****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _GetItemLocalStorage__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./GetItemLocalStorage */ "./src/modules/GetItemLocalStorage.js");
+/* harmony import */ var _CreateDOMListItem__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CreateDOMListItem */ "./src/modules/CreateDOMListItem.js");
+
+
+
+function displayListItems() {
+    const itemsFromStorage = (0,_GetItemLocalStorage__WEBPACK_IMPORTED_MODULE_0__["default"])();
+
+    itemsFromStorage["Shopping List"].forEach(item => {
+        (0,_CreateDOMListItem__WEBPACK_IMPORTED_MODULE_1__["default"])(item.item, item.completed);
+    })
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (displayListItems);
+
+/***/ }),
+
 /***/ "./src/modules/FilterItems.js":
 /*!************************************!*\
   !*** ./src/modules/FilterItems.js ***!
@@ -6354,7 +6382,7 @@ function getItemLocalStorage() {
     } else {
         itemsFromStorage = JSON.parse(localStorage.getItem('shopping-list'));
     }
-    console.log(itemsFromStorage)
+
     return itemsFromStorage;
 }
 
@@ -6410,7 +6438,11 @@ const shoppingList = {
         },
         {
             "item": "Paper Towels",
-            "completed": false
+            "completed": true
+        },
+        {
+            "item": "Water",
+            "completed": true
         }
     ]
 }
@@ -6560,7 +6592,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ToggleSideBarMenu__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./ToggleSideBarMenu */ "./src/modules/ToggleSideBarMenu.js");
 /* harmony import */ var _CreateShoppingList__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./CreateShoppingList */ "./src/modules/CreateShoppingList.js");
 /* harmony import */ var _AddItemLocalStorage__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./AddItemLocalStorage */ "./src/modules/AddItemLocalStorage.js");
-/* harmony import */ var _GetItemLocalStorage__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./GetItemLocalStorage */ "./src/modules/GetItemLocalStorage.js");
+/* harmony import */ var _DisplayListItems__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./DisplayListItems */ "./src/modules/DisplayListItems.js");
 
 
 
@@ -6617,7 +6649,7 @@ function init() {
     (0,_DisplayItemCount__WEBPACK_IMPORTED_MODULE_2__["default"])();
 
     (0,_AddItemLocalStorage__WEBPACK_IMPORTED_MODULE_8__["default"])();
-    (0,_GetItemLocalStorage__WEBPACK_IMPORTED_MODULE_9__["default"])();
+    (0,_DisplayListItems__WEBPACK_IMPORTED_MODULE_9__["default"])();
 }
 
 
@@ -6723,4 +6755,4 @@ document.addEventListener('DOMContentLoaded', _modules_UserInterface__WEBPACK_IM
 
 /******/ })()
 ;
-//# sourceMappingURL=bundle6a7b2be9d20dbbb3dd55.js.map
+//# sourceMappingURL=bundleb1053ad3edf4339cf94c.js.map

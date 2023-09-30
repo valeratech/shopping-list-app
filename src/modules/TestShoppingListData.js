@@ -14,7 +14,11 @@ const shoppingList = {
         },
         {
             "item": "Paper Towels",
-            "completed": false
+            "completed": true
+        },
+        {
+            "item": "Water",
+            "completed": true
         }
     ]
 }

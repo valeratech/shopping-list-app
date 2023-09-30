@@ -6,7 +6,7 @@ function getItemLocalStorage() {
     } else {
         itemsFromStorage = JSON.parse(localStorage.getItem('shopping-list'));
     }
-    console.log(itemsFromStorage)
+
     return itemsFromStorage;
 }
 

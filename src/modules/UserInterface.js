@@ -7,7 +7,7 @@ import toggleShoppingListInput from "./ToggleShoppingListInput";
 import toggleSideBarMenu from "./ToggleSideBarMenu";
 import createShoppingList from "./CreateShoppingList";
 import addItemLocalStorage from "./AddItemLocalStorage";
-import getItemLocalStorage from "./GetItemLocalStorage";
+import displayListItems from "./DisplayListItems";
 
 function userInterface() {
     init();
@@ -54,7 +54,7 @@ function init() {
     displayItemCount();
 
     addItemLocalStorage();
-    getItemLocalStorage();
+    displayListItems();
 }
 
 

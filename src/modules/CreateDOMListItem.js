@@ -8,10 +8,10 @@ function createDOMListItem(itemText, completed) {
     listItem.appendChild(createItemLabel(itemText, completed));
 
     if (completed) {
-        listItem.className = 'completed-list--item';
+        listItem.classList.add('completed-list--item');
         compList.appendChild(listItem);
     } else {
-        listItem.className = 'shopping-list--item';
+        listItem.classList.add('shopping-list--item');
         shopList.appendChild(listItem)
     }
 }
