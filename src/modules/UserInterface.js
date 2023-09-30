@@ -5,7 +5,6 @@ import toggleItemList from "./ToggleItemList";
 import {filterItems, clearFilter} from "./FilterItems";
 import toggleShoppingListInput from "./ToggleShoppingListInput";
 import toggleSideBarMenu from "./ToggleSideBarMenu";
-import createShoppingList from "./CreateShoppingList";
 import addItemLocalStorage from "./AddItemLocalStorage";
 import displayListItems from "./DisplayListItems";
 import highlightActiveList from "./HighlightActiveList";
@@ -39,12 +38,8 @@ function init() {
     clearFilterBtn.addEventListener('click', clearFilter);
 
     // Add separate shopping-lists by name which will contain the individual items added
-    const addShoppingListBtn = document.querySelector('.add-list-name');
+    const addShoppingListBtn = document.getElementById('add-list-container');
     addShoppingListBtn.addEventListener('click', toggleShoppingListInput);
-
-    // Cancel and hide the display of the 'add-list-popup' container
-    const addListContainer = document.querySelector('.add-list-popup');
-    addListContainer.addEventListener('click', createShoppingList);
 
 
     // Toggle the sidebar menu by listening for a change which displays the shopping-lists/names

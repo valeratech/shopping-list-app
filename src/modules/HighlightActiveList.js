@@ -9,9 +9,10 @@ function highlightActiveList(event) {
         }
     });
 
-    isActiveClass && event.target.classList.add('active-list');
-
-    displayListItems(event.target.lastChild.textContent.trim());
+    if (isActiveClass) {
+        event.target.classList.add('active-list');
+        displayListItems(event.target.lastChild.textContent.trim())
+    };
 }
 
 export default highlightActiveList;
