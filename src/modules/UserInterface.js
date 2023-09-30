@@ -53,6 +53,7 @@ function init() {
     // Counts the amount of items in the DOM shopping-list and append to the shopping-cart
     displayItemCount();
 
+    addItemLocalStorage();
     getItemLocalStorage();
 }
 

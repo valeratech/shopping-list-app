@@ -6097,30 +6097,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var _TestShoppingListData__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./TestShoppingListData */ "./src/modules/TestShoppingListData.js");
+
+
 function addItemLocalStorage() {
-    const shoppingList = {
-        "Shopping List": [
-            {
-                "item": "Oranges",
-                "completed": false
-            },
-            {
-                "item": "Soda",
-                "completed": false
-            },
-            {
-                "item": "Eggs",
-                "completed": false
-            },
-            {
-                "item": "Paper Towels",
-                "completed": false
-            }
-        ]
-    }
+
     const itemsFromStorage = localStorage.getItem('items');
 
-    localStorage.setItem('shopping-list', JSON.stringify(shoppingList));
+    localStorage.setItem('shopping-list', JSON.stringify(_TestShoppingListData__WEBPACK_IMPORTED_MODULE_0__["default"]));
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (addItemLocalStorage);
@@ -6166,7 +6150,6 @@ function createDOMListItem(itemText, completed) {
     const listItem = document.createElement('li');
     listItem.classList.add('list-item');
     listItem.appendChild(createItemLabel(itemText, completed));
-
 
     if (completed) {
         listItem.className = 'completed-list--item';
@@ -6400,6 +6383,42 @@ function hideShoppingList(target) {
 
 /***/ }),
 
+/***/ "./src/modules/TestShoppingListData.js":
+/*!*********************************************!*\
+  !*** ./src/modules/TestShoppingListData.js ***!
+  \*********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+const shoppingList = {
+    "Shopping List": [
+        {
+            "item": "Oranges",
+            "completed": false
+        },
+        {
+            "item": "Soda",
+            "completed": false
+        },
+        {
+            "item": "Eggs",
+            "completed": false
+        },
+        {
+            "item": "Paper Towels",
+            "completed": false
+        }
+    ]
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (shoppingList);
+
+/***/ }),
+
 /***/ "./src/modules/ToggleForm.js":
 /*!***********************************!*\
   !*** ./src/modules/ToggleForm.js ***!
@@ -6597,6 +6616,7 @@ function init() {
     // Counts the amount of items in the DOM shopping-list and append to the shopping-cart
     (0,_DisplayItemCount__WEBPACK_IMPORTED_MODULE_2__["default"])();
 
+    (0,_AddItemLocalStorage__WEBPACK_IMPORTED_MODULE_8__["default"])();
     (0,_GetItemLocalStorage__WEBPACK_IMPORTED_MODULE_9__["default"])();
 }
 
@@ -6703,4 +6723,4 @@ document.addEventListener('DOMContentLoaded', _modules_UserInterface__WEBPACK_IM
 
 /******/ })()
 ;
-//# sourceMappingURL=bundle4c546b3ec3423cd2d40a.js.map
+//# sourceMappingURL=bundle6a7b2be9d20dbbb3dd55.js.map
