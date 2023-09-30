@@ -58,7 +58,8 @@ function init() {
     shoppingLists.addEventListener('click', highlightActiveList);
 
     addItemLocalStorage();
-    displayListItems();
+    displayListItems('Default Shopping List');
+
 }
 
 

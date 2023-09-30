@@ -1,5 +1,5 @@
 const shoppingList = {
-    "Shopping List": [
+    "Default Shopping List": [
         {
             "item": "Oranges",
             "completed": false

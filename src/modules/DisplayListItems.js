@@ -1,10 +1,11 @@
 import getItemLocalStorage from "./GetItemLocalStorage";
 import createDOMListItem from "./CreateDOMListItem";
+import clearListItems from "./ClearListItems";
 
-function displayListItems() {
-    const itemsFromStorage = getItemLocalStorage();
-
-    itemsFromStorage["Shopping List"].forEach(item => {
+function displayListItems(shoppingList) {
+    const itemsFromStorage = getItemLocalStorage(shoppingList);
+    clearListItems();
+    itemsFromStorage[shoppingList].forEach(item => {
         createDOMListItem(item.item, item.completed);
     })
 }

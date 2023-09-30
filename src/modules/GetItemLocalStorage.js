@@ -1,4 +1,4 @@
-function getItemLocalStorage() {
+function getItemLocalStorage(shoppingList) {
     let itemsFromStorage;
 
     if (localStorage.getItem('shopping-list') === null) {
