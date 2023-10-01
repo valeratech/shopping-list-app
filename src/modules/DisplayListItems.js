@@ -5,7 +5,7 @@ import clearListItems from "./ClearListItems";
 function displayListItems(shoppingList) {
     clearListItems();
 
-    const itemsFromStorage = getListsItemsLocalStorage(shoppingList);
+    const itemsFromStorage = getListsItemsLocalStorage();
     itemsFromStorage[shoppingList].forEach(item => {
         createDOMListItem(item.item, item.completed);
     })

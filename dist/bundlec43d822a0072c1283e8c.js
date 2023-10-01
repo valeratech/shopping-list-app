@@ -6352,7 +6352,7 @@ __webpack_require__.r(__webpack_exports__);
 function displayListItems(shoppingList) {
     (0,_ClearListItems__WEBPACK_IMPORTED_MODULE_2__["default"])();
 
-    const itemsFromStorage = (0,_GetListsItemsLocalStorage__WEBPACK_IMPORTED_MODULE_0__["default"])(shoppingList);
+    const itemsFromStorage = (0,_GetListsItemsLocalStorage__WEBPACK_IMPORTED_MODULE_0__["default"])();
     itemsFromStorage[shoppingList].forEach(item => {
         (0,_CreateDOMListItem__WEBPACK_IMPORTED_MODULE_1__["default"])(item.item, item.completed);
     })
@@ -6469,19 +6469,36 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _DisplayListItems__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./DisplayListItems */ "./src/modules/DisplayListItems.js");
+/* harmony import */ var _RemoveActiveListClass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./RemoveActiveListClass */ "./src/modules/RemoveActiveListClass.js");
+
 
 
 function highlightActiveList(event) {
     const isListItem = event.target.classList.contains('list-name');
 
-    removeActiveListClass(isListItem);
+    (0,_RemoveActiveListClass__WEBPACK_IMPORTED_MODULE_1__["default"])(isListItem);
 
     if (isListItem) {
         event.target.classList.add('active-list');
-        (0,_DisplayListItems__WEBPACK_IMPORTED_MODULE_0__["default"])(event.target.lastChild.textContent.trim())
+        (0,_DisplayListItems__WEBPACK_IMPORTED_MODULE_0__["default"])(event.target.textContent.trim())
     };
 }
 
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (highlightActiveList);
+
+/***/ }),
+
+/***/ "./src/modules/RemoveActiveListClass.js":
+/*!**********************************************!*\
+  !*** ./src/modules/RemoveActiveListClass.js ***!
+  \**********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
 function removeActiveListClass(isListItem) {
     const lists = document.querySelectorAll('.list-name');
     lists.forEach(list => {
@@ -6491,7 +6508,7 @@ function removeActiveListClass(isListItem) {
     });
 }
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (highlightActiveList);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (removeActiveListClass);
 
 /***/ }),
 
@@ -6866,4 +6883,4 @@ document.addEventListener('DOMContentLoaded', _modules_UserInterface__WEBPACK_IM
 
 /******/ })()
 ;
-//# sourceMappingURL=bundlef817b904c7ea34257074.js.map
+//# sourceMappingURL=bundlec43d822a0072c1283e8c.js.map
