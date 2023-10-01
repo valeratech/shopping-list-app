@@ -1,13 +1,19 @@
+import removeActiveListClass from "./RemoveActiveListClass";
+import addActiveListClass from "./AddActiveListClass";
+import displayListItems from "./DisplayListItems";
+
 function addListNameDOM(name) {
     const container = document.getElementById('list-sidebar');
     const addListContainer = document.getElementById('add-list-container');
     container.insertBefore(createNewShoppingList(name), addListContainer);
+    removeActiveListClass(true);
+    addActiveListClass(addListContainer.previousElementSibling);
+    displayListItems(addListContainer.previousElementSibling.lastChild.textContent);
 }
 
 function createNewShoppingList(name) {
     const listName = document.createElement('li');
     listName.className = 'list-name';
-    console.log(createListName(name))
     listName.append(createListIcon(), createListName(name));
     return listName;
 }
