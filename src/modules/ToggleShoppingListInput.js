@@ -1,10 +1,12 @@
+import addListLocalStorage from "./AddListLocalStorage";
+
 function toggleShoppingListInput(event) {
     switch (event.target.id) {
         case "button-add-list-name":
             showShoppingListInput();
             break;
         case "button-add-list-popup":
-            console.log('Add');
+            addListLocalStorage(event.target.parentElement.parentElement.firstElementChild.value);
             hideShoppingList();
             break;
         case "button-cancel-list-popup":
