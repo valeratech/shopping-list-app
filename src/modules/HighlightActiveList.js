@@ -1,5 +1,6 @@
 import displayListItems from "./DisplayListItems";
 import removeActiveListClass from "./RemoveActiveListClass";
+import addActiveListClass from "./AddActiveListClass";
 
 function highlightActiveList(event) {
     const isListItem = event.target.classList.contains('list-name');
@@ -7,7 +8,7 @@ function highlightActiveList(event) {
     removeActiveListClass(isListItem);
 
     if (isListItem) {
-        event.target.classList.add('active-list');
+        addActiveListClass(event.target)
         displayListItems(event.target.textContent.trim())
     };
 }

@@ -6051,6 +6051,25 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./src/modules/AddActiveListClass.js":
+/*!*******************************************!*\
+  !*** ./src/modules/AddActiveListClass.js ***!
+  \*******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+function addActiveListClass(listElement) {
+    listElement.classList.add('active-list');
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (addActiveListClass);
+
+/***/ }),
+
 /***/ "./src/modules/AddItem.js":
 /*!********************************!*\
   !*** ./src/modules/AddItem.js ***!
@@ -6470,6 +6489,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _DisplayListItems__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./DisplayListItems */ "./src/modules/DisplayListItems.js");
 /* harmony import */ var _RemoveActiveListClass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./RemoveActiveListClass */ "./src/modules/RemoveActiveListClass.js");
+/* harmony import */ var _AddActiveListClass__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./AddActiveListClass */ "./src/modules/AddActiveListClass.js");
+
 
 
 
@@ -6479,8 +6500,8 @@ function highlightActiveList(event) {
     (0,_RemoveActiveListClass__WEBPACK_IMPORTED_MODULE_1__["default"])(isListItem);
 
     if (isListItem) {
-        event.target.classList.add('active-list');
-        (0,_DisplayListItems__WEBPACK_IMPORTED_MODULE_0__["default"])(event.target.textContent.trim())
+        (0,_AddActiveListClass__WEBPACK_IMPORTED_MODULE_2__["default"])(event.target)
+        ;(0,_DisplayListItems__WEBPACK_IMPORTED_MODULE_0__["default"])(event.target.textContent.trim())
     };
 }
 
@@ -6883,4 +6904,4 @@ document.addEventListener('DOMContentLoaded', _modules_UserInterface__WEBPACK_IM
 
 /******/ })()
 ;
-//# sourceMappingURL=bundlec43d822a0072c1283e8c.js.map
+//# sourceMappingURL=bundled089b70c67a155c4f373.js.map
