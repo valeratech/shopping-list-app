@@ -161,6 +161,10 @@ nav {
   color: #ffffff;
 }
 
+.list-text {
+  margin-left: 10px;
+}
+
 .add-list-name.active {
   display: inline-block;
 }

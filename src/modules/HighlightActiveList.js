@@ -1,18 +1,23 @@
 import displayListItems from "./DisplayListItems";
 
 function highlightActiveList(event) {
-    const lists = document.querySelectorAll('.list-name');
-    const isActiveClass = event.target.classList.contains('list-name');
-    lists.forEach(list => {
-        if (isActiveClass) {
-            list.classList.remove('active-list');
-        }
-    });
+    const isListItem = event.target.classList.contains('list-name');
 
-    if (isActiveClass) {
+    removeActiveListClass(isListItem);
+
+    if (isListItem) {
         event.target.classList.add('active-list');
         displayListItems(event.target.lastChild.textContent.trim())
     };
+}
+
+function removeActiveListClass(isListItem) {
+    const lists = document.querySelectorAll('.list-name');
+    lists.forEach(list => {
+        if (isListItem) {
+            list.classList.remove('active-list');
+        }
+    });
 }
 
 export default highlightActiveList;

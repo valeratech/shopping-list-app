@@ -1,5 +1,3 @@
-
-
 function filterItems(event) {
     const items = document.querySelectorAll('li');
     const textInput = event.target.value.toLowerCase();
