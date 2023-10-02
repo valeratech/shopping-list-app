@@ -1,5 +1,6 @@
 import getShoppingListLocalStorage from "./GetShoppingListLocalStorage";
 import addListNameDOM from "./AddListNameDOM";
+import setDefaultShoppingListActive from "./SetDefaultShoppingListActive";
 
 function displayShoppingLists() {
     const shoppingListsFromStorage = getShoppingListLocalStorage();
@@ -8,6 +9,7 @@ function displayShoppingLists() {
             addListNameDOM(list);
         }
     });
+    setDefaultShoppingListActive();
 }
 
 export default displayShoppingLists;
