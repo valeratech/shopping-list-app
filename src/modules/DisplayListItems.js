@@ -6,9 +6,11 @@ function displayListItems(shoppingList) {
     clearListItems();
 
     const itemsFromStorage = getListsItemsLocalStorage();
-    itemsFromStorage[shoppingList].forEach(item => {
-        createDOMListItem(item.item, item.completed);
-    })
+    if (Object.keys(itemsFromStorage).length !== 0) {
+        itemsFromStorage[shoppingList].forEach(item => {
+            createDOMListItem(item.item, item.completed);
+        })
+    }
 }
 
 export default displayListItems;

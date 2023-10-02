@@ -1,5 +1,5 @@
 import toggleForm from "./ToggleForm";
-import addListItem from "./AddItem";
+import addListItem from "./AddItemDOM";
 import displayItemCount from "./DisplayItemCount";
 import toggleItemList from "./ToggleItemList";
 import {filterItems, clearFilter} from "./FilterItems";
@@ -50,7 +50,6 @@ function init() {
     const shoppingLists = document.getElementById('list-sidebar');
     shoppingLists.addEventListener('click', highlightActiveList);
 
-    addItemLocalStorage();
     displayListItems('Default Shopping List');
     // Counts the amount of items in the DOM shopping-list and append to the shopping-cart
     displayItemCount();

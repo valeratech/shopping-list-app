@@ -15,7 +15,6 @@ function displayItemCount() {
             cart.textContent = itemCount;
         } else {
             cart.textContent = itemCount;
-            console.log(typeof itemCount)
         }
     } else if (itemCount < 100) {
         if (itemCount === 11) {
