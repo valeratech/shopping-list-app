@@ -1,6 +1,7 @@
 import removeActiveListClass from "./RemoveActiveListClass";
 import addActiveListClass from "./AddActiveListClass";
 import displayListItems from "./DisplayListItems";
+import displayItemCount from "./DisplayItemCount";
 
 function addListNameDOM(name) {
     const container = document.getElementById('list-sidebar');
@@ -9,6 +10,7 @@ function addListNameDOM(name) {
     removeActiveListClass(true);
     addActiveListClass(addListContainer.previousElementSibling);
     displayListItems(addListContainer.previousElementSibling.lastChild.textContent);
+    displayItemCount();
 }
 
 function createNewShoppingList(name) {

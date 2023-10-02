@@ -1,6 +1,7 @@
 import displayItemCount from "./DisplayItemCount";
 
 function toggleItemList(event) {
+    console.log('toggle')
     const shoppingContainer = document.querySelector('.sl-list--container');
     const completedContainer = document.querySelector('.cl-list--container');
 

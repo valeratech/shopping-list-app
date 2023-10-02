@@ -25,7 +25,6 @@ function createItemLabel(itemText, completed) {
 }
 
 function createCheckbox(completed) {
-    console.log(completed)
     const checkbox = document.createElement('input');
     checkbox.setAttribute('type', 'checkbox');
     completed ? checkbox.checked = completed : checkbox.check = completed;

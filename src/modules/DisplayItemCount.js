@@ -2,6 +2,7 @@ function displayItemCount() {
     const cart = document.querySelector('.count-cart');
 
     const itemCount = countListItems();
+    console.log(itemCount)
 
     // Clear the current cart count before appending a new count (number)
     cart.textContent = '';
@@ -9,20 +10,21 @@ function displayItemCount() {
     if (itemCount === 0) {
         cart.classList.add('hide')
     } else if (itemCount < 10) {
+        cart.classList.remove('hide')
         if (itemCount === 1) {
-            cart.appendChild(document.createTextNode(itemCount));
-            cart.classList.remove('hide')
+            cart.textContent = itemCount;
         } else {
-            cart.appendChild(document.createTextNode(itemCount));
+            cart.textContent = itemCount;
+            console.log(typeof itemCount)
         }
     } else if (itemCount < 100) {
         if (itemCount === 11) {
-            cart.appendChild(document.createTextNode(itemCount));
+            cart.textContent = itemCount;
         } else {
-            cart.appendChild(document.createTextNode(itemCount));
+            cart.textContent = itemCount;
         }
     } else {
-        cart.appendChild(document.createTextNode(itemCount));
+        cart.textContent = itemCount;
     }
 }
 

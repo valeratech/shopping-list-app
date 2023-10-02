@@ -46,14 +46,14 @@ function init() {
     const menu = document.getElementById('menu-list');
     menu.addEventListener('change', toggleSideBarMenu);
 
-    // Counts the amount of items in the DOM shopping-list and append to the shopping-cart
-    displayItemCount();
 
     const shoppingLists = document.getElementById('list-sidebar');
     shoppingLists.addEventListener('click', highlightActiveList);
 
     addItemLocalStorage();
     displayListItems('Default Shopping List');
+    // Counts the amount of items in the DOM shopping-list and append to the shopping-cart
+    displayItemCount();
 
 }
 
