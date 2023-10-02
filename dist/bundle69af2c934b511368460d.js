@@ -6414,6 +6414,35 @@ function displayListItems(shoppingList) {
 
 /***/ }),
 
+/***/ "./src/modules/DisplayShoppingLists.js":
+/*!*********************************************!*\
+  !*** ./src/modules/DisplayShoppingLists.js ***!
+  \*********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _GetShoppingListLocalStorage__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./GetShoppingListLocalStorage */ "./src/modules/GetShoppingListLocalStorage.js");
+/* harmony import */ var _AddListNameDOM__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AddListNameDOM */ "./src/modules/AddListNameDOM.js");
+
+
+
+function displayShoppingLists() {
+    const shoppingListsFromStorage = (0,_GetShoppingListLocalStorage__WEBPACK_IMPORTED_MODULE_0__["default"])();
+    Object.keys(shoppingListsFromStorage).forEach(list => {
+        if (list !== 'Default Shopping List') {
+            (0,_AddListNameDOM__WEBPACK_IMPORTED_MODULE_1__["default"])(list);
+        }
+    });
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (displayShoppingLists);
+
+/***/ }),
+
 /***/ "./src/modules/FilterItems.js":
 /*!************************************!*\
   !*** ./src/modules/FilterItems.js ***!
@@ -6532,6 +6561,26 @@ function getListsItemsLocalStorage() {
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (getListsItemsLocalStorage);
 
 
+
+/***/ }),
+
+/***/ "./src/modules/GetShoppingListLocalStorage.js":
+/*!****************************************************!*\
+  !*** ./src/modules/GetShoppingListLocalStorage.js ***!
+  \****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+function getShoppingListLocalStorage() {
+    const shoppingListsFromStorage = JSON.parse(localStorage.getItem('shopping-list'));
+    return shoppingListsFromStorage
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (getShoppingListLocalStorage);
 
 /***/ }),
 
@@ -6805,6 +6854,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _AddItemLocalStorage__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./AddItemLocalStorage */ "./src/modules/AddItemLocalStorage.js");
 /* harmony import */ var _DisplayListItems__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./DisplayListItems */ "./src/modules/DisplayListItems.js");
 /* harmony import */ var _HighlightActiveList__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./HighlightActiveList */ "./src/modules/HighlightActiveList.js");
+/* harmony import */ var _DisplayShoppingLists__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./DisplayShoppingLists */ "./src/modules/DisplayShoppingLists.js");
+
 
 
 
@@ -6857,10 +6908,10 @@ function init() {
     const shoppingLists = document.getElementById('list-sidebar');
     shoppingLists.addEventListener('click', _HighlightActiveList__WEBPACK_IMPORTED_MODULE_9__["default"]);
 
+    (0,_DisplayShoppingLists__WEBPACK_IMPORTED_MODULE_10__["default"])();
     (0,_DisplayListItems__WEBPACK_IMPORTED_MODULE_8__["default"])('Default Shopping List');
     // Counts the amount of items in the DOM shopping-list and append to the shopping-cart
     (0,_DisplayItemCount__WEBPACK_IMPORTED_MODULE_2__["default"])();
-
 }
 
 
@@ -6966,4 +7017,4 @@ document.addEventListener('DOMContentLoaded', _modules_UserInterface__WEBPACK_IM
 
 /******/ })()
 ;
-//# sourceMappingURL=bundle6c79572ede4c523bdf5a.js.map
+//# sourceMappingURL=bundle69af2c934b511368460d.js.map

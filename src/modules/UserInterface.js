@@ -8,6 +8,7 @@ import toggleSideBarMenu from "./ToggleSideBarMenu";
 import addItemLocalStorage from "./AddItemLocalStorage";
 import displayListItems from "./DisplayListItems";
 import highlightActiveList from "./HighlightActiveList";
+import displayShoppingLists from "./DisplayShoppingLists";
 
 function userInterface() {
     init();
@@ -50,10 +51,10 @@ function init() {
     const shoppingLists = document.getElementById('list-sidebar');
     shoppingLists.addEventListener('click', highlightActiveList);
 
+    displayShoppingLists();
     displayListItems('Default Shopping List');
     // Counts the amount of items in the DOM shopping-list and append to the shopping-cart
     displayItemCount();
-
 }
 
 
