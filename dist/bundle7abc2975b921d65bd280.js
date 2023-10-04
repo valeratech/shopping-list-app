@@ -6125,11 +6125,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _TestShoppingListData__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./TestShoppingListData */ "./src/modules/TestShoppingListData.js");
 /* harmony import */ var _GetListsItemsLocalStorage__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./GetListsItemsLocalStorage */ "./src/modules/GetListsItemsLocalStorage.js");
+/* harmony import */ var _DisplayItemCount__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./DisplayItemCount */ "./src/modules/DisplayItemCount.js");
+
 
 
 
 function addItemLocalStorage(shoppingList, item, completed) {
-    console.log(shoppingList)
     const itemsFromStorage = (0,_GetListsItemsLocalStorage__WEBPACK_IMPORTED_MODULE_1__["default"])();
     const newItem = {
         item,
@@ -6143,6 +6144,7 @@ function addItemLocalStorage(shoppingList, item, completed) {
     }
 
     localStorage.setItem('shopping-list', JSON.stringify(itemsFromStorage));
+    (0,_DisplayItemCount__WEBPACK_IMPORTED_MODULE_2__["default"])();
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (addItemLocalStorage);
@@ -6332,6 +6334,31 @@ function createItemText(itemText) {
 
 /***/ }),
 
+/***/ "./src/modules/CreateDefaultShoppingList.js":
+/*!**************************************************!*\
+  !*** ./src/modules/CreateDefaultShoppingList.js ***!
+  \**************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _TestShoppingListData__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./TestShoppingListData */ "./src/modules/TestShoppingListData.js");
+
+
+function createDefaultShoppingList() {
+    const shoppingListsFromStorage = JSON.parse(localStorage.getItem('shopping-list'));
+    if (shoppingListsFromStorage === null) {
+        localStorage.setItem('shopping-list', JSON.stringify(_TestShoppingListData__WEBPACK_IMPORTED_MODULE_0__["default"]));
+    }
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (createDefaultShoppingList);
+
+/***/ }),
+
 /***/ "./src/modules/DisplayItemCount.js":
 /*!*****************************************!*\
   !*** ./src/modules/DisplayItemCount.js ***!
@@ -6401,11 +6428,12 @@ __webpack_require__.r(__webpack_exports__);
 
 function displayListItems(shoppingList) {
     (0,_ClearListItems__WEBPACK_IMPORTED_MODULE_2__["default"])();
-
     const itemsFromStorage = (0,_GetListsItemsLocalStorage__WEBPACK_IMPORTED_MODULE_0__["default"])();
+    console.log(itemsFromStorage)
     if (Object.keys(itemsFromStorage).length !== 0) {
+        console.log(itemsFromStorage[shoppingList])
         itemsFromStorage[shoppingList].forEach(item => {
-            (0,_CreateDOMListItem__WEBPACK_IMPORTED_MODULE_1__["default"])(item.item, item.completed);
+            ;(0,_CreateDOMListItem__WEBPACK_IMPORTED_MODULE_1__["default"])(item.item, item.completed);
         })
     }
 }
@@ -6882,6 +6910,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _DisplayListItems__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./DisplayListItems */ "./src/modules/DisplayListItems.js");
 /* harmony import */ var _HighlightActiveList__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./HighlightActiveList */ "./src/modules/HighlightActiveList.js");
 /* harmony import */ var _DisplayShoppingLists__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./DisplayShoppingLists */ "./src/modules/DisplayShoppingLists.js");
+/* harmony import */ var _CreateDefaultShoppingList__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./CreateDefaultShoppingList */ "./src/modules/CreateDefaultShoppingList.js");
+
 
 
 
@@ -6935,6 +6965,7 @@ function init() {
     const shoppingLists = document.getElementById('list-sidebar');
     shoppingLists.addEventListener('click', _HighlightActiveList__WEBPACK_IMPORTED_MODULE_9__["default"]);
 
+    (0,_CreateDefaultShoppingList__WEBPACK_IMPORTED_MODULE_11__["default"])();
     (0,_DisplayShoppingLists__WEBPACK_IMPORTED_MODULE_10__["default"])();
     (0,_DisplayListItems__WEBPACK_IMPORTED_MODULE_8__["default"])('Default Shopping List');
     // Counts the amount of items in the DOM shopping-list and append to the shopping-cart
@@ -7044,4 +7075,4 @@ document.addEventListener('DOMContentLoaded', _modules_UserInterface__WEBPACK_IM
 
 /******/ })()
 ;
-//# sourceMappingURL=bundle0781ed98ad9cbeef9bea.js.map
+//# sourceMappingURL=bundle7abc2975b921d65bd280.js.map

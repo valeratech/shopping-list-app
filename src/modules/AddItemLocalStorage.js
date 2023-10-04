@@ -1,8 +1,8 @@
 import shoppingList from "./TestShoppingListData";
 import getListsItemsLocalStorage from "./GetListsItemsLocalStorage";
+import displayItemCount from "./DisplayItemCount";
 
 function addItemLocalStorage(shoppingList, item, completed) {
-    console.log(shoppingList)
     const itemsFromStorage = getListsItemsLocalStorage();
     const newItem = {
         item,
@@ -16,6 +16,7 @@ function addItemLocalStorage(shoppingList, item, completed) {
     }
 
     localStorage.setItem('shopping-list', JSON.stringify(itemsFromStorage));
+    displayItemCount();
 }
 
 export default addItemLocalStorage;
