@@ -33,7 +33,6 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 30px;
     background-color: #ffffff;
 }
 
@@ -86,6 +85,7 @@ aside {
     transition: all .05s ease;
     width: 50px;
     height: 50px;
+    top: 25px;
     left: 28px;
     z-index: 999;
 }
@@ -122,8 +122,11 @@ nav {
 }
 
 #list-sidebar {
-    padding: 70px 30px 30px;
+    background-color: #e7e7e7;
+    padding: 90px 30px 30px;
     position: absolute;
+    border-radius: 0 15px 15px 0;
+    box-shadow: 10px 10px 10px -6px #828282;
     z-index: 1;
 }
 
@@ -208,7 +211,6 @@ nav {
     border: solid #f4f401;
     box-shadow: 10px 5px 5px #b8b8b8;
 }
-
 
 .card h2 {
     font-size: 22px;
