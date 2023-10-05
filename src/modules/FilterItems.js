@@ -1,7 +1,6 @@
 function filterItems(event) {
-    const items = document.querySelectorAll('li');
+    const items = document.querySelectorAll('.list-item');
     const textInput = event.target.value.toLowerCase();
-
     toggleFilterClass(items, textInput);
 }
 
@@ -30,19 +29,24 @@ function toggleClearFilterBtn(text) {
 }
 
 function clearFilter(event) {
-    const items = document.querySelectorAll('li');
-    console.log(event.target.parentElement.firstElementChild)
-    if (event.target.parentElement.firstElementChild.classList.contains('filter-input')) {
-        const textInput = event.target.parentElement.firstElementChild.value = '';
-        toggleClearFilterBtn(event.target.parentElement.firstElementChild.value);
+    const items = document.querySelectorAll('.list-item');
+    const buttonLayer = event.target.parentElement.firstElementChild
+    const svgLayer = event.target.parentElement.parentElement.firstElementChild;
+    const pathLayer = event.target.parentElement.parentElement.parentElement.firstElementChild;
+
+    // The clear-filter button has 3 different layers that make up the clear-filter-button (<i> after rendered)
+    // 3 conditionals statements are needed/created to execute the clear function: <button>/<svg>/<path>
+    if (buttonLayer.classList.contains('filter-input')) {
+        const textInput = buttonLayer.value = '';
+        toggleClearFilterBtn(textInput);
         toggleFilterClass(items, textInput);
-    } else if (event.target.parentElement.parentElement.firstElementChild.classList.contains('filter-input')) {
-        const textInput = event.target.parentElement.parentElement.firstElementChild.value = '';
-        toggleClearFilterBtn(event.target.parentElement.parentElement.firstElementChild.value);
+    } else if (svgLayer.classList.contains('filter-input')) {
+        const textInput = svgLayer.value = '';
+        toggleClearFilterBtn(textInput);
         toggleFilterClass(items, textInput);
-    } else if (event.target.parentElement.parentElement.parentElement.firstElementChild.classList.contains('filter-input')) {
-        const textInput = event.target.parentElement.parentElement.parentElement.firstElementChild.value = '';
-        toggleClearFilterBtn(event.target.parentElement.parentElement.parentElement.firstElementChild.value);
+    } else if (pathLayer.classList.contains('filter-input')) {
+        const textInput = pathLayer.value = '';
+        toggleClearFilterBtn(textInput);
         toggleFilterClass(items, textInput);
     }
 }
