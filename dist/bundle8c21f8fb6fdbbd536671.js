@@ -6518,12 +6518,13 @@ function toggleClearFilterBtn(text) {
 
 function clearFilter(event) {
     const items = document.querySelectorAll('.list-item');
+
     const buttonLayer = event.target.parentElement.firstElementChild
     const svgLayer = event.target.parentElement.parentElement.firstElementChild;
     const pathLayer = event.target.parentElement.parentElement.parentElement.firstElementChild;
 
     // The clear-filter button has 3 different layers that make up the clear-filter-button (<i> after rendered)
-    // 3 conditionals statements are needed/created to execute the clear function: <button>/<svg>/<path>
+    // 3 conditionals statements are needed/created to execute the clear function (onclick): <button>/<svg>/<path>
     if (buttonLayer.classList.contains('filter-input')) {
         const textInput = buttonLayer.value = '';
         toggleClearFilterBtn(textInput);
@@ -6845,10 +6846,11 @@ function toggleShoppingListInput(event) {
         case "button-add-list-popup":
             (0,_AddListLocalStorage__WEBPACK_IMPORTED_MODULE_0__["default"])(listName);
             (0,_AddListNameDOM__WEBPACK_IMPORTED_MODULE_1__["default"])(listName);
+            clearShoppingListInput();
             hideShoppingList();
             break;
         case "button-cancel-list-popup":
-            console.log('Cancel');
+            clearShoppingListInput();
             hideShoppingList();
             break;
     }
@@ -6862,6 +6864,10 @@ function showShoppingListInput() {
 function hideShoppingList() {
     document.querySelector('.add-list-name').classList.add('active');
     document.querySelector('.add-list-popup').classList.remove('active');
+}
+
+function clearShoppingListInput() {
+    document.getElementById('input-add-list-popup').value = '';
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (toggleShoppingListInput);
@@ -7079,4 +7085,4 @@ document.addEventListener('DOMContentLoaded', _modules_UserInterface__WEBPACK_IM
 
 /******/ })()
 ;
-//# sourceMappingURL=bundle39201ca76a3e2474f45e.js.map
+//# sourceMappingURL=bundle8c21f8fb6fdbbd536671.js.map

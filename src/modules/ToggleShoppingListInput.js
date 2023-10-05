@@ -10,10 +10,11 @@ function toggleShoppingListInput(event) {
         case "button-add-list-popup":
             addListLocalStorage(listName);
             addListNameDOM(listName);
+            clearShoppingListInput();
             hideShoppingList();
             break;
         case "button-cancel-list-popup":
-            console.log('Cancel');
+            clearShoppingListInput();
             hideShoppingList();
             break;
     }
@@ -27,6 +28,10 @@ function showShoppingListInput() {
 function hideShoppingList() {
     document.querySelector('.add-list-name').classList.add('active');
     document.querySelector('.add-list-popup').classList.remove('active');
+}
+
+function clearShoppingListInput() {
+    document.getElementById('input-add-list-popup').value = '';
 }
 
 export default toggleShoppingListInput;

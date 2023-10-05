@@ -30,12 +30,13 @@ function toggleClearFilterBtn(text) {
 
 function clearFilter(event) {
     const items = document.querySelectorAll('.list-item');
+
     const buttonLayer = event.target.parentElement.firstElementChild
     const svgLayer = event.target.parentElement.parentElement.firstElementChild;
     const pathLayer = event.target.parentElement.parentElement.parentElement.firstElementChild;
 
     // The clear-filter button has 3 different layers that make up the clear-filter-button (<i> after rendered)
-    // 3 conditionals statements are needed/created to execute the clear function: <button>/<svg>/<path>
+    // 3 conditionals statements are needed/created to execute the clear function (onclick): <button>/<svg>/<path>
     if (buttonLayer.classList.contains('filter-input')) {
         const textInput = buttonLayer.value = '';
         toggleClearFilterBtn(textInput);
