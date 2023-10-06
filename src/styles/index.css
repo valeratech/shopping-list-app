@@ -36,6 +36,9 @@ header {
     background-color: #ffffff;
 }
 
+#main-heading {
+    margin-top: 50px;
+}
 
 .form-input {
     display: flex;
