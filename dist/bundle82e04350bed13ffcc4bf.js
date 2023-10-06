@@ -6194,6 +6194,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _AddActiveListClass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AddActiveListClass */ "./src/modules/AddActiveListClass.js");
 /* harmony import */ var _DisplayListItems__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./DisplayListItems */ "./src/modules/DisplayListItems.js");
 /* harmony import */ var _DisplayItemCount__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./DisplayItemCount */ "./src/modules/DisplayItemCount.js");
+/* harmony import */ var _UpdateMainHeading__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./UpdateMainHeading */ "./src/modules/UpdateMainHeading.js");
+
 
 
 
@@ -6207,6 +6209,7 @@ function addListNameDOM(name) {
     (0,_AddActiveListClass__WEBPACK_IMPORTED_MODULE_1__["default"])(addListContainer.previousElementSibling);
     (0,_DisplayListItems__WEBPACK_IMPORTED_MODULE_2__["default"])(addListContainer.previousElementSibling.lastChild.textContent);
     (0,_DisplayItemCount__WEBPACK_IMPORTED_MODULE_3__["default"])();
+    (0,_UpdateMainHeading__WEBPACK_IMPORTED_MODULE_4__["default"])(name);
 }
 
 function createNewShoppingList(name) {
@@ -6633,20 +6636,26 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _RemoveActiveListClass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./RemoveActiveListClass */ "./src/modules/RemoveActiveListClass.js");
 /* harmony import */ var _AddActiveListClass__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./AddActiveListClass */ "./src/modules/AddActiveListClass.js");
 /* harmony import */ var _DisplayItemCount__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./DisplayItemCount */ "./src/modules/DisplayItemCount.js");
+/* harmony import */ var _UpdateMainHeading__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./UpdateMainHeading */ "./src/modules/UpdateMainHeading.js");
+
 
 
 
 
 
 function highlightActiveList(event) {
-    const isListItem = event.target.classList.contains('list-name');
+
+    const shoppingListName = event.target;
+
+    const isListItem = shoppingListName.classList.contains('list-name');
 
     (0,_RemoveActiveListClass__WEBPACK_IMPORTED_MODULE_1__["default"])(isListItem);
-
     if (isListItem) {
-        (0,_AddActiveListClass__WEBPACK_IMPORTED_MODULE_2__["default"])(event.target)
-        ;(0,_DisplayListItems__WEBPACK_IMPORTED_MODULE_0__["default"])(event.target.textContent.trim())
+        (0,_AddActiveListClass__WEBPACK_IMPORTED_MODULE_2__["default"])(shoppingListName);
+        (0,_DisplayListItems__WEBPACK_IMPORTED_MODULE_0__["default"])(shoppingListName.textContent.trim());
+        (0,_UpdateMainHeading__WEBPACK_IMPORTED_MODULE_4__["default"])(shoppingListName.textContent.trim());
     };
+
     (0,_DisplayItemCount__WEBPACK_IMPORTED_MODULE_3__["default"])();
 }
 
@@ -6937,6 +6946,27 @@ function updateItemLocalStorage(event) {
 
 /***/ }),
 
+/***/ "./src/modules/UpdateMainHeading.js":
+/*!******************************************!*\
+  !*** ./src/modules/UpdateMainHeading.js ***!
+  \******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+function updateMainHeading(heading) {
+    console.log(typeof heading);
+    const mainHeading = document.getElementById('main-heading');
+    mainHeading.textContent = heading;
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (updateMainHeading);
+
+/***/ }),
+
 /***/ "./src/modules/UserInterface.js":
 /*!**************************************!*\
   !*** ./src/modules/UserInterface.js ***!
@@ -6978,38 +7008,25 @@ function userInterface() {
 }
 
 function init() {
-    // Listen for clicks on the nested button elements 'add-item' and 'cancel-form'
+
     const formContainer = document.querySelector('.form-container');
     formContainer.addEventListener('click', _ToggleForm__WEBPACK_IMPORTED_MODULE_0__["default"]);
-    // ['click', 'keyup'].forEach(event => formContainer.addEventListener(event, toggleForm));
-
-    // EDIT LATER
-    // const addItemForm = document.getElementById('add-item-form');
-
-    // Listen for a 'keyup' record the value from the add-item textbox
     formContainer.addEventListener('keyup', _AddItemDOM__WEBPACK_IMPORTED_MODULE_1__["default"]);
 
-    // Check if a shopping/completed list checkbox is checked or unchecked
     const listContainers = document.querySelector('.lists-container');
     listContainers.addEventListener('change', _ToggleItemList__WEBPACK_IMPORTED_MODULE_3__["default"]);
 
-    // Filter items on each 'keydown' stroke from the text-input box
     const filter = document.getElementById('filter');
     filter.addEventListener('input', _FilterItems__WEBPACK_IMPORTED_MODULE_4__.filterItems);
 
-    // Clear the filter contents of the text-input box by clicking the 'x' icon
     const clearFilterBtn = document.querySelector('.clear-filter');
     clearFilterBtn.addEventListener('click', _FilterItems__WEBPACK_IMPORTED_MODULE_4__.clearFilter);
 
-    // Add separate shopping-lists by name which will contain the individual items added
     const addShoppingListBtn = document.getElementById('add-list-container');
     addShoppingListBtn.addEventListener('click', _ToggleShoppingListInput__WEBPACK_IMPORTED_MODULE_5__["default"]);
 
-
-    // Toggle the sidebar menu by listening for a change which displays the shopping-lists/names
     const menu = document.getElementById('menu-list');
     menu.addEventListener('change', _ToggleSideBarMenu__WEBPACK_IMPORTED_MODULE_6__["default"]);
-
 
     const shoppingLists = document.getElementById('list-sidebar');
     shoppingLists.addEventListener('click', _HighlightActiveList__WEBPACK_IMPORTED_MODULE_9__["default"]);
@@ -7017,7 +7034,6 @@ function init() {
     (0,_CreateDefaultShoppingList__WEBPACK_IMPORTED_MODULE_11__["default"])();
     (0,_DisplayShoppingLists__WEBPACK_IMPORTED_MODULE_10__["default"])();
     (0,_DisplayListItems__WEBPACK_IMPORTED_MODULE_8__["default"])('Default Shopping List');
-    // Counts the amount of items in the DOM shopping-list and append to the shopping-cart
     (0,_DisplayItemCount__WEBPACK_IMPORTED_MODULE_2__["default"])();
 }
 
@@ -7124,4 +7140,4 @@ document.addEventListener('DOMContentLoaded', _modules_UserInterface__WEBPACK_IM
 
 /******/ })()
 ;
-//# sourceMappingURL=bundle85fb0d645dd79b75ec2a.js.map
+//# sourceMappingURL=bundle82e04350bed13ffcc4bf.js.map
