@@ -6374,7 +6374,6 @@ function displayItemCount() {
     const cart = document.querySelector('.count-cart');
 
     const itemCount = countListItems();
-    console.log(itemCount)
 
     // Clear the current cart count before appending a new count (number)
     cart.textContent = '';
@@ -6429,11 +6428,10 @@ __webpack_require__.r(__webpack_exports__);
 function displayListItems(shoppingList) {
     (0,_ClearListItems__WEBPACK_IMPORTED_MODULE_2__["default"])();
     const itemsFromStorage = (0,_GetListsItemsLocalStorage__WEBPACK_IMPORTED_MODULE_0__["default"])();
-    console.log(itemsFromStorage)
+
     if (Object.keys(itemsFromStorage).length !== 0) {
-        console.log(itemsFromStorage[shoppingList])
         itemsFromStorage[shoppingList].forEach(item => {
-            ;(0,_CreateDOMListItem__WEBPACK_IMPORTED_MODULE_1__["default"])(item.item, item.completed);
+            (0,_CreateDOMListItem__WEBPACK_IMPORTED_MODULE_1__["default"])(item.item, item.completed);
         })
     }
 }
@@ -6791,22 +6789,24 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _DisplayItemCount__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./DisplayItemCount */ "./src/modules/DisplayItemCount.js");
+/* harmony import */ var _UpdateItemLocalStorage__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./UpdateItemLocalStorage */ "./src/modules/UpdateItemLocalStorage.js");
+
 
 
 function toggleItemList(event) {
-    console.log('toggle')
     const shoppingContainer = document.querySelector('.sl-list--container');
     const completedContainer = document.querySelector('.cl-list--container');
 
-    const listItem = event.target.parentElement.parentElement
+    const listItem = event.target.parentElement.parentElement;
 
-   if (event.target.checked) {
+    if (event.target.checked) {
        toggleClassName(listItem, 'completed-list--item', 'shopping-list--item');
        completedContainer.insertBefore(listItem, completedContainer.firstChild);
-   } else {
+    } else {
        toggleClassName(listItem, 'shopping-list--item', 'completed-list--item');
        shoppingContainer.appendChild(listItem);
-   }
+    }
+    (0,_UpdateItemLocalStorage__WEBPACK_IMPORTED_MODULE_1__["default"])(event);
     (0,_DisplayItemCount__WEBPACK_IMPORTED_MODULE_0__["default"])();
 }
 
@@ -6891,10 +6891,49 @@ function toggleSideBarMenu(event) {
         listSidebar.classList.remove('hide');
     } else {
         listSidebar.classList.add('hide');
+        listSidebar.style.transition = 'transition: all 5s';
     }
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (toggleSideBarMenu);
+
+/***/ }),
+
+/***/ "./src/modules/UpdateItemLocalStorage.js":
+/*!***********************************************!*\
+  !*** ./src/modules/UpdateItemLocalStorage.js ***!
+  \***********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _GetListsItemsLocalStorage__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./GetListsItemsLocalStorage */ "./src/modules/GetListsItemsLocalStorage.js");
+/* harmony import */ var _GetActiveShoppingList__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./GetActiveShoppingList */ "./src/modules/GetActiveShoppingList.js");
+
+
+
+function updateItemLocalStorage(event) {
+    const listsItemsStorage = (0,_GetListsItemsLocalStorage__WEBPACK_IMPORTED_MODULE_0__["default"])();
+    const activeList = (0,_GetActiveShoppingList__WEBPACK_IMPORTED_MODULE_1__["default"])();
+    const shoppingList = listsItemsStorage[activeList];
+    const item = event.target.nextSibling.nextSibling;
+
+    let x = 0;
+    while (x !== shoppingList.length) {
+        // Loop through to get to the selected item and update the 'completed' boolean key
+        if (shoppingList[x].item === item.textContent) {
+            listsItemsStorage[activeList][x]['completed'] = !shoppingList[x]['completed'];
+            localStorage.setItem('shopping-list', JSON.stringify(listsItemsStorage));
+        }
+        x++
+    }
+
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (updateItemLocalStorage);
 
 /***/ }),
 
@@ -7085,4 +7124,4 @@ document.addEventListener('DOMContentLoaded', _modules_UserInterface__WEBPACK_IM
 
 /******/ })()
 ;
-//# sourceMappingURL=bundle8c21f8fb6fdbbd536671.js.map
+//# sourceMappingURL=bundle85fb0d645dd79b75ec2a.js.map

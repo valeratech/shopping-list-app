@@ -4,6 +4,7 @@ function toggleSideBarMenu(event) {
         listSidebar.classList.remove('hide');
     } else {
         listSidebar.classList.add('hide');
+        listSidebar.style.transition = 'transition: all 5s';
     }
 }
 
