@@ -1,7 +1,9 @@
 import displayItemCount from "./DisplayItemCount";
 import updateItemLocalStorage from "./UpdateItemLocalStorage";
+import clearListItems from "./ClearListItems";
 
 function toggleItemList(event) {
+    clearListItems();
     const shoppingContainer = document.querySelector('.sl-list--container');
     const completedContainer = document.querySelector('.cl-list--container');
 
@@ -18,9 +20,9 @@ function toggleItemList(event) {
     displayItemCount();
 }
 
-function toggleClassName(item, add, remove) {
-    item.classList.remove(remove);
-    item.classList.add(add);
+function toggleClassName(item, classNameAdd, classNameRemove) {
+    item.classList.remove(classNameRemove);
+    item.classList.add(classNameAdd);
 }
 
 

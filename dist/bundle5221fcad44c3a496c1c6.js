@@ -6312,8 +6312,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 function clearListItems() {
-    const listItems = document.querySelectorAll('.list-item');
-    listItems.forEach(item => item.remove());
+    removeAllChildren('.sl-list--container');
+    removeAllChildren('.cl-list--container');
+}
+
+function removeAllChildren(containerClassName) {
+    const parent = document.querySelector(containerClassName);
+    let child = parent.lastChild;
+    while(child) {
+        parent.removeChild(child);
+        child = parent.lastChild;
+    }
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (clearListItems);
@@ -6843,10 +6852,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _DisplayItemCount__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./DisplayItemCount */ "./src/modules/DisplayItemCount.js");
 /* harmony import */ var _UpdateItemLocalStorage__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./UpdateItemLocalStorage */ "./src/modules/UpdateItemLocalStorage.js");
+/* harmony import */ var _ClearListItems__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ClearListItems */ "./src/modules/ClearListItems.js");
+
 
 
 
 function toggleItemList(event) {
+    (0,_ClearListItems__WEBPACK_IMPORTED_MODULE_2__["default"])();
     const shoppingContainer = document.querySelector('.sl-list--container');
     const completedContainer = document.querySelector('.cl-list--container');
 
@@ -6863,9 +6875,9 @@ function toggleItemList(event) {
     (0,_DisplayItemCount__WEBPACK_IMPORTED_MODULE_0__["default"])();
 }
 
-function toggleClassName(item, add, remove) {
-    item.classList.remove(remove);
-    item.classList.add(add);
+function toggleClassName(item, classNameAdd, classNameRemove) {
+    item.classList.remove(classNameRemove);
+    item.classList.add(classNameAdd);
 }
 
 
@@ -7187,4 +7199,4 @@ document.addEventListener('DOMContentLoaded', _modules_UserInterface__WEBPACK_IM
 
 /******/ })()
 ;
-//# sourceMappingURL=bundlef1e7a5215f294ae510bb.js.map
+//# sourceMappingURL=bundle5221fcad44c3a496c1c6.js.map
