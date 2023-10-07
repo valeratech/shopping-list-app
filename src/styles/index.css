@@ -233,7 +233,7 @@ h3 {
     font-size: 19px;
     border-bottom: 1px #cccccc solid;
     transition: 0.3s;
-    padding: 20px;
+    padding: 25px 20px;
 }
 
 .filter-input {
@@ -356,7 +356,6 @@ input:focus {
     display: block;
     position: relative;
     padding-left: 35px;
-    margin-bottom: 12px;
     cursor: pointer;
     font-size: 22px;
     -webkit-user-select: none;

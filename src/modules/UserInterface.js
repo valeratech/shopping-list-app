@@ -10,6 +10,7 @@ import displayListItems from "./DisplayListItems";
 import highlightActiveList from "./HighlightActiveList";
 import displayShoppingLists from "./DisplayShoppingLists";
 import createDefaultShoppingList from "./CreateDefaultShoppingList";
+import checkForListItems from "./CheckForListItems";
 
 function userInterface() {
     init();
@@ -42,6 +43,7 @@ function init() {
     createDefaultShoppingList();
     displayShoppingLists();
     displayListItems('Default Shopping List');
+    checkForListItems();
     displayItemCount();
 }
 
