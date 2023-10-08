@@ -7,20 +7,21 @@ import displayZeroItemsMessage from "./DisplayZeroItemsMessage";
 
 
 function toggleActiveShoppingList(event) {
-
     const shoppingListName = event.target;
-
+    console.log(shoppingListName);
+    // Create a Boolean to make sure the onClick event is referencing the correct element (shopping-list-container)
     const isListItem = shoppingListName.classList.contains('list-name');
 
     removeActiveListClass(isListItem);
+    // If 'isListItem' is true then popuate the shopping and completed lists
     if (isListItem) {
         addActiveListClass(shoppingListName);
         displayListItems(shoppingListName.textContent.trim());
         updateMainHeading(shoppingListName.textContent.trim());
+        displayZeroItemsMessage();
     };
 
     displayItemCount();
-    displayZeroItemsMessage();
 }
 
 export default toggleActiveShoppingList;

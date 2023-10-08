@@ -1,5 +1,6 @@
 import displayItemCount from "./DisplayItemCount";
 import updateItemLocalStorage from "./UpdateItemLocalStorage";
+import displayZeroItemsMessage from "./DisplayZeroItemsMessage";
 
 function toggleItemList(event) {
     const shoppingContainer = document.querySelector('.sl-list--container');
@@ -16,6 +17,7 @@ function toggleItemList(event) {
     }
     updateItemLocalStorage(event);
     displayItemCount();
+    displayZeroItemsMessage();
 }
 
 function toggleClassName(item, classNameAdd, classNameRemove) {

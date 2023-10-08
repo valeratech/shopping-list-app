@@ -6513,7 +6513,10 @@ function checkShoppingList() {
     const slContainer = document.querySelector('.sl-list--container');
     if (slContainer.firstChild === null) {
         slContainer.appendChild(zeroListItemsMessage('Add items to your shopping-list'));
-    };
+    } else if (slContainer.firstElementChild.textContent === 'Add items to your shopping-list') {
+        slContainer.removeChild(slContainer.firstElementChild);
+    }
+    console.log(slContainer.firstElementChild.textContent)
 }
 
 function checkCompletedList() {
@@ -6521,7 +6524,10 @@ function checkCompletedList() {
     const clContainer = document.querySelector('.cl-list--container');
     if (clContainer.firstChild === null) {
         clContainer.appendChild(zeroListItemsMessage('No completed items'));
-    };
+    } else if (clContainer.lastElementChild.textContent === 'No completed items') {
+        clContainer.removeChild(clContainer.lastElementChild);
+    }
+    console.log(clContainer.lastElementChild.textContent)
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (displayZeroItemsMessage);
@@ -6789,30 +6795,31 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function toggleActiveShoppingList(event) {
-
     const shoppingListName = event.target;
-
+    console.log(shoppingListName);
+    // Create a Boolean to make sure the onClick event is referencing the correct element (shopping-list-container)
     const isListItem = shoppingListName.classList.contains('list-name');
 
     (0,_RemoveActiveListClass__WEBPACK_IMPORTED_MODULE_1__["default"])(isListItem);
+    // If 'isListItem' is true then popuate the shopping and completed lists
     if (isListItem) {
         (0,_AddActiveListClass__WEBPACK_IMPORTED_MODULE_2__["default"])(shoppingListName);
         (0,_DisplayListItems__WEBPACK_IMPORTED_MODULE_0__["default"])(shoppingListName.textContent.trim());
         (0,_UpdateMainHeading__WEBPACK_IMPORTED_MODULE_4__["default"])(shoppingListName.textContent.trim());
+        (0,_DisplayZeroItemsMessage__WEBPACK_IMPORTED_MODULE_5__["default"])();
     };
 
     (0,_DisplayItemCount__WEBPACK_IMPORTED_MODULE_3__["default"])();
-    (0,_DisplayZeroItemsMessage__WEBPACK_IMPORTED_MODULE_5__["default"])();
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (toggleActiveShoppingList);
 
 /***/ }),
 
-/***/ "./src/modules/ToggleForm.js":
-/*!***********************************!*\
-  !*** ./src/modules/ToggleForm.js ***!
-  \***********************************/
+/***/ "./src/modules/ToggleAddItemForm.js":
+/*!******************************************!*\
+  !*** ./src/modules/ToggleAddItemForm.js ***!
+  \******************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -6823,7 +6830,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ClearFormValue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ClearFormValue */ "./src/modules/ClearFormValue.js");
 
 
-function toggleForm(event) {
+function toggleAddItemForm(event) {
     event.preventDefault();
     if (event.target.classList.contains('add-item')) {
         toggleActiveClass(event.target);
@@ -6840,7 +6847,7 @@ function toggleActiveClass(element) {
     element.classList.toggle('active');
 }
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (toggleForm);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (toggleAddItemForm);
 
 /***/ }),
 
@@ -6857,6 +6864,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _DisplayItemCount__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./DisplayItemCount */ "./src/modules/DisplayItemCount.js");
 /* harmony import */ var _UpdateItemLocalStorage__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./UpdateItemLocalStorage */ "./src/modules/UpdateItemLocalStorage.js");
+/* harmony import */ var _DisplayZeroItemsMessage__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./DisplayZeroItemsMessage */ "./src/modules/DisplayZeroItemsMessage.js");
+
 
 
 
@@ -6875,6 +6884,7 @@ function toggleItemList(event) {
     }
     (0,_UpdateItemLocalStorage__WEBPACK_IMPORTED_MODULE_1__["default"])(event);
     (0,_DisplayItemCount__WEBPACK_IMPORTED_MODULE_0__["default"])();
+    (0,_DisplayZeroItemsMessage__WEBPACK_IMPORTED_MODULE_2__["default"])();
 }
 
 function toggleClassName(item, classNameAdd, classNameRemove) {
@@ -7034,7 +7044,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _ToggleForm__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ToggleForm */ "./src/modules/ToggleForm.js");
+/* harmony import */ var _ToggleAddItemForm__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ToggleAddItemForm */ "./src/modules/ToggleAddItemForm.js");
 /* harmony import */ var _AddItemDOM__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AddItemDOM */ "./src/modules/AddItemDOM.js");
 /* harmony import */ var _DisplayItemCount__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./DisplayItemCount */ "./src/modules/DisplayItemCount.js");
 /* harmony import */ var _ToggleItemList__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ToggleItemList */ "./src/modules/ToggleItemList.js");
@@ -7068,7 +7078,7 @@ function userInterface() {
 function init() {
 
     const formContainer = document.querySelector('.form-container');
-    formContainer.addEventListener('click', _ToggleForm__WEBPACK_IMPORTED_MODULE_0__["default"]);
+    formContainer.addEventListener('click', _ToggleAddItemForm__WEBPACK_IMPORTED_MODULE_0__["default"]);
     formContainer.addEventListener('keyup', _AddItemDOM__WEBPACK_IMPORTED_MODULE_1__["default"]);
 
     const listContainers = document.querySelector('.lists-container');
@@ -7199,4 +7209,4 @@ document.addEventListener('DOMContentLoaded', _modules_UserInterface__WEBPACK_IM
 
 /******/ })()
 ;
-//# sourceMappingURL=bundlecc21b1288cdbbf8ecfbd.js.map
+//# sourceMappingURL=bundleed8801826b0684a292c9.js.map

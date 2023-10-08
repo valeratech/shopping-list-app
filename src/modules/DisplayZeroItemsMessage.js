@@ -16,7 +16,10 @@ function checkShoppingList() {
     const slContainer = document.querySelector('.sl-list--container');
     if (slContainer.firstChild === null) {
         slContainer.appendChild(zeroListItemsMessage('Add items to your shopping-list'));
-    };
+    } else if (slContainer.firstElementChild.textContent === 'Add items to your shopping-list') {
+        slContainer.removeChild(slContainer.firstElementChild);
+    }
+    console.log(slContainer.firstElementChild.textContent)
 }
 
 function checkCompletedList() {
@@ -24,7 +27,10 @@ function checkCompletedList() {
     const clContainer = document.querySelector('.cl-list--container');
     if (clContainer.firstChild === null) {
         clContainer.appendChild(zeroListItemsMessage('No completed items'));
-    };
+    } else if (clContainer.lastElementChild.textContent === 'No completed items') {
+        clContainer.removeChild(clContainer.lastElementChild);
+    }
+    console.log(clContainer.lastElementChild.textContent)
 }
 
 export default displayZeroItemsMessage;
