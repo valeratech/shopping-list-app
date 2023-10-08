@@ -1,4 +1,4 @@
-import toggleForm from "./ToggleForm";
+import toggleAddItemForm from "./ToggleAddItemForm";
 import addListItem from "./AddItemDOM";
 import displayItemCount from "./DisplayItemCount";
 import toggleItemList from "./ToggleItemList";
@@ -19,7 +19,7 @@ function userInterface() {
 function init() {
 
     const formContainer = document.querySelector('.form-container');
-    formContainer.addEventListener('click', toggleForm);
+    formContainer.addEventListener('click', toggleAddItemForm);
     formContainer.addEventListener('keyup', addListItem);
 
     const listContainers = document.querySelector('.lists-container');
