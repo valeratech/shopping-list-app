@@ -6085,7 +6085,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ClearFormValue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ClearFormValue */ "./src/modules/ClearFormValue.js");
 /* harmony import */ var _GetActiveShoppingList__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./GetActiveShoppingList */ "./src/modules/GetActiveShoppingList.js");
 /* harmony import */ var _AddItemLocalStorage__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./AddItemLocalStorage */ "./src/modules/AddItemLocalStorage.js");
-/* harmony import */ var _TestShoppingListData__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./TestShoppingListData */ "./src/modules/TestShoppingListData.js");
+/* harmony import */ var _DisplayZeroItemsMessage__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./DisplayZeroItemsMessage */ "./src/modules/DisplayZeroItemsMessage.js");
 
 
 
@@ -6101,6 +6101,8 @@ function addListItem(event) {
         (0,_ClearFormValue__WEBPACK_IMPORTED_MODULE_1__["default"])(event.target);
         const activeList = (0,_GetActiveShoppingList__WEBPACK_IMPORTED_MODULE_2__["default"])();
         (0,_AddItemLocalStorage__WEBPACK_IMPORTED_MODULE_3__["default"])(activeList, item, false);
+        (0,_DisplayZeroItemsMessage__WEBPACK_IMPORTED_MODULE_4__["default"])();
+
     }
 }
 
@@ -6195,6 +6197,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _DisplayListItems__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./DisplayListItems */ "./src/modules/DisplayListItems.js");
 /* harmony import */ var _DisplayItemCount__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./DisplayItemCount */ "./src/modules/DisplayItemCount.js");
 /* harmony import */ var _UpdateMainHeading__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./UpdateMainHeading */ "./src/modules/UpdateMainHeading.js");
+/* harmony import */ var _DisplayZeroItemsMessage__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./DisplayZeroItemsMessage */ "./src/modules/DisplayZeroItemsMessage.js");
+
 
 
 
@@ -6210,6 +6214,7 @@ function addListNameDOM(name) {
     (0,_DisplayListItems__WEBPACK_IMPORTED_MODULE_2__["default"])(addListContainer.previousElementSibling.lastChild.textContent);
     (0,_DisplayItemCount__WEBPACK_IMPORTED_MODULE_3__["default"])();
     (0,_UpdateMainHeading__WEBPACK_IMPORTED_MODULE_4__["default"])(name);
+    (0,_DisplayZeroItemsMessage__WEBPACK_IMPORTED_MODULE_5__["default"])();
 }
 
 function createNewShoppingList(name) {
@@ -6522,12 +6527,13 @@ function checkShoppingList() {
 function checkCompletedList() {
     // Checks for items in completed-list container - Display no list items message if none
     const clContainer = document.querySelector('.cl-list--container');
+    console.log(clContainer.childElementCount);
     if (clContainer.firstChild === null) {
         clContainer.appendChild(zeroListItemsMessage('No completed items'));
-    } else if (clContainer.lastElementChild.textContent === 'No completed items') {
-        clContainer.removeChild(clContainer.lastElementChild);
-    }
-    console.log(clContainer.lastElementChild.textContent)
+    } else if (clContainer.childElementCount === 2
+        && clContainer.lastElementChild.textContent === 'No completed items') {
+            clContainer.removeChild(clContainer.lastElementChild);
+        }
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (displayZeroItemsMessage);
@@ -7209,4 +7215,4 @@ document.addEventListener('DOMContentLoaded', _modules_UserInterface__WEBPACK_IM
 
 /******/ })()
 ;
-//# sourceMappingURL=bundleed8801826b0684a292c9.js.map
+//# sourceMappingURL=bundle24b3d1fb9018a25f516a.js.map

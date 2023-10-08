@@ -2,7 +2,7 @@ import createDOMListItem from "./CreateDOMListItem";
 import clearFormValue from "./ClearFormValue";
 import getActiveShoppingList from "./GetActiveShoppingList";
 import addItemLocalStorage from "./AddItemLocalStorage";
-import shoppingList from "./TestShoppingListData";
+import displayZeroItemsMessage from "./DisplayZeroItemsMessage";
 
 
 function addListItem(event) {
@@ -13,6 +13,8 @@ function addListItem(event) {
         clearFormValue(event.target);
         const activeList = getActiveShoppingList();
         addItemLocalStorage(activeList, item, false);
+        displayZeroItemsMessage();
+
     }
 }
 

@@ -25,12 +25,13 @@ function checkShoppingList() {
 function checkCompletedList() {
     // Checks for items in completed-list container - Display no list items message if none
     const clContainer = document.querySelector('.cl-list--container');
+    console.log(clContainer.childElementCount);
     if (clContainer.firstChild === null) {
         clContainer.appendChild(zeroListItemsMessage('No completed items'));
-    } else if (clContainer.lastElementChild.textContent === 'No completed items') {
-        clContainer.removeChild(clContainer.lastElementChild);
-    }
-    console.log(clContainer.lastElementChild.textContent)
+    } else if (clContainer.childElementCount === 2
+        && clContainer.lastElementChild.textContent === 'No completed items') {
+            clContainer.removeChild(clContainer.lastElementChild);
+        }
 }
 
 export default displayZeroItemsMessage;

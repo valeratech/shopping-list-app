@@ -3,6 +3,7 @@ import addActiveListClass from "./AddActiveListClass";
 import displayListItems from "./DisplayListItems";
 import displayItemCount from "./DisplayItemCount";
 import updateMainHeading from "./UpdateMainHeading";
+import displayZeroItemsMessage from "./DisplayZeroItemsMessage";
 
 function addListNameDOM(name) {
     const container = document.getElementById('list-sidebar');
@@ -13,6 +14,7 @@ function addListNameDOM(name) {
     displayListItems(addListContainer.previousElementSibling.lastChild.textContent);
     displayItemCount();
     updateMainHeading(name);
+    displayZeroItemsMessage();
 }
 
 function createNewShoppingList(name) {
