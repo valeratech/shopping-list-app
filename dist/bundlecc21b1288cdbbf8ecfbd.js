@@ -6502,24 +6502,23 @@ function displayZeroItemsMessage() {
 
 function zeroListItemsMessage(text) {
     const span = document.createElement('span');
+    span.className = 'zero-items-message';
     const message = document.createTextNode(text);
-    return span.appendChild(message);
+    span.appendChild(message);
+    return span;
 }
 
 function checkShoppingList() {
     // Checks for items in shopping-list container - Display no list items message if none
     const slContainer = document.querySelector('.sl-list--container');
-    console.log(slContainer.firstChild === null);
-    // Check to see if there are items in the Shopping-List container
     if (slContainer.firstChild === null) {
         slContainer.appendChild(zeroListItemsMessage('Add items to your shopping-list'));
     };
 }
 
 function checkCompletedList() {
+    // Checks for items in completed-list container - Display no list items message if none
     const clContainer = document.querySelector('.cl-list--container');
-    console.log(clContainer.firstChild === null);
-    // Check to see if there are items in the Shopping-List container
     if (clContainer.firstChild === null) {
         clContainer.appendChild(zeroListItemsMessage('No completed items'));
     };
@@ -7200,4 +7199,4 @@ document.addEventListener('DOMContentLoaded', _modules_UserInterface__WEBPACK_IM
 
 /******/ })()
 ;
-//# sourceMappingURL=bundle267bdc54d373dfadfad7.js.map
+//# sourceMappingURL=bundlecc21b1288cdbbf8ecfbd.js.map

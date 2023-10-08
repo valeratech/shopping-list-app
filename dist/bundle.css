@@ -374,6 +374,10 @@ input:focus {
   width: 0;
 }
 
+.zero-items-message {
+  font-size: 22px;
+}
+
 /* Create a custom checkbox */
 .checkmark {
   position: absolute;

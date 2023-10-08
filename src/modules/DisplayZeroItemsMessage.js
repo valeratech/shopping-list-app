@@ -5,8 +5,10 @@ function displayZeroItemsMessage() {
 
 function zeroListItemsMessage(text) {
     const span = document.createElement('span');
+    span.className = 'zero-items-message';
     const message = document.createTextNode(text);
-    return span.appendChild(message);
+    span.appendChild(message);
+    return span;
 }
 
 function checkShoppingList() {
