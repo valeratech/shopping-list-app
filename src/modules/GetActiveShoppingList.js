@@ -1,4 +1,5 @@
 function getActiveShoppingList() {
+    // This is used to reference the JSON.parsed shopping list object from local storage
     const lists = document.querySelectorAll('.list-name');
     let activeList;
     lists.forEach(list => {

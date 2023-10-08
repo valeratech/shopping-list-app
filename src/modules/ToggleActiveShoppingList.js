@@ -3,8 +3,10 @@ import removeActiveListClass from "./RemoveActiveListClass";
 import addActiveListClass from "./AddActiveListClass";
 import displayItemCount from "./DisplayItemCount";
 import updateMainHeading from "./UpdateMainHeading";
+import displayZeroItemsMessage from "./DisplayZeroItemsMessage";
 
-function highlightActiveList(event) {
+
+function toggleActiveShoppingList(event) {
 
     const shoppingListName = event.target;
 
@@ -18,6 +20,7 @@ function highlightActiveList(event) {
     };
 
     displayItemCount();
+    displayZeroItemsMessage();
 }
 
-export default highlightActiveList;
+export default toggleActiveShoppingList;

@@ -7,10 +7,10 @@ import toggleShoppingListInput from "./ToggleShoppingListInput";
 import toggleSideBarMenu from "./ToggleSideBarMenu";
 import addItemLocalStorage from "./AddItemLocalStorage";
 import displayListItems from "./DisplayListItems";
-import highlightActiveList from "./HighlightActiveList";
+import toggleActiveShoppingList from "./ToggleActiveShoppingList";
 import displayShoppingLists from "./DisplayShoppingLists";
 import createDefaultShoppingList from "./CreateDefaultShoppingList";
-import checkForListItems from "./CheckForListItems";
+import displayZeroItemsMessage from "./DisplayZeroItemsMessage";
 
 function userInterface() {
     init();
@@ -38,12 +38,12 @@ function init() {
     menu.addEventListener('change', toggleSideBarMenu);
 
     const shoppingLists = document.getElementById('list-sidebar');
-    shoppingLists.addEventListener('click', highlightActiveList);
+    shoppingLists.addEventListener('click', toggleActiveShoppingList);
 
     createDefaultShoppingList();
     displayShoppingLists();
     displayListItems('Default Shopping List');
-    checkForListItems();
+    displayZeroItemsMessage();
     displayItemCount();
 }
 

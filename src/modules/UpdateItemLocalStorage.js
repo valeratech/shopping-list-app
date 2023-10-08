@@ -7,14 +7,14 @@ function updateItemLocalStorage(event) {
     const shoppingList = listsItemsStorage[activeList];
     const item = event.target.nextSibling.nextSibling;
 
-    let x = 0;
-    while (x !== shoppingList.length) {
+    let index = 0;
+    while (index !== shoppingList.length) {
         // Loop through to get to the selected item and update the 'completed' boolean key
-        if (shoppingList[x].item === item.textContent) {
-            listsItemsStorage[activeList][x]['completed'] = !shoppingList[x]['completed'];
+        if (shoppingList[index].item === item.textContent) {
+            listsItemsStorage[activeList][index]['completed'] = !shoppingList[index]['completed'];
             localStorage.setItem('shopping-list', JSON.stringify(listsItemsStorage));
         }
-        x++
+        index++
     }
 
 }
