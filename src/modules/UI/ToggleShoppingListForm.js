@@ -1,7 +1,7 @@
 import addListLocalStorage from "../LocalStorage/AddListLocalStorage";
 import addListNameDOM from "./AddListNameDOM";
 
-function toggleShoppingListInput(event) {
+function toggleShoppingListForm(event) {
     const listName = event.target.parentElement.parentElement.firstElementChild.value;
     switch (event.target.id) {
         case "button-add-list-name":
@@ -34,4 +34,4 @@ function clearShoppingListInput() {
     document.getElementById('input-add-list-popup').value = '';
 }
 
-export default toggleShoppingListInput;
+export default toggleShoppingListForm;

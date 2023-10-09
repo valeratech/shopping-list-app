@@ -14,7 +14,10 @@ function addListItem(event) {
         const activeList = getActiveShoppingList();
         addItemLocalStorage(activeList, item, false);
         displayZeroItemsMessage();
-        toggleAddItemActiveClassname(document.querySelector('.add-item'), document.querySelector('.add-item-form'))
+        toggleAddItemActiveClassname(
+            document.querySelector('.add-item'),
+            document.querySelector('.add-item-form')
+        )
     }
 }
 

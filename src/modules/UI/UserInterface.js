@@ -3,7 +3,7 @@ import addListItem from "./AddItemDOM";
 import displayItemCount from "./DisplayItemCount";
 import toggleItemList from "./ToggleItemList";
 import {filterItems, clearFilter} from "../ItemFilter/FilterItems";
-import toggleShoppingListInput from "./ToggleShoppingListInput";
+import toggleShoppingListForm from "./ToggleShoppingListForm";
 import toggleSideBarMenu from "./ToggleSideBarMenu";
 import addItemLocalStorage from "../LocalStorage/AddItemLocalStorage";
 import displayListItems from "./DisplayListItems";
@@ -32,7 +32,7 @@ function init() {
     clearFilterBtn.addEventListener('click', clearFilter);
 
     const addShoppingListBtn = document.getElementById('add-list-container');
-    addShoppingListBtn.addEventListener('click', toggleShoppingListInput);
+    addShoppingListBtn.addEventListener('click', toggleShoppingListForm);
 
     const menu = document.getElementById('menu-list');
     menu.addEventListener('change', toggleSideBarMenu);
