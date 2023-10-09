@@ -1,20 +1,24 @@
 import clearFormValue from "./ClearFormValue";
+import toggleAddItemActiveClassname from './ToggleAddItemActiveClassname';
+
 
 function toggleAddItemForm(event) {
     event.preventDefault();
+
+    // Target the button container and the nested font-awesome element to toggle the active class on the correct element
     if (event.target.classList.contains('add-item')) {
-        toggleActiveClass(event.target);
-        toggleActiveClass(event.target.nextElementSibling);
+        toggleAddItemActiveClassname(
+            event.target,
+            event.target.nextElementSibling
+        );
     } else if (event.target.id === 'cancel-form') {
-        // Export this into a function
-        toggleActiveClass(event.target.parentElement.parentElement);
-        toggleActiveClass(event.target.parentElement.parentElement.previousElementSibling);
+        console.log(event.target.parentElement.parentElement, event.target.parentElement.parentElement.previousElementSibling)
+        toggleAddItemActiveClassname(
+            event.target.parentElement.parentElement,
+            event.target.parentElement.parentElement.previousElementSibling
+        );
         clearFormValue(event.target.previousElementSibling);
     }
-}
-
-function toggleActiveClass(element) {
-    element.classList.toggle('active');
 }
 
 export default toggleAddItemForm;

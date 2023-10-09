@@ -4,10 +4,12 @@ function displayZeroItemsMessage() {
 }
 
 function zeroListItemsMessage(text) {
+    const message = document.createTextNode(text);
+
     const span = document.createElement('span');
     span.className = 'zero-items-message';
-    const message = document.createTextNode(text);
     span.appendChild(message);
+
     return span;
 }
 
@@ -19,13 +21,11 @@ function checkShoppingList() {
     } else if (slContainer.firstElementChild.textContent === 'Add items to your shopping-list') {
         slContainer.removeChild(slContainer.firstElementChild);
     }
-    console.log(slContainer.firstElementChild.textContent)
 }
 
 function checkCompletedList() {
     // Checks for items in completed-list container - Display no list items message if none
     const clContainer = document.querySelector('.cl-list--container');
-    console.log(clContainer.childElementCount);
     if (clContainer.firstChild === null) {
         clContainer.appendChild(zeroListItemsMessage('No completed items'));
     } else if (clContainer.childElementCount === 2

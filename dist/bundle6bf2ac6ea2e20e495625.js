@@ -6082,10 +6082,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _CreateDOMListItem__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CreateDOMListItem */ "./src/modules/CreateDOMListItem.js");
-/* harmony import */ var _ClearFormValue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ClearFormValue */ "./src/modules/ClearFormValue.js");
-/* harmony import */ var _GetActiveShoppingList__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./GetActiveShoppingList */ "./src/modules/GetActiveShoppingList.js");
-/* harmony import */ var _AddItemLocalStorage__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./AddItemLocalStorage */ "./src/modules/AddItemLocalStorage.js");
-/* harmony import */ var _DisplayZeroItemsMessage__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./DisplayZeroItemsMessage */ "./src/modules/DisplayZeroItemsMessage.js");
+/* harmony import */ var _ToggleAddItemActiveClassname__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ToggleAddItemActiveClassname */ "./src/modules/ToggleAddItemActiveClassname.js");
+/* harmony import */ var _ClearFormValue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ClearFormValue */ "./src/modules/ClearFormValue.js");
+/* harmony import */ var _GetActiveShoppingList__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./GetActiveShoppingList */ "./src/modules/GetActiveShoppingList.js");
+/* harmony import */ var _AddItemLocalStorage__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./AddItemLocalStorage */ "./src/modules/AddItemLocalStorage.js");
+/* harmony import */ var _DisplayZeroItemsMessage__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./DisplayZeroItemsMessage */ "./src/modules/DisplayZeroItemsMessage.js");
 
 
 
@@ -6098,11 +6099,11 @@ function addListItem(event) {
 
     if (event.key === 'Enter' && item !== '') {
         (0,_CreateDOMListItem__WEBPACK_IMPORTED_MODULE_0__["default"])(item, false);
-        (0,_ClearFormValue__WEBPACK_IMPORTED_MODULE_1__["default"])(event.target);
-        const activeList = (0,_GetActiveShoppingList__WEBPACK_IMPORTED_MODULE_2__["default"])();
-        (0,_AddItemLocalStorage__WEBPACK_IMPORTED_MODULE_3__["default"])(activeList, item, false);
-        (0,_DisplayZeroItemsMessage__WEBPACK_IMPORTED_MODULE_4__["default"])();
-
+        (0,_ClearFormValue__WEBPACK_IMPORTED_MODULE_2__["default"])(event.target);
+        const activeList = (0,_GetActiveShoppingList__WEBPACK_IMPORTED_MODULE_3__["default"])();
+        (0,_AddItemLocalStorage__WEBPACK_IMPORTED_MODULE_4__["default"])(activeList, item, false);
+        (0,_DisplayZeroItemsMessage__WEBPACK_IMPORTED_MODULE_5__["default"])();
+        (0,_ToggleAddItemActiveClassname__WEBPACK_IMPORTED_MODULE_1__["default"])(document.querySelector('.add-item'), document.querySelector('.add-item-form'))
     }
 }
 
@@ -6506,10 +6507,12 @@ function displayZeroItemsMessage() {
 }
 
 function zeroListItemsMessage(text) {
+    const message = document.createTextNode(text);
+
     const span = document.createElement('span');
     span.className = 'zero-items-message';
-    const message = document.createTextNode(text);
     span.appendChild(message);
+
     return span;
 }
 
@@ -6521,13 +6524,11 @@ function checkShoppingList() {
     } else if (slContainer.firstElementChild.textContent === 'Add items to your shopping-list') {
         slContainer.removeChild(slContainer.firstElementChild);
     }
-    console.log(slContainer.firstElementChild.textContent)
 }
 
 function checkCompletedList() {
     // Checks for items in completed-list container - Display no list items message if none
     const clContainer = document.querySelector('.cl-list--container');
-    console.log(clContainer.childElementCount);
     if (clContainer.firstChild === null) {
         clContainer.appendChild(zeroListItemsMessage('No completed items'));
     } else if (clContainer.childElementCount === 2
@@ -6807,18 +6808,38 @@ function toggleActiveShoppingList(event) {
     const isListItem = shoppingListName.classList.contains('list-name');
 
     (0,_RemoveActiveListClass__WEBPACK_IMPORTED_MODULE_1__["default"])(isListItem);
-    // If 'isListItem' is true then popuate the shopping and completed lists
+    // If 'isListItem' is true then populate the shopping and completed lists
     if (isListItem) {
         (0,_AddActiveListClass__WEBPACK_IMPORTED_MODULE_2__["default"])(shoppingListName);
         (0,_DisplayListItems__WEBPACK_IMPORTED_MODULE_0__["default"])(shoppingListName.textContent.trim());
         (0,_UpdateMainHeading__WEBPACK_IMPORTED_MODULE_4__["default"])(shoppingListName.textContent.trim());
         (0,_DisplayZeroItemsMessage__WEBPACK_IMPORTED_MODULE_5__["default"])();
-    };
 
+    };
     (0,_DisplayItemCount__WEBPACK_IMPORTED_MODULE_3__["default"])();
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (toggleActiveShoppingList);
+
+/***/ }),
+
+/***/ "./src/modules/ToggleAddItemActiveClassname.js":
+/*!*****************************************************!*\
+  !*** ./src/modules/ToggleAddItemActiveClassname.js ***!
+  \*****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+function toggleAddItemActiveClassname(addItemBtn, addItemFrom) {
+    addItemBtn.classList.toggle('active');
+    addItemFrom.classList.toggle('active');
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (toggleAddItemActiveClassname);
 
 /***/ }),
 
@@ -6834,23 +6855,28 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _ClearFormValue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ClearFormValue */ "./src/modules/ClearFormValue.js");
+/* harmony import */ var _ToggleAddItemActiveClassname__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ToggleAddItemActiveClassname */ "./src/modules/ToggleAddItemActiveClassname.js");
+
+
 
 
 function toggleAddItemForm(event) {
     event.preventDefault();
+
+    // Target the button container and the nested font-awesome element to toggle the active class on the correct element
     if (event.target.classList.contains('add-item')) {
-        toggleActiveClass(event.target);
-        toggleActiveClass(event.target.nextElementSibling);
+        (0,_ToggleAddItemActiveClassname__WEBPACK_IMPORTED_MODULE_1__["default"])(
+            event.target,
+            event.target.nextElementSibling
+        );
     } else if (event.target.id === 'cancel-form') {
-        // Export this into a function
-        toggleActiveClass(event.target.parentElement.parentElement);
-        toggleActiveClass(event.target.parentElement.parentElement.previousElementSibling);
+        console.log(event.target.parentElement.parentElement, event.target.parentElement.parentElement.previousElementSibling)
+        ;(0,_ToggleAddItemActiveClassname__WEBPACK_IMPORTED_MODULE_1__["default"])(
+            event.target.parentElement.parentElement,
+            event.target.parentElement.parentElement.previousElementSibling
+        );
         (0,_ClearFormValue__WEBPACK_IMPORTED_MODULE_0__["default"])(event.target.previousElementSibling);
     }
-}
-
-function toggleActiveClass(element) {
-    element.classList.toggle('active');
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (toggleAddItemForm);
@@ -7030,7 +7056,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 function updateMainHeading(heading) {
-    console.log(typeof heading);
     const mainHeading = document.getElementById('main-heading');
     mainHeading.textContent = heading;
 }
@@ -7215,4 +7240,4 @@ document.addEventListener('DOMContentLoaded', _modules_UserInterface__WEBPACK_IM
 
 /******/ })()
 ;
-//# sourceMappingURL=bundle24b3d1fb9018a25f516a.js.map
+//# sourceMappingURL=bundle6bf2ac6ea2e20e495625.js.map

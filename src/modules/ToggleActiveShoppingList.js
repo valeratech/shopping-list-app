@@ -13,14 +13,14 @@ function toggleActiveShoppingList(event) {
     const isListItem = shoppingListName.classList.contains('list-name');
 
     removeActiveListClass(isListItem);
-    // If 'isListItem' is true then popuate the shopping and completed lists
+    // If 'isListItem' is true then populate the shopping and completed lists
     if (isListItem) {
         addActiveListClass(shoppingListName);
         displayListItems(shoppingListName.textContent.trim());
         updateMainHeading(shoppingListName.textContent.trim());
         displayZeroItemsMessage();
-    };
 
+    };
     displayItemCount();
 }
 
