@@ -1,5 +1,5 @@
 import displayItemCount from "./DisplayItemCount";
-import updateItemLocalStorage from "./UpdateItemLocalStorage";
+import updateItemLocalStorage from "../LocalStorage/UpdateItemLocalStorage";
 import displayZeroItemsMessage from "./DisplayZeroItemsMessage";
 
 function toggleItemList(event) {

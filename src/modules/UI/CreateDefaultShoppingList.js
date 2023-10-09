@@ -1,4 +1,4 @@
-import TestShoppingListData from "./TestShoppingListData";
+import TestShoppingListData from "../Data/TestShoppingListData";
 
 function createDefaultShoppingList() {
     const shoppingListsFromStorage = JSON.parse(localStorage.getItem('shopping-list'));

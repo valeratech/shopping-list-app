@@ -1,4 +1,4 @@
-import getShoppingListLocalStorage from "./GetShoppingListLocalStorage";
+import getShoppingListLocalStorage from "../LocalStorage/GetShoppingListLocalStorage";
 import addListNameDOM from "./AddListNameDOM";
 import setDefaultShoppingListActive from "./SetDefaultShoppingListActive";
 

@@ -1,5 +1,5 @@
 import getListsItemsLocalStorage from "./GetListsItemsLocalStorage";
-import getActiveShoppingList from "./GetActiveShoppingList";
+import getActiveShoppingList from "../UI/GetActiveShoppingList";
 
 function updateItemLocalStorage(event) {
     const listsItemsStorage = getListsItemsLocalStorage();

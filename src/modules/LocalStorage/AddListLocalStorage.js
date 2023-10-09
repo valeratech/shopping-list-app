@@ -1,4 +1,4 @@
-import shoppingList from "./TestShoppingListData";
+import shoppingList from "../Data/TestShoppingListData";
 import getListsItemsLocalStorage from "./GetListsItemsLocalStorage";
 
 function addListLocalStorage(listName) {

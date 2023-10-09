@@ -1,4 +1,4 @@
-import addListLocalStorage from "./AddListLocalStorage";
+import addListLocalStorage from "../LocalStorage/AddListLocalStorage";
 import addListNameDOM from "./AddListNameDOM";
 
 function toggleShoppingListInput(event) {

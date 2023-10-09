@@ -1,4 +1,4 @@
-import getListsItemsLocalStorage from "./GetListsItemsLocalStorage";
+import getListsItemsLocalStorage from "../LocalStorage/GetListsItemsLocalStorage";
 import createDOMListItem from "./CreateDOMListItem";
 import clearListItems from "./ClearListItems";
 
