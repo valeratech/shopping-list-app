@@ -2,23 +2,28 @@ const shoppingList = {
     "Default Shopping List": [
         {
             "item": "Oranges",
-            "completed": false
+            "completed": false,
+            "date": new Date()
         },
         {
             "item": "Soda",
-            "completed": false
+            "completed": false,
+            "date": new Date()
         },
         {
             "item": "Eggs",
-            "completed": false
+            "completed": false,
+            "date": new Date()
         },
         {
             "item": "Paper Towels",
-            "completed": true
+            "completed": true,
+            "date": new Date()
         },
         {
             "item": "Water",
-            "completed": true
+            "completed": true,
+            "date": new Date()
         }
     ]
 }

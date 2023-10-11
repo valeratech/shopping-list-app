@@ -6066,23 +6066,28 @@ const shoppingList = {
     "Default Shopping List": [
         {
             "item": "Oranges",
-            "completed": false
+            "completed": false,
+            "date": new Date()
         },
         {
             "item": "Soda",
-            "completed": false
+            "completed": false,
+            "date": new Date()
         },
         {
             "item": "Eggs",
-            "completed": false
+            "completed": false,
+            "date": new Date()
         },
         {
             "item": "Paper Towels",
-            "completed": true
+            "completed": true,
+            "date": new Date()
         },
         {
             "item": "Water",
-            "completed": true
+            "completed": true,
+            "date": new Date()
         }
     ]
 }
@@ -6987,6 +6992,7 @@ __webpack_require__.r(__webpack_exports__);
 
 function toggleShoppingListForm(event) {
     const listName = event.target.parentElement.parentElement.firstElementChild.value;
+    console.log(event.target.id);
     switch (event.target.id) {
         case "button-add-list-name":
             showShoppingListInput();
@@ -7243,4 +7249,4 @@ document.addEventListener('DOMContentLoaded', _modules_UI_UserInterface__WEBPACK
 
 /******/ })()
 ;
-//# sourceMappingURL=bundlebae882d9afe54c5c2db5.js.map
+//# sourceMappingURL=bundle4edfb04ae8eea2dcbdf6.js.map

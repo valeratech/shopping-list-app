@@ -3,6 +3,7 @@ import addListNameDOM from "./AddListNameDOM";
 
 function toggleShoppingListForm(event) {
     const listName = event.target.parentElement.parentElement.firstElementChild.value;
+    console.log(event.target.id);
     switch (event.target.id) {
         case "button-add-list-name":
             showShoppingListInput();
