@@ -2,6 +2,7 @@ import displayItemCount from "./DisplayItemCount";
 import {formatDistanceToNow, parseISO} from "date-fns";
 
 function createDOMListItem(itemText, completed, date) {
+    console.log(date)
     const shopList = document.querySelector('.sl-list--container');
     const compList = document.querySelector('.cl-list--container');
     const listItem = document.createElement('li');
@@ -48,13 +49,26 @@ function createItemText(itemText) {
 
 function createDateContainer(date, completed) {
     const small = document.createElement('small');
-    small.append(createStatus(completed), createDate(date));
+    small.append(
+        createDateStatus(completed),
+        createDate(date),
+        createDateStatusEnd()
+    );
     return small;
 }
 
-function createStatus(completed) {
+function createDateStatus(completed) {
     const span = document.createElement('span');
+    span.className = 'date-status';
     const spanStatus = document.createTextNode(completed ? 'Completed, ' : 'Added, ');
+    span.appendChild(spanStatus);
+    return span;
+}
+
+function createDateStatusEnd() {
+    const span = document.createElement('span');
+    span.className = 'date-status-end';
+    const spanStatus = document.createTextNode(' ago');
     span.appendChild(spanStatus);
     return span;
 }

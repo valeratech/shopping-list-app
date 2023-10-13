@@ -2,11 +2,12 @@ import shoppingList from "../Data/TestShoppingListData";
 import getListsItemsLocalStorage from "./GetListsItemsLocalStorage";
 import displayItemCount from "../UI/DisplayItemCount";
 
-function addItemLocalStorage(shoppingList, item, completed) {
+function addItemLocalStorage(shoppingList, item, completed, date) {
     const itemsFromStorage = getListsItemsLocalStorage();
     const newItem = {
         item,
-        completed
+        completed,
+        date
     };
     if (itemsFromStorage[shoppingList] === undefined) {
         itemsFromStorage[shoppingList] = [];

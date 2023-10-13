@@ -4,15 +4,20 @@ import clearFormValue from "./ClearFormValue";
 import getActiveShoppingList from "./GetActiveShoppingList";
 import addItemLocalStorage from "../LocalStorage/AddItemLocalStorage";
 import displayZeroItemsMessage from "./DisplayZeroItemsMessage";
+import displayListItems from "./DisplayListItems";
+import displayItemCount from "./DisplayItemCount";
 
-function addListItem(event) {
+function addItemDom(event) {
     const item = getItemValue(event);
 
+    const currentDate = new Date();
+
     if (event.key === 'Enter' && item !== '') {
-        createDOMListItem(item, false);
         clearFormValue(event.target);
         const activeList = getActiveShoppingList();
-        addItemLocalStorage(activeList, item, false);
+        addItemLocalStorage(activeList, item, false, currentDate);
+        displayListItems(activeList);
+        displayItemCount();
         displayZeroItemsMessage();
         toggleAddItemActiveClassname(
             document.querySelector('.add-item'),
@@ -25,4 +30,4 @@ function getItemValue(event) {
     return event.target.value;
 }
 
-export default addListItem;
+export default addItemDom;

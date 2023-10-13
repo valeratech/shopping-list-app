@@ -1,5 +1,5 @@
 import toggleAddItemForm from "./ToggleAddItemForm";
-import addListItem from "./AddItemDOM";
+import addItemDom from "./AddItemDOM";
 import displayItemCount from "./DisplayItemCount";
 import toggleItemList from "./ToggleItemList";
 import {filterItems, clearFilter} from "../ItemFilter/FilterItems";
@@ -20,7 +20,7 @@ function init() {
 
     const formContainer = document.querySelector('.form-container');
     formContainer.addEventListener('click', toggleAddItemForm);
-    formContainer.addEventListener('keyup', addListItem);
+    formContainer.addEventListener('keyup', addItemDom);
 
     const listContainers = document.querySelector('.lists-container');
     listContainers.addEventListener('change', toggleItemList);

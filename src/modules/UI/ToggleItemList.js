@@ -5,15 +5,16 @@ import displayZeroItemsMessage from "./DisplayZeroItemsMessage";
 function toggleItemList(event) {
     const shoppingContainer = document.querySelector('.sl-list--container');
     const completedContainer = document.querySelector('.cl-list--container');
-
+    const dateStatus = event.target.parentElement.nextElementSibling.firstElementChild;
     const listItem = event.target.parentElement.parentElement;
-
-    if (event.target.checked) {
-       toggleClassName(listItem, 'completed-list--item', 'shopping-list--item');
-       completedContainer.insertBefore(listItem, completedContainer.firstChild);
-    } else {
-       toggleClassName(listItem, 'shopping-list--item', 'completed-list--item');
-       shoppingContainer.appendChild(listItem);
+    if (event.target.checked === true) {
+        toggleClassName(listItem, 'completed-list--item', 'shopping-list--item');
+        completedContainer.insertBefore(listItem, completedContainer.firstChild);
+        dateStatus.textContent = 'Completed, ';
+    } else if (event.target.checked === false) {
+        toggleClassName(listItem, 'shopping-list--item', 'completed-list--item');
+        shoppingContainer.appendChild(listItem);
+        dateStatus.textContent = 'Added, '
     }
     updateItemLocalStorage(event);
     displayItemCount();

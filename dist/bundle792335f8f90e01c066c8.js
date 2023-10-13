@@ -8272,11 +8272,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-function addItemLocalStorage(shoppingList, item, completed) {
+function addItemLocalStorage(shoppingList, item, completed, date) {
     const itemsFromStorage = (0,_GetListsItemsLocalStorage__WEBPACK_IMPORTED_MODULE_1__["default"])();
     const newItem = {
         item,
-        completed
+        completed,
+        date
     };
     if (itemsFromStorage[shoppingList] === undefined) {
         itemsFromStorage[shoppingList] = [];
@@ -8444,6 +8445,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _GetActiveShoppingList__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./GetActiveShoppingList */ "./src/modules/UI/GetActiveShoppingList.js");
 /* harmony import */ var _LocalStorage_AddItemLocalStorage__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../LocalStorage/AddItemLocalStorage */ "./src/modules/LocalStorage/AddItemLocalStorage.js");
 /* harmony import */ var _DisplayZeroItemsMessage__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./DisplayZeroItemsMessage */ "./src/modules/UI/DisplayZeroItemsMessage.js");
+/* harmony import */ var _DisplayListItems__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./DisplayListItems */ "./src/modules/UI/DisplayListItems.js");
+/* harmony import */ var _DisplayItemCount__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./DisplayItemCount */ "./src/modules/UI/DisplayItemCount.js");
 
 
 
@@ -8451,14 +8454,19 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-function addListItem(event) {
+
+
+function addItemDom(event) {
     const item = getItemValue(event);
 
+    const currentDate = new Date();
+
     if (event.key === 'Enter' && item !== '') {
-        (0,_CreateDOMListItem__WEBPACK_IMPORTED_MODULE_0__["default"])(item, false);
         (0,_ClearFormValue__WEBPACK_IMPORTED_MODULE_2__["default"])(event.target);
         const activeList = (0,_GetActiveShoppingList__WEBPACK_IMPORTED_MODULE_3__["default"])();
-        (0,_LocalStorage_AddItemLocalStorage__WEBPACK_IMPORTED_MODULE_4__["default"])(activeList, item, false);
+        (0,_LocalStorage_AddItemLocalStorage__WEBPACK_IMPORTED_MODULE_4__["default"])(activeList, item, false, currentDate);
+        (0,_DisplayListItems__WEBPACK_IMPORTED_MODULE_6__["default"])(activeList);
+        (0,_DisplayItemCount__WEBPACK_IMPORTED_MODULE_7__["default"])();
         (0,_DisplayZeroItemsMessage__WEBPACK_IMPORTED_MODULE_5__["default"])();
         (0,_ToggleAddItemActiveClassname__WEBPACK_IMPORTED_MODULE_1__["default"])(
             document.querySelector('.add-item'),
@@ -8471,7 +8479,7 @@ function getItemValue(event) {
     return event.target.value;
 }
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (addListItem);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (addItemDom);
 
 /***/ }),
 
@@ -8602,6 +8610,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function createDOMListItem(itemText, completed, date) {
+    console.log(date)
     const shopList = document.querySelector('.sl-list--container');
     const compList = document.querySelector('.cl-list--container');
     const listItem = document.createElement('li');
@@ -8648,13 +8657,26 @@ function createItemText(itemText) {
 
 function createDateContainer(date, completed) {
     const small = document.createElement('small');
-    small.append(createStatus(completed), createDate(date));
+    small.append(
+        createDateStatus(completed),
+        createDate(date),
+        createDateStatusEnd()
+    );
     return small;
 }
 
-function createStatus(completed) {
+function createDateStatus(completed) {
     const span = document.createElement('span');
+    span.className = 'date-status';
     const spanStatus = document.createTextNode(completed ? 'Completed, ' : 'Added, ');
+    span.appendChild(spanStatus);
+    return span;
+}
+
+function createDateStatusEnd() {
+    const span = document.createElement('span');
+    span.className = 'date-status-end';
+    const spanStatus = document.createTextNode(' ago');
     span.appendChild(spanStatus);
     return span;
 }
@@ -9065,15 +9087,16 @@ __webpack_require__.r(__webpack_exports__);
 function toggleItemList(event) {
     const shoppingContainer = document.querySelector('.sl-list--container');
     const completedContainer = document.querySelector('.cl-list--container');
-
+    const dateStatus = event.target.parentElement.nextElementSibling.firstElementChild;
     const listItem = event.target.parentElement.parentElement;
-
-    if (event.target.checked) {
-       toggleClassName(listItem, 'completed-list--item', 'shopping-list--item');
-       completedContainer.insertBefore(listItem, completedContainer.firstChild);
-    } else {
-       toggleClassName(listItem, 'shopping-list--item', 'completed-list--item');
-       shoppingContainer.appendChild(listItem);
+    if (event.target.checked === true) {
+        toggleClassName(listItem, 'completed-list--item', 'shopping-list--item');
+        completedContainer.insertBefore(listItem, completedContainer.firstChild);
+        dateStatus.textContent = 'Completed, ';
+    } else if (event.target.checked === false) {
+        toggleClassName(listItem, 'shopping-list--item', 'completed-list--item');
+        shoppingContainer.appendChild(listItem);
+        dateStatus.textContent = 'Added, '
     }
     (0,_LocalStorage_UpdateItemLocalStorage__WEBPACK_IMPORTED_MODULE_1__["default"])(event);
     (0,_DisplayItemCount__WEBPACK_IMPORTED_MODULE_0__["default"])();
@@ -9387,4 +9410,4 @@ document.addEventListener('DOMContentLoaded', _modules_UI_UserInterface__WEBPACK
 
 /******/ })()
 ;
-//# sourceMappingURL=bundle31adaaad8e1f1ae61159.js.map
+//# sourceMappingURL=bundle792335f8f90e01c066c8.js.map
