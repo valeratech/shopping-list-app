@@ -12,6 +12,7 @@ function updateItemLocalStorage(event) {
         // Loop through to get to the selected item and update the 'completed' boolean key
         if (shoppingList[index].item === item.textContent) {
             listsItemsStorage[activeList][index]['completed'] = !shoppingList[index]['completed'];
+            listsItemsStorage[activeList][index]['date'] = new Date();
             localStorage.setItem('shopping-list', JSON.stringify(listsItemsStorage));
         }
         index++

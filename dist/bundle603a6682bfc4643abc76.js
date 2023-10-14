@@ -8398,6 +8398,7 @@ function updateItemLocalStorage(event) {
         // Loop through to get to the selected item and update the 'completed' boolean key
         if (shoppingList[index].item === item.textContent) {
             listsItemsStorage[activeList][index]['completed'] = !shoppingList[index]['completed'];
+            listsItemsStorage[activeList][index]['date'] = new Date();
             localStorage.setItem('shopping-list', JSON.stringify(listsItemsStorage));
         }
         index++
@@ -8439,15 +8440,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _CreateDOMListItem__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CreateDOMListItem */ "./src/modules/UI/CreateDOMListItem.js");
-/* harmony import */ var _ToggleAddItemActiveClassname__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ToggleAddItemActiveClassname */ "./src/modules/UI/ToggleAddItemActiveClassname.js");
-/* harmony import */ var _ClearFormValue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ClearFormValue */ "./src/modules/UI/ClearFormValue.js");
-/* harmony import */ var _GetActiveShoppingList__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./GetActiveShoppingList */ "./src/modules/UI/GetActiveShoppingList.js");
-/* harmony import */ var _LocalStorage_AddItemLocalStorage__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../LocalStorage/AddItemLocalStorage */ "./src/modules/LocalStorage/AddItemLocalStorage.js");
-/* harmony import */ var _DisplayZeroItemsMessage__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./DisplayZeroItemsMessage */ "./src/modules/UI/DisplayZeroItemsMessage.js");
-/* harmony import */ var _DisplayListItems__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./DisplayListItems */ "./src/modules/UI/DisplayListItems.js");
-/* harmony import */ var _DisplayItemCount__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./DisplayItemCount */ "./src/modules/UI/DisplayItemCount.js");
-
+/* harmony import */ var _ToggleAddItemActiveClassname__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ToggleAddItemActiveClassname */ "./src/modules/UI/ToggleAddItemActiveClassname.js");
+/* harmony import */ var _ClearFormValue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ClearFormValue */ "./src/modules/UI/ClearFormValue.js");
+/* harmony import */ var _GetActiveShoppingList__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./GetActiveShoppingList */ "./src/modules/UI/GetActiveShoppingList.js");
+/* harmony import */ var _LocalStorage_AddItemLocalStorage__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../LocalStorage/AddItemLocalStorage */ "./src/modules/LocalStorage/AddItemLocalStorage.js");
+/* harmony import */ var _DisplayZeroItemsMessage__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./DisplayZeroItemsMessage */ "./src/modules/UI/DisplayZeroItemsMessage.js");
+/* harmony import */ var _DisplayListItems__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./DisplayListItems */ "./src/modules/UI/DisplayListItems.js");
+/* harmony import */ var _DisplayItemCount__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./DisplayItemCount */ "./src/modules/UI/DisplayItemCount.js");
 
 
 
@@ -8462,13 +8461,13 @@ function addItemDom(event) {
     const currentDate = new Date();
 
     if (event.key === 'Enter' && item !== '') {
-        (0,_ClearFormValue__WEBPACK_IMPORTED_MODULE_2__["default"])(event.target);
-        const activeList = (0,_GetActiveShoppingList__WEBPACK_IMPORTED_MODULE_3__["default"])();
-        (0,_LocalStorage_AddItemLocalStorage__WEBPACK_IMPORTED_MODULE_4__["default"])(activeList, item, false, currentDate);
-        (0,_DisplayListItems__WEBPACK_IMPORTED_MODULE_6__["default"])(activeList);
-        (0,_DisplayItemCount__WEBPACK_IMPORTED_MODULE_7__["default"])();
-        (0,_DisplayZeroItemsMessage__WEBPACK_IMPORTED_MODULE_5__["default"])();
-        (0,_ToggleAddItemActiveClassname__WEBPACK_IMPORTED_MODULE_1__["default"])(
+        (0,_ClearFormValue__WEBPACK_IMPORTED_MODULE_1__["default"])(event.target);
+        const activeList = (0,_GetActiveShoppingList__WEBPACK_IMPORTED_MODULE_2__["default"])();
+        (0,_LocalStorage_AddItemLocalStorage__WEBPACK_IMPORTED_MODULE_3__["default"])(activeList, item, false, currentDate);
+        (0,_DisplayListItems__WEBPACK_IMPORTED_MODULE_5__["default"])(activeList);
+        (0,_DisplayItemCount__WEBPACK_IMPORTED_MODULE_6__["default"])();
+        (0,_DisplayZeroItemsMessage__WEBPACK_IMPORTED_MODULE_4__["default"])();
+        (0,_ToggleAddItemActiveClassname__WEBPACK_IMPORTED_MODULE_0__["default"])(
             document.querySelector('.add-item'),
             document.querySelector('.add-item-form')
         )
@@ -8603,14 +8602,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _DisplayItemCount__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./DisplayItemCount */ "./src/modules/UI/DisplayItemCount.js");
-/* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! date-fns */ "./node_modules/date-fns/esm/parseISO/index.js");
-/* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! date-fns */ "./node_modules/date-fns/esm/formatDistanceToNow/index.js");
-
+/* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! date-fns */ "./node_modules/date-fns/esm/parseISO/index.js");
+/* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! date-fns */ "./node_modules/date-fns/esm/formatDistanceToNow/index.js");
 
 
 function createDOMListItem(itemText, completed, date) {
-    console.log(date)
     const shopList = document.querySelector('.sl-list--container');
     const compList = document.querySelector('.cl-list--container');
     const listItem = document.createElement('li');
@@ -8682,11 +8678,13 @@ function createDateStatusEnd() {
 }
 
 function createDate(date) {
-    const dateEntered = (0,date_fns__WEBPACK_IMPORTED_MODULE_1__["default"])(date);
-    const distanceToNow = (0,date_fns__WEBPACK_IMPORTED_MODULE_2__["default"])(dateEntered,{includeSeconds: true})
-    console.log(distanceToNow)
+    const span = document.createElement('span');
+    span.className = 'date';
+    const dateEntered = (0,date_fns__WEBPACK_IMPORTED_MODULE_0__["default"])(date);
+    const distanceToNow = (0,date_fns__WEBPACK_IMPORTED_MODULE_1__["default"])(dateEntered,{includeSeconds: true})
     const dateInfo = document.createTextNode(distanceToNow);
-    return dateInfo;
+    span.appendChild(dateInfo);
+    return span;
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (createDOMListItem);
@@ -8788,10 +8786,8 @@ __webpack_require__.r(__webpack_exports__);
 function displayListItems(shoppingList) {
     (0,_ClearListItems__WEBPACK_IMPORTED_MODULE_2__["default"])();
     const itemsFromStorage = (0,_LocalStorage_GetListsItemsLocalStorage__WEBPACK_IMPORTED_MODULE_0__["default"])();
-    console.log(itemsFromStorage);
     if (Object.keys(itemsFromStorage).length !== 0) {
         itemsFromStorage[shoppingList].forEach(item => {
-            console.log(item.date);
             (0,_CreateDOMListItem__WEBPACK_IMPORTED_MODULE_1__["default"])(item.item, item.completed, item.date);
         })
     }
@@ -9080,6 +9076,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _DisplayItemCount__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./DisplayItemCount */ "./src/modules/UI/DisplayItemCount.js");
 /* harmony import */ var _LocalStorage_UpdateItemLocalStorage__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../LocalStorage/UpdateItemLocalStorage */ "./src/modules/LocalStorage/UpdateItemLocalStorage.js");
 /* harmony import */ var _DisplayZeroItemsMessage__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./DisplayZeroItemsMessage */ "./src/modules/UI/DisplayZeroItemsMessage.js");
+/* harmony import */ var _UpdateDOMItemDate__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./UpdateDOMItemDate */ "./src/modules/UI/UpdateDOMItemDate.js");
+
 
 
 
@@ -9093,10 +9091,12 @@ function toggleItemList(event) {
         toggleClassName(listItem, 'completed-list--item', 'shopping-list--item');
         completedContainer.insertBefore(listItem, completedContainer.firstChild);
         dateStatus.textContent = 'Completed, ';
+        (0,_UpdateDOMItemDate__WEBPACK_IMPORTED_MODULE_3__["default"])(event);
     } else if (event.target.checked === false) {
         toggleClassName(listItem, 'shopping-list--item', 'completed-list--item');
         shoppingContainer.appendChild(listItem);
         dateStatus.textContent = 'Added, '
+        ;(0,_UpdateDOMItemDate__WEBPACK_IMPORTED_MODULE_3__["default"])(event);
     }
     (0,_LocalStorage_UpdateItemLocalStorage__WEBPACK_IMPORTED_MODULE_1__["default"])(event);
     (0,_DisplayItemCount__WEBPACK_IMPORTED_MODULE_0__["default"])();
@@ -9188,6 +9188,36 @@ function toggleSideBarMenu(event) {
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (toggleSideBarMenu);
+
+/***/ }),
+
+/***/ "./src/modules/UI/UpdateDOMItemDate.js":
+/*!*********************************************!*\
+  !*** ./src/modules/UI/UpdateDOMItemDate.js ***!
+  \*********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! date-fns */ "./node_modules/date-fns/esm/parseISO/index.js");
+/* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! date-fns */ "./node_modules/date-fns/esm/formatDistanceToNow/index.js");
+
+
+function updateDOMItemDate(event) {
+    const dateContainer = event.target.parentElement.nextElementSibling.children.item(1);
+    const date = new Date();
+    const parsedDate = (0,date_fns__WEBPACK_IMPORTED_MODULE_0__["default"])(date);
+    console.log(dateContainer.textContent)
+    dateContainer.textContent = (0,date_fns__WEBPACK_IMPORTED_MODULE_1__["default"])(date,{includeSeconds: true})
+    return dateContainer;
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (updateDOMItemDate);
+
+
 
 /***/ }),
 
@@ -9410,4 +9440,4 @@ document.addEventListener('DOMContentLoaded', _modules_UI_UserInterface__WEBPACK
 
 /******/ })()
 ;
-//# sourceMappingURL=bundle792335f8f90e01c066c8.js.map
+//# sourceMappingURL=bundle603a6682bfc4643abc76.js.map

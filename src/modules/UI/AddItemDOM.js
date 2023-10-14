@@ -1,4 +1,3 @@
-import createDOMListItem from "./CreateDOMListItem";
 import toggleAddItemActiveClassname from "./ToggleAddItemActiveClassname";
 import clearFormValue from "./ClearFormValue";
 import getActiveShoppingList from "./GetActiveShoppingList";

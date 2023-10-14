@@ -1,8 +1,6 @@
-import displayItemCount from "./DisplayItemCount";
 import {formatDistanceToNow, parseISO} from "date-fns";
 
 function createDOMListItem(itemText, completed, date) {
-    console.log(date)
     const shopList = document.querySelector('.sl-list--container');
     const compList = document.querySelector('.cl-list--container');
     const listItem = document.createElement('li');
@@ -74,11 +72,13 @@ function createDateStatusEnd() {
 }
 
 function createDate(date) {
+    const span = document.createElement('span');
+    span.className = 'date';
     const dateEntered = parseISO(date);
     const distanceToNow = formatDistanceToNow(dateEntered,{includeSeconds: true})
-    console.log(distanceToNow)
     const dateInfo = document.createTextNode(distanceToNow);
-    return dateInfo;
+    span.appendChild(dateInfo);
+    return span;
 }
 
 export default createDOMListItem;
