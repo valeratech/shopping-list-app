@@ -519,7 +519,7 @@ input:focus {
 
     background-color: white;
     padding: 6rem;
-    border-radius: 10px;
+    border-radius: 15px;
     box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
     z-index: 15;
 }
@@ -534,5 +534,20 @@ input:focus {
     background-color: rgba(0, 0, 0, 0.6);
     backdrop-filter: blur(3px);
     z-index: 10;
+}
+
+.modal-container h2 {
+    border-bottom: solid 1px;
+    padding-bottom: 20px;
+}
+
+.modal-menu-items {
+    border-bottom: solid 1px;
+    padding: 20px 5px;
+    font-size: 18px;
+}
+
+.modal-menu-items:hover {
+    background-color: #cacaca;
 }
 

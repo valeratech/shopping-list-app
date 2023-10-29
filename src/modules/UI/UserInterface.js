@@ -11,7 +11,7 @@ import toggleActiveShoppingList from "./ToggleActiveShoppingList";
 import displayShoppingLists from "./DisplayShoppingLists";
 import createDefaultShoppingList from "./CreateDefaultShoppingList";
 import displayZeroItemsMessage from "./DisplayZeroItemsMessage";
-import {openModal, closeModal} from "./Modal/ToggleModal";
+import {openModal, closeModal} from "./ShoppingListMenuModal/ToggleShoppingListMenuModal";
 
 function userInterface() {
     init();

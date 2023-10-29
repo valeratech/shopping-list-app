@@ -8908,38 +8908,6 @@ function getActiveShoppingList() {
 
 /***/ }),
 
-/***/ "./src/modules/UI/Modal/ToggleModal.js":
-/*!*********************************************!*\
-  !*** ./src/modules/UI/Modal/ToggleModal.js ***!
-  \*********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   closeModal: () => (/* binding */ closeModal),
-/* harmony export */   openModal: () => (/* binding */ openModal)
-/* harmony export */ });
-/* harmony import */ var _GetActiveShoppingList__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../GetActiveShoppingList */ "./src/modules/UI/GetActiveShoppingList.js");
-
-
-const modal = document.querySelector('.modal-container');
-const overlay = document.querySelector('.modal-overlay');
-
-function openModal() {
-    modal.classList.remove('hidden');
-    overlay.classList.remove('hidden');
-};
-
-function closeModal() {
-    modal.classList.add('hidden');
-    overlay.classList.add('hidden');
-};
-
-
-
-/***/ }),
-
 /***/ "./src/modules/UI/RemoveActiveListClass.js":
 /*!*************************************************!*\
   !*** ./src/modules/UI/RemoveActiveListClass.js ***!
@@ -8988,6 +8956,38 @@ function setDefaultShoppingListActive() {
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (setDefaultShoppingListActive);
+
+/***/ }),
+
+/***/ "./src/modules/UI/ShoppingListMenuModal/ToggleShoppingListMenuModal.js":
+/*!*****************************************************************************!*\
+  !*** ./src/modules/UI/ShoppingListMenuModal/ToggleShoppingListMenuModal.js ***!
+  \*****************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   closeModal: () => (/* binding */ closeModal),
+/* harmony export */   openModal: () => (/* binding */ openModal)
+/* harmony export */ });
+/* harmony import */ var _GetActiveShoppingList__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../GetActiveShoppingList */ "./src/modules/UI/GetActiveShoppingList.js");
+
+
+const modal = document.querySelector('.modal-container');
+const overlay = document.querySelector('.modal-overlay');
+
+function openModal() {
+    modal.classList.remove('hidden');
+    overlay.classList.remove('hidden');
+};
+
+function closeModal() {
+    modal.classList.add('hidden');
+    overlay.classList.add('hidden');
+};
+
+
 
 /***/ }),
 
@@ -9313,7 +9313,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _DisplayShoppingLists__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./DisplayShoppingLists */ "./src/modules/UI/DisplayShoppingLists.js");
 /* harmony import */ var _CreateDefaultShoppingList__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./CreateDefaultShoppingList */ "./src/modules/UI/CreateDefaultShoppingList.js");
 /* harmony import */ var _DisplayZeroItemsMessage__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./DisplayZeroItemsMessage */ "./src/modules/UI/DisplayZeroItemsMessage.js");
-/* harmony import */ var _Modal_ToggleModal__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./Modal/ToggleModal */ "./src/modules/UI/Modal/ToggleModal.js");
+/* harmony import */ var _ShoppingListMenuModal_ToggleShoppingListMenuModal__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./ShoppingListMenuModal/ToggleShoppingListMenuModal */ "./src/modules/UI/ShoppingListMenuModal/ToggleShoppingListMenuModal.js");
 
 
 
@@ -9364,20 +9364,20 @@ function init() {
 
         if (e.target.classList.contains('fa-ellipsis-vertical')) {
             (0,_ToggleActiveShoppingList__WEBPACK_IMPORTED_MODULE_9__["default"])(e);
-            (0,_Modal_ToggleModal__WEBPACK_IMPORTED_MODULE_13__.openModal)();
+            (0,_ShoppingListMenuModal_ToggleShoppingListMenuModal__WEBPACK_IMPORTED_MODULE_13__.openModal)();
             console.log('fire 1!')
         } else if (e.target.parentElement.classList.contains('fa-ellipsis-vertical')) {
             (0,_ToggleActiveShoppingList__WEBPACK_IMPORTED_MODULE_9__["default"])(e);
-            (0,_Modal_ToggleModal__WEBPACK_IMPORTED_MODULE_13__.openModal)();
+            (0,_ShoppingListMenuModal_ToggleShoppingListMenuModal__WEBPACK_IMPORTED_MODULE_13__.openModal)();
             console.log('fire 2!');
         }
     });
     
     const btnCloseModal = document.querySelector('.close-modal');
-    btnCloseModal.addEventListener('click', _Modal_ToggleModal__WEBPACK_IMPORTED_MODULE_13__.closeModal);
+    btnCloseModal.addEventListener('click', _ShoppingListMenuModal_ToggleShoppingListMenuModal__WEBPACK_IMPORTED_MODULE_13__.closeModal);
 
     const overlay = document.querySelector('.modal-overlay');
-    overlay.addEventListener('click', _Modal_ToggleModal__WEBPACK_IMPORTED_MODULE_13__.closeModal);
+    overlay.addEventListener('click', _ShoppingListMenuModal_ToggleShoppingListMenuModal__WEBPACK_IMPORTED_MODULE_13__.closeModal);
 
 
     (0,_CreateDefaultShoppingList__WEBPACK_IMPORTED_MODULE_11__["default"])();
@@ -9513,4 +9513,4 @@ document.addEventListener('DOMContentLoaded', _modules_UI_UserInterface__WEBPACK
 
 /******/ })()
 ;
-//# sourceMappingURL=bundle53e3a01244989a5a0a1f.js.map
+//# sourceMappingURL=bundled4a6a28f054667bf2d22.js.map
