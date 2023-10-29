@@ -40,12 +40,20 @@ function init() {
 
     const shoppingLists = document.getElementById('list-sidebar');
     shoppingLists.addEventListener('click', (e) => {
-        if (e.target.classList.contains('list-name') || e.target.parentElement.classList.contains('list-name')) {
+        console.log(e.target);
+        if (e.target.classList.contains('list-name') ||
+            e.target.parentElement.classList.contains('list-name')) {
             toggleActiveShoppingList(e);
-        } else if (e.target.classList.contains('fa-ellipsis-vertical') ||
-            e.target.parentElement.classList.contains('fa-ellipsis-vertical')) {
+        }
+
+        if (e.target.classList.contains('fa-ellipsis-vertical')) {
             toggleActiveShoppingList(e);
-            openModal(e);
+            openModal();
+            console.log('fire 1!')
+        } else if (e.target.parentElement.classList.contains('fa-ellipsis-vertical')) {
+            toggleActiveShoppingList(e);
+            openModal();
+            console.log('fire 2!');
         }
     });
     

@@ -21,8 +21,6 @@ function toggleActiveShoppingList(event) {
         shoppingListName = event.target.parentElement.parentElement;
     }
 
-
-
     // Create a Boolean to make sure the onClick event is referencing the correct element (shopping-list-container)
     // const isListItem = shoppingListName.classList.contains('list-name');
 

@@ -8926,14 +8926,12 @@ __webpack_require__.r(__webpack_exports__);
 const modal = document.querySelector('.modal-container');
 const overlay = document.querySelector('.modal-overlay');
 
-function openModal(e) {
-    console.log('hi')
+function openModal() {
     modal.classList.remove('hidden');
     overlay.classList.remove('hidden');
 };
 
-function closeModal(e) {
-    console.log('close');
+function closeModal() {
     modal.classList.add('hidden');
     overlay.classList.add('hidden');
 };
@@ -9032,8 +9030,6 @@ function toggleActiveShoppingList(event) {
         isListItem = true;
         shoppingListName = event.target.parentElement.parentElement;
     }
-
-
 
     // Create a Boolean to make sure the onClick event is referencing the correct element (shopping-list-container)
     // const isListItem = shoppingListName.classList.contains('list-name');
@@ -9360,12 +9356,20 @@ function init() {
 
     const shoppingLists = document.getElementById('list-sidebar');
     shoppingLists.addEventListener('click', (e) => {
-        if (e.target.classList.contains('list-name') || e.target.parentElement.classList.contains('list-name')) {
+        console.log(e.target);
+        if (e.target.classList.contains('list-name') ||
+            e.target.parentElement.classList.contains('list-name')) {
             (0,_ToggleActiveShoppingList__WEBPACK_IMPORTED_MODULE_9__["default"])(e);
-        } else if (e.target.classList.contains('fa-ellipsis-vertical') ||
-            e.target.parentElement.classList.contains('fa-ellipsis-vertical')) {
+        }
+
+        if (e.target.classList.contains('fa-ellipsis-vertical')) {
             (0,_ToggleActiveShoppingList__WEBPACK_IMPORTED_MODULE_9__["default"])(e);
-            (0,_Modal_ToggleModal__WEBPACK_IMPORTED_MODULE_13__.openModal)(e);
+            (0,_Modal_ToggleModal__WEBPACK_IMPORTED_MODULE_13__.openModal)();
+            console.log('fire 1!')
+        } else if (e.target.parentElement.classList.contains('fa-ellipsis-vertical')) {
+            (0,_ToggleActiveShoppingList__WEBPACK_IMPORTED_MODULE_9__["default"])(e);
+            (0,_Modal_ToggleModal__WEBPACK_IMPORTED_MODULE_13__.openModal)();
+            console.log('fire 2!');
         }
     });
     
@@ -9509,4 +9513,4 @@ document.addEventListener('DOMContentLoaded', _modules_UI_UserInterface__WEBPACK
 
 /******/ })()
 ;
-//# sourceMappingURL=bundle372807abb7b5dde09d60.js.map
+//# sourceMappingURL=bundle53e3a01244989a5a0a1f.js.map
