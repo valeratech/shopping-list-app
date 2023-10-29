@@ -8390,6 +8390,7 @@ __webpack_require__.r(__webpack_exports__);
 function updateItemLocalStorage(event) {
     const listsItemsStorage = (0,_GetListsItemsLocalStorage__WEBPACK_IMPORTED_MODULE_0__["default"])();
     const activeList = (0,_UI_GetActiveShoppingList__WEBPACK_IMPORTED_MODULE_1__["default"])();
+    console.log(activeList)
     const shoppingList = listsItemsStorage[activeList];
     const item = event.target.nextSibling.nextSibling;
 
@@ -8512,7 +8513,7 @@ function addListNameDOM(name) {
     container.insertBefore(createNewShoppingList(name), addListContainer);
     (0,_RemoveActiveListClass__WEBPACK_IMPORTED_MODULE_0__["default"])(true);
     (0,_AddActiveListClass__WEBPACK_IMPORTED_MODULE_1__["default"])(addListContainer.previousElementSibling);
-    (0,_DisplayListItems__WEBPACK_IMPORTED_MODULE_2__["default"])(addListContainer.previousElementSibling.lastChild.textContent);
+    (0,_DisplayListItems__WEBPACK_IMPORTED_MODULE_2__["default"])(addListContainer.previousElementSibling.firstChild.textContent);
     (0,_DisplayItemCount__WEBPACK_IMPORTED_MODULE_3__["default"])();
     (0,_UpdateMainHeading__WEBPACK_IMPORTED_MODULE_4__["default"])(name);
     (0,_DisplayZeroItemsMessage__WEBPACK_IMPORTED_MODULE_5__["default"])();
@@ -8521,13 +8522,13 @@ function addListNameDOM(name) {
 function createNewShoppingList(name) {
     const listName = document.createElement('li');
     listName.className = 'list-name';
-    listName.append(createListIcon(), createListName(name));
+    listName.append(createListName(name), createListIcon());
     return listName;
 }
 
 function createListIcon() {
     const icon = document.createElement('i');
-    icon.className = 'fa-solid fa-list-ul';
+    icon.className = 'fa-solid fa-ellipsis-vertical';
     return icon;
 }
 
@@ -8617,10 +8618,10 @@ function createDOMListItem(itemText, completed, date) {
         );
 
     if (completed) {
-        listItem.classList.add('completed-list--item');
+        listItem.classList.add('cl-list--item');
         compList.appendChild(listItem);
     } else {
-        listItem.classList.add('shopping-list--item');
+        listItem.classList.add('sl-list--item');
         shopList.appendChild(listItem)
     }
 }
@@ -8897,13 +8898,47 @@ function getActiveShoppingList() {
     let activeList;
     lists.forEach(list => {
       if (list.classList.contains('active-list')) {
-          activeList = list.lastElementChild.firstChild.textContent;
+          activeList = list.firstElementChild.firstChild.textContent;
       }
     })
     return activeList;
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (getActiveShoppingList);
+
+/***/ }),
+
+/***/ "./src/modules/UI/Modal/ToggleModal.js":
+/*!*********************************************!*\
+  !*** ./src/modules/UI/Modal/ToggleModal.js ***!
+  \*********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   closeModal: () => (/* binding */ closeModal),
+/* harmony export */   openModal: () => (/* binding */ openModal)
+/* harmony export */ });
+/* harmony import */ var _GetActiveShoppingList__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../GetActiveShoppingList */ "./src/modules/UI/GetActiveShoppingList.js");
+
+
+const modal = document.querySelector('.modal-container');
+const overlay = document.querySelector('.modal-overlay');
+
+function openModal(e) {
+    console.log('hi')
+    modal.classList.remove('hidden');
+    overlay.classList.remove('hidden');
+};
+
+function closeModal(e) {
+    console.log('close');
+    modal.classList.add('hidden');
+    overlay.classList.add('hidden');
+};
+
+
 
 /***/ }),
 
@@ -8943,12 +8978,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _RemoveActiveListClass__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./RemoveActiveListClass */ "./src/modules/UI/RemoveActiveListClass.js");
+/* harmony import */ var _UpdateMainHeading__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./UpdateMainHeading */ "./src/modules/UI/UpdateMainHeading.js");
+
 
 
 function setDefaultShoppingListActive() {
     const sideBar = document.getElementById('list-sidebar');
     (0,_RemoveActiveListClass__WEBPACK_IMPORTED_MODULE_0__["default"])(true);
     sideBar.firstElementChild.classList.add('active-list');
+    (0,_UpdateMainHeading__WEBPACK_IMPORTED_MODULE_1__["default"])('Default Shopping List');
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (setDefaultShoppingListActive);
@@ -8981,10 +9019,24 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function toggleActiveShoppingList(event) {
-    const shoppingListName = event.target;
+    let shoppingListName = event.target;
+    let isListItem = false;
     console.log(shoppingListName);
+
+    if (shoppingListName.classList.contains('list-name')) {
+        isListItem = true;
+    } else if (shoppingListName.parentElement.classList.contains('list-name')) {
+        isListItem = true;
+        shoppingListName = event.target.parentElement;
+    } else if (shoppingListName.parentElement.parentElement.classList.contains('list-name')) {
+        isListItem = true;
+        shoppingListName = event.target.parentElement.parentElement;
+    }
+
+
+
     // Create a Boolean to make sure the onClick event is referencing the correct element (shopping-list-container)
-    const isListItem = shoppingListName.classList.contains('list-name');
+    // const isListItem = shoppingListName.classList.contains('list-name');
 
     (0,_RemoveActiveListClass__WEBPACK_IMPORTED_MODULE_1__["default"])(isListItem);
     // If 'isListItem' is true then populate the shopping and completed lists
@@ -9265,6 +9317,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _DisplayShoppingLists__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./DisplayShoppingLists */ "./src/modules/UI/DisplayShoppingLists.js");
 /* harmony import */ var _CreateDefaultShoppingList__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./CreateDefaultShoppingList */ "./src/modules/UI/CreateDefaultShoppingList.js");
 /* harmony import */ var _DisplayZeroItemsMessage__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./DisplayZeroItemsMessage */ "./src/modules/UI/DisplayZeroItemsMessage.js");
+/* harmony import */ var _Modal_ToggleModal__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./Modal/ToggleModal */ "./src/modules/UI/Modal/ToggleModal.js");
+
 
 
 
@@ -9305,7 +9359,22 @@ function init() {
     menu.addEventListener('change', _ToggleSideBarMenu__WEBPACK_IMPORTED_MODULE_6__["default"]);
 
     const shoppingLists = document.getElementById('list-sidebar');
-    shoppingLists.addEventListener('click', _ToggleActiveShoppingList__WEBPACK_IMPORTED_MODULE_9__["default"]);
+    shoppingLists.addEventListener('click', (e) => {
+        if (e.target.classList.contains('list-name') || e.target.parentElement.classList.contains('list-name')) {
+            (0,_ToggleActiveShoppingList__WEBPACK_IMPORTED_MODULE_9__["default"])(e);
+        } else if (e.target.classList.contains('fa-ellipsis-vertical') ||
+            e.target.parentElement.classList.contains('fa-ellipsis-vertical')) {
+            (0,_ToggleActiveShoppingList__WEBPACK_IMPORTED_MODULE_9__["default"])(e);
+            (0,_Modal_ToggleModal__WEBPACK_IMPORTED_MODULE_13__.openModal)(e);
+        }
+    });
+    
+    const btnCloseModal = document.querySelector('.close-modal');
+    btnCloseModal.addEventListener('click', _Modal_ToggleModal__WEBPACK_IMPORTED_MODULE_13__.closeModal);
+
+    const overlay = document.querySelector('.modal-overlay');
+    overlay.addEventListener('click', _Modal_ToggleModal__WEBPACK_IMPORTED_MODULE_13__.closeModal);
+
 
     (0,_CreateDefaultShoppingList__WEBPACK_IMPORTED_MODULE_11__["default"])();
     (0,_DisplayShoppingLists__WEBPACK_IMPORTED_MODULE_10__["default"])();
@@ -9440,4 +9509,4 @@ document.addEventListener('DOMContentLoaded', _modules_UI_UserInterface__WEBPACK
 
 /******/ })()
 ;
-//# sourceMappingURL=bundle603a6682bfc4643abc76.js.map
+//# sourceMappingURL=bundle372807abb7b5dde09d60.js.map

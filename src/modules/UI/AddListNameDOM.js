@@ -11,7 +11,7 @@ function addListNameDOM(name) {
     container.insertBefore(createNewShoppingList(name), addListContainer);
     removeActiveListClass(true);
     addActiveListClass(addListContainer.previousElementSibling);
-    displayListItems(addListContainer.previousElementSibling.lastChild.textContent);
+    displayListItems(addListContainer.previousElementSibling.firstChild.textContent);
     displayItemCount();
     updateMainHeading(name);
     displayZeroItemsMessage();
@@ -20,13 +20,13 @@ function addListNameDOM(name) {
 function createNewShoppingList(name) {
     const listName = document.createElement('li');
     listName.className = 'list-name';
-    listName.append(createListIcon(), createListName(name));
+    listName.append(createListName(name), createListIcon());
     return listName;
 }
 
 function createListIcon() {
     const icon = document.createElement('i');
-    icon.className = 'fa-solid fa-list-ul';
+    icon.className = 'fa-solid fa-ellipsis-vertical';
     return icon;
 }
 

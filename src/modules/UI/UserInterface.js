@@ -11,6 +11,7 @@ import toggleActiveShoppingList from "./ToggleActiveShoppingList";
 import displayShoppingLists from "./DisplayShoppingLists";
 import createDefaultShoppingList from "./CreateDefaultShoppingList";
 import displayZeroItemsMessage from "./DisplayZeroItemsMessage";
+import {openModal, closeModal} from "./Modal/ToggleModal";
 
 function userInterface() {
     init();
@@ -38,7 +39,22 @@ function init() {
     menu.addEventListener('change', toggleSideBarMenu);
 
     const shoppingLists = document.getElementById('list-sidebar');
-    shoppingLists.addEventListener('click', toggleActiveShoppingList);
+    shoppingLists.addEventListener('click', (e) => {
+        if (e.target.classList.contains('list-name') || e.target.parentElement.classList.contains('list-name')) {
+            toggleActiveShoppingList(e);
+        } else if (e.target.classList.contains('fa-ellipsis-vertical') ||
+            e.target.parentElement.classList.contains('fa-ellipsis-vertical')) {
+            toggleActiveShoppingList(e);
+            openModal(e);
+        }
+    });
+    
+    const btnCloseModal = document.querySelector('.close-modal');
+    btnCloseModal.addEventListener('click', closeModal);
+
+    const overlay = document.querySelector('.modal-overlay');
+    overlay.addEventListener('click', closeModal);
+
 
     createDefaultShoppingList();
     displayShoppingLists();

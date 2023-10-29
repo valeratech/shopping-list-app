@@ -4,6 +4,7 @@ import getActiveShoppingList from "../UI/GetActiveShoppingList";
 function updateItemLocalStorage(event) {
     const listsItemsStorage = getListsItemsLocalStorage();
     const activeList = getActiveShoppingList();
+    console.log(activeList)
     const shoppingList = listsItemsStorage[activeList];
     const item = event.target.nextSibling.nextSibling;
 

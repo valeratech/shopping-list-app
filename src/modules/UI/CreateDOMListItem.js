@@ -11,10 +11,10 @@ function createDOMListItem(itemText, completed, date) {
         );
 
     if (completed) {
-        listItem.classList.add('completed-list--item');
+        listItem.classList.add('cl-list--item');
         compList.appendChild(listItem);
     } else {
-        listItem.classList.add('shopping-list--item');
+        listItem.classList.add('sl-list--item');
         shopList.appendChild(listItem)
     }
 }

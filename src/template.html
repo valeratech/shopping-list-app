@@ -24,7 +24,8 @@
         <label for="menu-list" class="menu"><i class="fa-solid fa-bars"></i></label>
         <ul id="list-sidebar" class="hide">
             <li class="list-name active-list">
-                <i class="fa-solid fa-list-ul"></i><span class="list-text">Default Shopping List</span>
+                <span class="list-text">Default Shopping List</span>
+                <i class="fa-solid fa-ellipsis-vertical"></i>
             </li>
             <div id="add-list-container">
                 <button type="button" class="add-list-name active" id="button-add-list-name"><i class="fa-solid fa-plus"></i> Create List</button>
@@ -60,6 +61,16 @@
             </div>
         </section>
     </article>
+    <article class="modal-container hidden">
+        <button class="close-modal">&times;</button>
+        <h2>Default Shopping List</h2>
+        <ul>
+            <li>Option 1</li>
+            <li>Option 2</li>
+            <li>Option 3</li>
+        </ul>
+    </article>
+    <div class="modal-overlay hidden"></div>
 </main>
 </body>
 </html>

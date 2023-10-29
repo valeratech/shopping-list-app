@@ -4,7 +4,7 @@ function getActiveShoppingList() {
     let activeList;
     lists.forEach(list => {
       if (list.classList.contains('active-list')) {
-          activeList = list.lastElementChild.firstChild.textContent;
+          activeList = list.firstElementChild.firstChild.textContent;
       }
     })
     return activeList;
