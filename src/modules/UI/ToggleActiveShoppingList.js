@@ -9,7 +9,6 @@ import displayZeroItemsMessage from "./DisplayZeroItemsMessage";
 function toggleActiveShoppingList(event) {
     let shoppingListName = event.target;
     let isListItem = false;
-    console.log(shoppingListName);
 
     if (shoppingListName.classList.contains('list-name')) {
         isListItem = true;

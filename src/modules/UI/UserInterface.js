@@ -12,7 +12,7 @@ import displayShoppingLists from "./DisplayShoppingLists";
 import createDefaultShoppingList from "./CreateDefaultShoppingList";
 import displayZeroItemsMessage from "./DisplayZeroItemsMessage";
 import {openModal, closeModal} from "./ToggleShoppingListMenuModal";
-import deleteShoppingListLocalStorage from "../LocalStorage/DeleteShoppingListLocalStorage";
+import deleteShoppingListDOM from "./DeleteShoppingListDOM";
 
 function userInterface() {
     init();
@@ -41,7 +41,6 @@ function init() {
 
     const shoppingLists = document.getElementById('list-sidebar');
     shoppingLists.addEventListener('click', (e) => {
-        console.log(e.target);
         if (e.target.classList.contains('list-name') ||
             e.target.parentElement.classList.contains('list-name')) {
             toggleActiveShoppingList(e);
@@ -50,11 +49,9 @@ function init() {
         if (e.target.classList.contains('fa-ellipsis-vertical')) {
             toggleActiveShoppingList(e);
             openModal();
-            console.log('fire 1!')
         } else if (e.target.parentElement.classList.contains('fa-ellipsis-vertical')) {
             toggleActiveShoppingList(e);
             openModal();
-            console.log('fire 2!');
         }
     });
     
@@ -76,8 +73,7 @@ function init() {
                     console.log('c all');
                     break;
                 case 'Delete Shopping List':
-                    console.log('sl');
-                    deleteShoppingListLocalStorage();
+                    deleteShoppingListDOM(e);
                     break;
             }
         })
