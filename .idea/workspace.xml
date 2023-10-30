@@ -6,12 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="155b8fc2-f810-41cc-93d6-ac777cec3577" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/bundle2660fbb03f3a5dae7741.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/bundle2660fbb03f3a5dae7741.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/bundle4ce38310236779e1fe7d.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/bundle4ce38310236779e1fe7d.js.map" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/dist/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/LocalStorage/DeleteShoppingListLocalStorage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/LocalStorage/DeleteShoppingListLocalStorage.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/modules/UI/DeleteShoppingListDOM.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/UI/DeleteShoppingListDOM.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/UI/DisplayListItems.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/UI/DisplayListItems.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/UI/ToggleActiveShoppingList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/UI/ToggleActiveShoppingList.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/modules/UI/UserInterface.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/UI/UserInterface.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -86,7 +85,7 @@
       <workItem from="1697236258404" duration="21118000" />
       <workItem from="1698199306114" duration="4640000" />
       <workItem from="1698550617301" duration="44000" />
-      <workItem from="1698630092590" duration="2403000" />
+      <workItem from="1698630092590" duration="4086000" />
     </task>
     <servers />
   </component>

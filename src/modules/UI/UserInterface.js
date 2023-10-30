@@ -73,7 +73,7 @@ function init() {
                     console.log('c all');
                     break;
                 case 'Delete Shopping List':
-                    deleteShoppingListDOM(e);
+                    deleteShoppingListDOM();
                     break;
             }
         })

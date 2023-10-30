@@ -8335,14 +8335,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _GetListsItemsLocalStorage__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./GetListsItemsLocalStorage */ "./src/modules/LocalStorage/GetListsItemsLocalStorage.js");
 /* harmony import */ var _UI_GetActiveShoppingList__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../UI/GetActiveShoppingList */ "./src/modules/UI/GetActiveShoppingList.js");
+/* harmony import */ var _UI_DisplayListItems__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../UI/DisplayListItems */ "./src/modules/UI/DisplayListItems.js");
+/* harmony import */ var _UI_SetDefaultShoppingListActive__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../UI/SetDefaultShoppingListActive */ "./src/modules/UI/SetDefaultShoppingListActive.js");
 
 
-function deleteShoppingListLocalStorage() {
-    const shoppingList = (0,_UI_GetActiveShoppingList__WEBPACK_IMPORTED_MODULE_1__["default"])();
+
+
+
+
+function deleteShoppingListLocalStorage(activeShoppingList) {
+    const shoppingList = activeShoppingList;
     const listsItemsStorage = (0,_GetListsItemsLocalStorage__WEBPACK_IMPORTED_MODULE_0__["default"])();
-    console.log(listsItemsStorage)
+    console.log(listsItemsStorage, shoppingList)
     delete listsItemsStorage[shoppingList];
     localStorage.setItem('shopping-list', JSON.stringify(listsItemsStorage));
+    (0,_UI_DisplayListItems__WEBPACK_IMPORTED_MODULE_2__["default"])('Default Shopping List');
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (deleteShoppingListLocalStorage);
@@ -8758,24 +8765,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _LocalStorage_DeleteShoppingListLocalStorage__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../LocalStorage/DeleteShoppingListLocalStorage */ "./src/modules/LocalStorage/DeleteShoppingListLocalStorage.js");
 /* harmony import */ var _GetActiveShoppingList__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./GetActiveShoppingList */ "./src/modules/UI/GetActiveShoppingList.js");
-/* harmony import */ var _SetDefaultShoppingListActive__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./SetDefaultShoppingListActive */ "./src/modules/UI/SetDefaultShoppingListActive.js");
-/* harmony import */ var _DisplayListItems__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./DisplayListItems */ "./src/modules/UI/DisplayListItems.js");
 
 
 
-
-
-function deleteShoppingListDOM(e) {
+function deleteShoppingListDOM() {
     const shoppingList = (0,_GetActiveShoppingList__WEBPACK_IMPORTED_MODULE_1__["default"])();
     const shoppingLists = document.querySelectorAll('.list-text');
     shoppingLists.forEach(list => {
         // filter through shopping list items/names and remove if name is equal to the active shopping list
         console.log(list.parentElement.textContent);
         list.parentElement.textContent === shoppingList && list.parentElement.remove();
-        (0,_SetDefaultShoppingListActive__WEBPACK_IMPORTED_MODULE_2__["default"])();
-        (0,_DisplayListItems__WEBPACK_IMPORTED_MODULE_3__["default"])('Default Shopping List');
     })
-    // deleteShoppingListLocalStorage();
+    ;(0,_LocalStorage_DeleteShoppingListLocalStorage__WEBPACK_IMPORTED_MODULE_0__["default"])(shoppingList);
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (deleteShoppingListDOM);
@@ -9464,7 +9465,7 @@ function init() {
                     console.log('c all');
                     break;
                 case 'Delete Shopping List':
-                    (0,_DeleteShoppingListDOM__WEBPACK_IMPORTED_MODULE_14__["default"])(e);
+                    (0,_DeleteShoppingListDOM__WEBPACK_IMPORTED_MODULE_14__["default"])();
                     break;
             }
         })
@@ -9604,4 +9605,4 @@ document.addEventListener('DOMContentLoaded', _modules_UI_UserInterface__WEBPACK
 
 /******/ })()
 ;
-//# sourceMappingURL=bundle4ce38310236779e1fe7d.js.map
+//# sourceMappingURL=bundlef76aecb57be111530275.js.map
