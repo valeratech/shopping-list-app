@@ -12,6 +12,7 @@ import displayShoppingLists from "./DisplayShoppingLists";
 import createDefaultShoppingList from "./CreateDefaultShoppingList";
 import displayZeroItemsMessage from "./DisplayZeroItemsMessage";
 import {openModal, closeModal} from "./ToggleShoppingListMenuModal";
+import deleteShoppingListLocalStorage from "../LocalStorage/DeleteShoppingListLocalStorage";
 
 function userInterface() {
     init();
@@ -63,7 +64,26 @@ function init() {
     const overlay = document.querySelector('.modal-overlay');
     overlay.addEventListener('click', closeModal);
 
+    const modalMenuItems = document.querySelectorAll('.modal-menu-items');
+    modalMenuItems.forEach(item => {
+        item.addEventListener('click', (e) => {
+            const menuItem = e.target.textContent;
+            switch (menuItem) {
+                case 'Delete All List Items':
+                    console.log('d all');
+                    break;
+                case 'Delete All Completed List Items':
+                    console.log('c all');
+                    break;
+                case 'Delete Shopping List':
+                    console.log('sl');
+                    deleteShoppingListLocalStorage();
+                    break;
+            }
+        })
+    })
 
+    // Initialize all default settings and display the correct shopping list info on webpage load.
     createDefaultShoppingList();
     displayShoppingLists();
     displayListItems('Default Shopping List');

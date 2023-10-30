@@ -8322,6 +8322,33 @@ function addListLocalStorage(listName) {
 
 /***/ }),
 
+/***/ "./src/modules/LocalStorage/DeleteShoppingListLocalStorage.js":
+/*!********************************************************************!*\
+  !*** ./src/modules/LocalStorage/DeleteShoppingListLocalStorage.js ***!
+  \********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _GetListsItemsLocalStorage__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./GetListsItemsLocalStorage */ "./src/modules/LocalStorage/GetListsItemsLocalStorage.js");
+/* harmony import */ var _UI_GetActiveShoppingList__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../UI/GetActiveShoppingList */ "./src/modules/UI/GetActiveShoppingList.js");
+
+
+function deleteShoppingListLocalStorage() {
+    const shoppingList = (0,_UI_GetActiveShoppingList__WEBPACK_IMPORTED_MODULE_1__["default"])();
+    const listsItemsStorage = (0,_GetListsItemsLocalStorage__WEBPACK_IMPORTED_MODULE_0__["default"])();
+    console.log(listsItemsStorage)
+    delete listsItemsStorage[shoppingList];
+    localStorage.setItem('shopping-list', JSON.stringify(listsItemsStorage));
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (deleteShoppingListLocalStorage);
+
+/***/ }),
+
 /***/ "./src/modules/LocalStorage/GetListsItemsLocalStorage.js":
 /*!***************************************************************!*\
   !*** ./src/modules/LocalStorage/GetListsItemsLocalStorage.js ***!
@@ -9324,6 +9351,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _CreateDefaultShoppingList__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./CreateDefaultShoppingList */ "./src/modules/UI/CreateDefaultShoppingList.js");
 /* harmony import */ var _DisplayZeroItemsMessage__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./DisplayZeroItemsMessage */ "./src/modules/UI/DisplayZeroItemsMessage.js");
 /* harmony import */ var _ToggleShoppingListMenuModal__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./ToggleShoppingListMenuModal */ "./src/modules/UI/ToggleShoppingListMenuModal.js");
+/* harmony import */ var _LocalStorage_DeleteShoppingListLocalStorage__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../LocalStorage/DeleteShoppingListLocalStorage */ "./src/modules/LocalStorage/DeleteShoppingListLocalStorage.js");
+
 
 
 
@@ -9389,8 +9418,27 @@ function init() {
     const overlay = document.querySelector('.modal-overlay');
     overlay.addEventListener('click', _ToggleShoppingListMenuModal__WEBPACK_IMPORTED_MODULE_13__.closeModal);
 
+    const modalMenuItems = document.querySelectorAll('.modal-menu-items');
+    modalMenuItems.forEach(item => {
+        item.addEventListener('click', (e) => {
+            const menuItem = e.target.textContent;
+            switch (menuItem) {
+                case 'Delete All List Items':
+                    console.log('d all');
+                    break;
+                case 'Delete All Completed List Items':
+                    console.log('c all');
+                    break;
+                case 'Delete Shopping List':
+                    console.log('sl');
+                    (0,_LocalStorage_DeleteShoppingListLocalStorage__WEBPACK_IMPORTED_MODULE_14__["default"])();
+                    break;
+            }
+        })
+    })
 
-    (0,_CreateDefaultShoppingList__WEBPACK_IMPORTED_MODULE_11__["default"])();
+    // Initialize all default settings and display the correct shopping list info on webpage load.
+    ;(0,_CreateDefaultShoppingList__WEBPACK_IMPORTED_MODULE_11__["default"])();
     (0,_DisplayShoppingLists__WEBPACK_IMPORTED_MODULE_10__["default"])();
     (0,_DisplayListItems__WEBPACK_IMPORTED_MODULE_8__["default"])('Default Shopping List');
     (0,_DisplayZeroItemsMessage__WEBPACK_IMPORTED_MODULE_12__["default"])();
@@ -9523,4 +9571,4 @@ document.addEventListener('DOMContentLoaded', _modules_UI_UserInterface__WEBPACK
 
 /******/ })()
 ;
-//# sourceMappingURL=bundlee5b21788e0a08c5b06d1.js.map
+//# sourceMappingURL=bundle2660fbb03f3a5dae7741.js.map
