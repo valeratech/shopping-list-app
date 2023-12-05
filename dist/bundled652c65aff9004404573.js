@@ -8765,6 +8765,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _LocalStorage_DeleteShoppingListLocalStorage__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../LocalStorage/DeleteShoppingListLocalStorage */ "./src/modules/LocalStorage/DeleteShoppingListLocalStorage.js");
 /* harmony import */ var _GetActiveShoppingList__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./GetActiveShoppingList */ "./src/modules/UI/GetActiveShoppingList.js");
+/* harmony import */ var _UpdateMainHeading__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./UpdateMainHeading */ "./src/modules/UI/UpdateMainHeading.js");
+
+
 
 
 
@@ -8777,6 +8780,7 @@ function deleteShoppingListDOM() {
         list.parentElement.textContent === shoppingList && list.parentElement.remove();
     })
     ;(0,_LocalStorage_DeleteShoppingListLocalStorage__WEBPACK_IMPORTED_MODULE_0__["default"])(shoppingList);
+    (0,_UpdateMainHeading__WEBPACK_IMPORTED_MODULE_2__["default"])();
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (deleteShoppingListDOM);
@@ -9355,7 +9359,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-function updateMainHeading(heading) {
+function updateMainHeading(heading='Default Shopping List') {
     const mainHeading = document.getElementById('main-heading');
     mainHeading.textContent = heading;
 }
@@ -9605,4 +9609,4 @@ document.addEventListener('DOMContentLoaded', _modules_UI_UserInterface__WEBPACK
 
 /******/ })()
 ;
-//# sourceMappingURL=bundlef76aecb57be111530275.js.map
+//# sourceMappingURL=bundled652c65aff9004404573.js.map

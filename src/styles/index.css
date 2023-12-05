@@ -479,6 +479,7 @@ input:focus {
     border-bottom: 1px #cccccc solid;
     transition: 0.3s;
     padding: 25px 20px;
+    animation: slide-in-from-left 1s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
 }
 
 .show-modal {
@@ -541,15 +542,17 @@ input:focus {
 }
 
 .modal-container h2 {
-    border-bottom: solid 1px;
     padding-bottom: 20px;
 }
 
 .modal-menu-items {
-    border-bottom: solid 1px;
-    padding: 20px 5px;
+    border: solid 1px;
+    border-radius: 5px;
+    padding: 10px 20px;
     font-size: 18px;
+    margin-bottom: 10px;
 }
+
 
 .modal-menu-items:hover {
     background-color: #cacaca;

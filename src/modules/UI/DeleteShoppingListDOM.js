@@ -1,5 +1,7 @@
 import deleteShoppingListLocalStorage from "../LocalStorage/DeleteShoppingListLocalStorage";
 import getActiveShoppingList from "./GetActiveShoppingList";
+import UpdateMainHeading from "./UpdateMainHeading";
+import updateMainHeading from "./UpdateMainHeading";
 
 function deleteShoppingListDOM() {
     const shoppingList = getActiveShoppingList();
@@ -10,6 +12,7 @@ function deleteShoppingListDOM() {
         list.parentElement.textContent === shoppingList && list.parentElement.remove();
     })
     deleteShoppingListLocalStorage(shoppingList);
+    updateMainHeading();
 }
 
 export default deleteShoppingListDOM;

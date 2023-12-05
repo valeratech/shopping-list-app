@@ -484,6 +484,7 @@ input:focus {
   border-bottom: 1px #cccccc solid;
   transition: 0.3s;
   padding: 25px 20px;
+  animation: slide-in-from-left 1s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
 }
 
 .show-modal {
@@ -524,7 +525,7 @@ input:focus {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 800px;
+  width: 600px;
   background-color: white;
   padding: 6rem;
   border-radius: 15px;
@@ -545,18 +546,32 @@ input:focus {
 }
 
 .modal-container h2 {
-  border-bottom: solid 1px;
   padding-bottom: 20px;
 }
 
 .modal-menu-items {
-  border-bottom: solid 1px;
-  padding: 20px 5px;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
   font-size: 18px;
+  margin-bottom: 10px;
+  background-color: #ff6a95;
+  color: #ffffff;
+}
+
+.modal-menu-items.active {
+  display: inline-block;
 }
 
 .modal-menu-items:hover {
-  background-color: #cacaca;
+  transform: scale(0.98);
+  opacity: 0.9;
 }
+
+.modal-menu-items:active {
+  transform: scale(1);
+  opacity: 1;
+}
+
 
 /*# sourceMappingURL=bundle.css.map*/
