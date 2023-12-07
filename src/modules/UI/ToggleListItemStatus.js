@@ -3,7 +3,7 @@ import updateItemLocalStorage from "../LocalStorage/UpdateItemLocalStorage";
 import displayZeroItemsMessage from "./DisplayZeroItemsMessage";
 import updateDOMItemDate from "./UpdateDOMItemDate";
 
-function toggleItemList(event) {
+function toggleListItemStatus(event) {
     const shoppingContainer = document.querySelector('.sl-list--container');
     const completedContainer = document.querySelector('.cl-list--container');
     const dateStatus = event.target.parentElement.nextElementSibling.firstElementChild;
@@ -29,4 +29,4 @@ function toggleClassName(item, classNameAdd, classNameRemove) {
     item.classList.add(classNameAdd);
 }
 
-export default toggleItemList;
+export default toggleListItemStatus;

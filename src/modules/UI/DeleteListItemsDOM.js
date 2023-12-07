@@ -1,16 +1,14 @@
 import deleteDataLocalStorage from "../LocalStorage/DeleteDataLocalStorage";
 import getActiveShoppingList from "./GetActiveShoppingList";
-import updateMainHeading from "./UpdateMainHeading";
 
-function deleteShoppingListDOM() {
+function deleteListItemsDOM() {
     const shoppingList = getActiveShoppingList();
     const shoppingLists = document.querySelectorAll('.list-text');
     shoppingLists.forEach(list => {
-        console.log(list.parentElement.textContent);
+        // filter through shopping list items/names and remove if name is equal to the active shopping list
         list.parentElement.textContent === shoppingList && list.parentElement.remove();
     })
-    deleteDataLocalStorage('list', shoppingList);
-    updateMainHeading();
+    deleteDataLocalStorage(shoppingList);
 }
 
-export default deleteShoppingListDOM;
+export default deleteListItemsDOM;

@@ -1,4 +1,4 @@
-function getListsItemsLocalStorage() {
+function getListItemsLocalStorage() {
     let listsItemsStorage;
 
     if (localStorage.getItem('shopping-list') === null) {
@@ -10,5 +10,5 @@ function getListsItemsLocalStorage() {
     return listsItemsStorage;
 }
 
-export default getListsItemsLocalStorage;
+export default getListItemsLocalStorage;
 

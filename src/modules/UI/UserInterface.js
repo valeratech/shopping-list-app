@@ -1,7 +1,7 @@
 import toggleAddItemForm from "./ToggleAddItemForm";
 import addItemDom from "./AddItemDOM";
 import displayItemCount from "./DisplayItemCount";
-import toggleItemList from "./ToggleItemList";
+import toggleListItemStatus from "./ToggleListItemStatus";
 import {filterItems, clearFilter} from "../ItemFilter/FilterItems";
 import toggleShoppingListForm from "./ToggleShoppingListForm";
 import toggleSideBarMenu from "./ToggleSideBarMenu";
@@ -12,7 +12,8 @@ import displayShoppingLists from "./DisplayShoppingLists";
 import createDefaultShoppingList from "./CreateDefaultShoppingList";
 import displayZeroItemsMessage from "./DisplayZeroItemsMessage";
 import {openModal, closeModal} from "./ToggleShoppingListMenuModal";
-import deleteShoppingListDOM from "./DeleteShoppingListDOM";
+import deleteDataLocalStorage from "../LocalStorage/DeleteDataLocalStorage";
+import getActiveShoppingList from "./GetActiveShoppingList"
 
 function userInterface() {
     init();
@@ -25,7 +26,7 @@ function init() {
     formContainer.addEventListener('keyup', addItemDom);
 
     const listContainers = document.querySelector('.lists-container');
-    listContainers.addEventListener('change', toggleItemList);
+    listContainers.addEventListener('change', toggleListItemStatus);
 
     const filter = document.getElementById('filter');
     filter.addEventListener('input', filterItems);
@@ -48,10 +49,10 @@ function init() {
 
         if (e.target.classList.contains('fa-ellipsis-vertical')) {
             toggleActiveShoppingList(e);
-            openModal();
+            openModal(e);
         } else if (e.target.parentElement.classList.contains('fa-ellipsis-vertical')) {
             toggleActiveShoppingList(e);
-            openModal();
+            openModal(e);
         }
     });
     
@@ -62,22 +63,32 @@ function init() {
     overlay.addEventListener('click', closeModal);
 
     const modalMenuItems = document.querySelectorAll('.modal-menu-items');
+    const popup = document.getElementById("prompt");
+
     modalMenuItems.forEach(item => {
         item.addEventListener('click', (e) => {
             const menuItem = e.target.textContent;
             switch (menuItem) {
                 case 'Delete All List Items':
-                    console.log('d all');
+                    console.log('all');
+                    deleteDataLocalStorage('all', getActiveShoppingList());
                     break;
                 case 'Delete All Completed List Items':
-                    console.log('c all');
+                    console.log('completed');
+                    // deleteDataLocalStorage('all', getActiveShoppingList());
                     break;
                 case 'Delete Shopping List':
+                    popup.style.display = 'block';
                     deleteShoppingListDOM();
                     break;
             }
         })
     })
+
+    const closeBtn = document.querySelector(".cancel-prompt");
+    closeBtn.addEventListener('click', ()=>{
+        popup.style.display = 'none';
+    });
 
     // Initialize all default settings and display the correct shopping list info on webpage load.
     createDefaultShoppingList();

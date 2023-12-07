@@ -8266,14 +8266,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _Data_TestShoppingListData__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Data/TestShoppingListData */ "./src/modules/Data/TestShoppingListData.js");
-/* harmony import */ var _GetListsItemsLocalStorage__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./GetListsItemsLocalStorage */ "./src/modules/LocalStorage/GetListsItemsLocalStorage.js");
+/* harmony import */ var _GetListItemsLocalStorage__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./GetListItemsLocalStorage */ "./src/modules/LocalStorage/GetListItemsLocalStorage.js");
 /* harmony import */ var _UI_DisplayItemCount__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../UI/DisplayItemCount */ "./src/modules/UI/DisplayItemCount.js");
 
 
 
 
 function addItemLocalStorage(shoppingList, item, completed, date) {
-    const itemsFromStorage = (0,_GetListsItemsLocalStorage__WEBPACK_IMPORTED_MODULE_1__["default"])();
+    const itemsFromStorage = (0,_GetListItemsLocalStorage__WEBPACK_IMPORTED_MODULE_1__["default"])();
     const newItem = {
         item,
         completed,
@@ -8306,13 +8306,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _Data_TestShoppingListData__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Data/TestShoppingListData */ "./src/modules/Data/TestShoppingListData.js");
-/* harmony import */ var _GetListsItemsLocalStorage__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./GetListsItemsLocalStorage */ "./src/modules/LocalStorage/GetListsItemsLocalStorage.js");
+/* harmony import */ var _GetListItemsLocalStorage__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./GetListItemsLocalStorage */ "./src/modules/LocalStorage/GetListItemsLocalStorage.js");
 
 
 
 function addListLocalStorage(listName) {
 
-    const listsItemsStorage = (0,_GetListsItemsLocalStorage__WEBPACK_IMPORTED_MODULE_1__["default"])();
+    const listsItemsStorage = (0,_GetListItemsLocalStorage__WEBPACK_IMPORTED_MODULE_1__["default"])();
     listsItemsStorage[listName] = [];
 
     localStorage.setItem('shopping-list', JSON.stringify(listsItemsStorage));
@@ -8322,10 +8322,10 @@ function addListLocalStorage(listName) {
 
 /***/ }),
 
-/***/ "./src/modules/LocalStorage/DeleteShoppingListLocalStorage.js":
-/*!********************************************************************!*\
-  !*** ./src/modules/LocalStorage/DeleteShoppingListLocalStorage.js ***!
-  \********************************************************************/
+/***/ "./src/modules/LocalStorage/DeleteDataLocalStorage.js":
+/*!************************************************************!*\
+  !*** ./src/modules/LocalStorage/DeleteDataLocalStorage.js ***!
+  \************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -8333,33 +8333,44 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _GetListsItemsLocalStorage__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./GetListsItemsLocalStorage */ "./src/modules/LocalStorage/GetListsItemsLocalStorage.js");
-/* harmony import */ var _UI_GetActiveShoppingList__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../UI/GetActiveShoppingList */ "./src/modules/UI/GetActiveShoppingList.js");
-/* harmony import */ var _UI_DisplayListItems__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../UI/DisplayListItems */ "./src/modules/UI/DisplayListItems.js");
-/* harmony import */ var _UI_SetDefaultShoppingListActive__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../UI/SetDefaultShoppingListActive */ "./src/modules/UI/SetDefaultShoppingListActive.js");
+/* harmony import */ var _GetListItemsLocalStorage__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./GetListItemsLocalStorage */ "./src/modules/LocalStorage/GetListItemsLocalStorage.js");
+/* harmony import */ var _UI_DisplayListItems__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../UI/DisplayListItems */ "./src/modules/UI/DisplayListItems.js");
+/* harmony import */ var _UI_DisplayZeroItemsMessage__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! .././UI/DisplayZeroItemsMessage */ "./src/modules/UI/DisplayZeroItemsMessage.js");
 
 
 
 
+function deleteDataLocalStorage(type, listName) {
+    let shoppingList = listName;
+    let listItemsStorage;
 
+    switch(type) {
+        case 'list':
+            listItemsStorage = (0,_GetListItemsLocalStorage__WEBPACK_IMPORTED_MODULE_0__["default"])();
+            delete listItemsStorage[shoppingList];
+            localStorage.setItem('shopping-list', JSON.stringify(listItemsStorage));
+            break;
+        case 'all':
+            listItemsStorage = (0,_GetListItemsLocalStorage__WEBPACK_IMPORTED_MODULE_0__["default"])();
+            listItemsStorage[shoppingList] = [];
+            localStorage.setItem('shopping-list', JSON.stringify(listItemsStorage));
+            break;
+        case 'completed':
+            break;
+    }
 
-function deleteShoppingListLocalStorage(activeShoppingList) {
-    const shoppingList = activeShoppingList;
-    const listsItemsStorage = (0,_GetListsItemsLocalStorage__WEBPACK_IMPORTED_MODULE_0__["default"])();
-    console.log(listsItemsStorage, shoppingList)
-    delete listsItemsStorage[shoppingList];
-    localStorage.setItem('shopping-list', JSON.stringify(listsItemsStorage));
-    (0,_UI_DisplayListItems__WEBPACK_IMPORTED_MODULE_2__["default"])('Default Shopping List');
+    (0,_UI_DisplayListItems__WEBPACK_IMPORTED_MODULE_1__["default"])(shoppingList);
+    (0,_UI_DisplayZeroItemsMessage__WEBPACK_IMPORTED_MODULE_2__["default"])();
 }
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (deleteShoppingListLocalStorage);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (deleteDataLocalStorage);
 
 /***/ }),
 
-/***/ "./src/modules/LocalStorage/GetListsItemsLocalStorage.js":
-/*!***************************************************************!*\
-  !*** ./src/modules/LocalStorage/GetListsItemsLocalStorage.js ***!
-  \***************************************************************/
+/***/ "./src/modules/LocalStorage/GetListItemsLocalStorage.js":
+/*!**************************************************************!*\
+  !*** ./src/modules/LocalStorage/GetListItemsLocalStorage.js ***!
+  \**************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -8367,7 +8378,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-function getListsItemsLocalStorage() {
+function getListItemsLocalStorage() {
     let listsItemsStorage;
 
     if (localStorage.getItem('shopping-list') === null) {
@@ -8379,7 +8390,7 @@ function getListsItemsLocalStorage() {
     return listsItemsStorage;
 }
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (getListsItemsLocalStorage);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (getListItemsLocalStorage);
 
 
 
@@ -8416,13 +8427,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _GetListsItemsLocalStorage__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./GetListsItemsLocalStorage */ "./src/modules/LocalStorage/GetListsItemsLocalStorage.js");
+/* harmony import */ var _GetListItemsLocalStorage__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./GetListItemsLocalStorage */ "./src/modules/LocalStorage/GetListItemsLocalStorage.js");
 /* harmony import */ var _UI_GetActiveShoppingList__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../UI/GetActiveShoppingList */ "./src/modules/UI/GetActiveShoppingList.js");
 
 
 
 function updateItemLocalStorage(event) {
-    const listsItemsStorage = (0,_GetListsItemsLocalStorage__WEBPACK_IMPORTED_MODULE_0__["default"])();
+    const listsItemsStorage = (0,_GetListItemsLocalStorage__WEBPACK_IMPORTED_MODULE_0__["default"])();
     const activeList = (0,_UI_GetActiveShoppingList__WEBPACK_IMPORTED_MODULE_1__["default"])();
     console.log(activeList)
     const shoppingList = listsItemsStorage[activeList];
@@ -8752,41 +8763,6 @@ function createDefaultShoppingList() {
 
 /***/ }),
 
-/***/ "./src/modules/UI/DeleteShoppingListDOM.js":
-/*!*************************************************!*\
-  !*** ./src/modules/UI/DeleteShoppingListDOM.js ***!
-  \*************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _LocalStorage_DeleteShoppingListLocalStorage__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../LocalStorage/DeleteShoppingListLocalStorage */ "./src/modules/LocalStorage/DeleteShoppingListLocalStorage.js");
-/* harmony import */ var _GetActiveShoppingList__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./GetActiveShoppingList */ "./src/modules/UI/GetActiveShoppingList.js");
-/* harmony import */ var _UpdateMainHeading__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./UpdateMainHeading */ "./src/modules/UI/UpdateMainHeading.js");
-
-
-
-
-
-function deleteShoppingListDOM() {
-    const shoppingList = (0,_GetActiveShoppingList__WEBPACK_IMPORTED_MODULE_1__["default"])();
-    const shoppingLists = document.querySelectorAll('.list-text');
-    shoppingLists.forEach(list => {
-        // filter through shopping list items/names and remove if name is equal to the active shopping list
-        console.log(list.parentElement.textContent);
-        list.parentElement.textContent === shoppingList && list.parentElement.remove();
-    })
-    ;(0,_LocalStorage_DeleteShoppingListLocalStorage__WEBPACK_IMPORTED_MODULE_0__["default"])(shoppingList);
-    (0,_UpdateMainHeading__WEBPACK_IMPORTED_MODULE_2__["default"])();
-}
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (deleteShoppingListDOM);
-
-/***/ }),
-
 /***/ "./src/modules/UI/DisplayItemCount.js":
 /*!********************************************!*\
   !*** ./src/modules/UI/DisplayItemCount.js ***!
@@ -8846,7 +8822,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _LocalStorage_GetListsItemsLocalStorage__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../LocalStorage/GetListsItemsLocalStorage */ "./src/modules/LocalStorage/GetListsItemsLocalStorage.js");
+/* harmony import */ var _LocalStorage_GetListItemsLocalStorage__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../LocalStorage/GetListItemsLocalStorage */ "./src/modules/LocalStorage/GetListItemsLocalStorage.js");
 /* harmony import */ var _CreateDOMListItem__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CreateDOMListItem */ "./src/modules/UI/CreateDOMListItem.js");
 /* harmony import */ var _ClearListItems__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ClearListItems */ "./src/modules/UI/ClearListItems.js");
 
@@ -8856,7 +8832,7 @@ __webpack_require__.r(__webpack_exports__);
 function displayListItems(shoppingList) {
     // Refreshes Shopping-List and Completed List containers and then populates items
     (0,_ClearListItems__WEBPACK_IMPORTED_MODULE_2__["default"])();
-    const itemsFromStorage = (0,_LocalStorage_GetListsItemsLocalStorage__WEBPACK_IMPORTED_MODULE_0__["default"])();
+    const itemsFromStorage = (0,_LocalStorage_GetListItemsLocalStorage__WEBPACK_IMPORTED_MODULE_0__["default"])();
     if (Object.keys(itemsFromStorage).length !== 0) {
         itemsFromStorage[shoppingList].forEach(item => {
             (0,_CreateDOMListItem__WEBPACK_IMPORTED_MODULE_1__["default"])(item.item, item.completed, item.date);
@@ -9147,10 +9123,10 @@ function toggleAddItemForm(event) {
 
 /***/ }),
 
-/***/ "./src/modules/UI/ToggleItemList.js":
-/*!******************************************!*\
-  !*** ./src/modules/UI/ToggleItemList.js ***!
-  \******************************************/
+/***/ "./src/modules/UI/ToggleListItemStatus.js":
+/*!************************************************!*\
+  !*** ./src/modules/UI/ToggleListItemStatus.js ***!
+  \************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -9167,7 +9143,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-function toggleItemList(event) {
+function toggleListItemStatus(event) {
     const shoppingContainer = document.querySelector('.sl-list--container');
     const completedContainer = document.querySelector('.cl-list--container');
     const dateStatus = event.target.parentElement.nextElementSibling.firstElementChild;
@@ -9193,7 +9169,7 @@ function toggleClassName(item, classNameAdd, classNameRemove) {
     item.classList.add(classNameAdd);
 }
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (toggleItemList);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (toggleListItemStatus);
 
 /***/ }),
 
@@ -9266,7 +9242,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _GetActiveShoppingList__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./GetActiveShoppingList */ "./src/modules/UI/GetActiveShoppingList.js");
 
 
-function openModal() {
+function openModal(e) {
+    const menuModal = document.querySelector('.modal-menu-container');
+    e.target.parentElement.innerText === 'Default Shopping List' ?
+        menuModal.lastElementChild.style.display = 'none' :
+        menuModal.lastElementChild.style.display = 'block';
     toggleModal('open');
 
 };
@@ -9382,7 +9362,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ToggleAddItemForm__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ToggleAddItemForm */ "./src/modules/UI/ToggleAddItemForm.js");
 /* harmony import */ var _AddItemDOM__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AddItemDOM */ "./src/modules/UI/AddItemDOM.js");
 /* harmony import */ var _DisplayItemCount__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./DisplayItemCount */ "./src/modules/UI/DisplayItemCount.js");
-/* harmony import */ var _ToggleItemList__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ToggleItemList */ "./src/modules/UI/ToggleItemList.js");
+/* harmony import */ var _ToggleListItemStatus__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ToggleListItemStatus */ "./src/modules/UI/ToggleListItemStatus.js");
 /* harmony import */ var _ItemFilter_FilterItems__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../ItemFilter/FilterItems */ "./src/modules/ItemFilter/FilterItems.js");
 /* harmony import */ var _ToggleShoppingListForm__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./ToggleShoppingListForm */ "./src/modules/UI/ToggleShoppingListForm.js");
 /* harmony import */ var _ToggleSideBarMenu__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./ToggleSideBarMenu */ "./src/modules/UI/ToggleSideBarMenu.js");
@@ -9393,7 +9373,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _CreateDefaultShoppingList__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./CreateDefaultShoppingList */ "./src/modules/UI/CreateDefaultShoppingList.js");
 /* harmony import */ var _DisplayZeroItemsMessage__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./DisplayZeroItemsMessage */ "./src/modules/UI/DisplayZeroItemsMessage.js");
 /* harmony import */ var _ToggleShoppingListMenuModal__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./ToggleShoppingListMenuModal */ "./src/modules/UI/ToggleShoppingListMenuModal.js");
-/* harmony import */ var _DeleteShoppingListDOM__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./DeleteShoppingListDOM */ "./src/modules/UI/DeleteShoppingListDOM.js");
+/* harmony import */ var _LocalStorage_DeleteDataLocalStorage__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../LocalStorage/DeleteDataLocalStorage */ "./src/modules/LocalStorage/DeleteDataLocalStorage.js");
+/* harmony import */ var _GetActiveShoppingList__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./GetActiveShoppingList */ "./src/modules/UI/GetActiveShoppingList.js");
+
 
 
 
@@ -9421,7 +9403,7 @@ function init() {
     formContainer.addEventListener('keyup', _AddItemDOM__WEBPACK_IMPORTED_MODULE_1__["default"]);
 
     const listContainers = document.querySelector('.lists-container');
-    listContainers.addEventListener('change', _ToggleItemList__WEBPACK_IMPORTED_MODULE_3__["default"]);
+    listContainers.addEventListener('change', _ToggleListItemStatus__WEBPACK_IMPORTED_MODULE_3__["default"]);
 
     const filter = document.getElementById('filter');
     filter.addEventListener('input', _ItemFilter_FilterItems__WEBPACK_IMPORTED_MODULE_4__.filterItems);
@@ -9444,10 +9426,10 @@ function init() {
 
         if (e.target.classList.contains('fa-ellipsis-vertical')) {
             (0,_ToggleActiveShoppingList__WEBPACK_IMPORTED_MODULE_9__["default"])(e);
-            (0,_ToggleShoppingListMenuModal__WEBPACK_IMPORTED_MODULE_13__.openModal)();
+            (0,_ToggleShoppingListMenuModal__WEBPACK_IMPORTED_MODULE_13__.openModal)(e);
         } else if (e.target.parentElement.classList.contains('fa-ellipsis-vertical')) {
             (0,_ToggleActiveShoppingList__WEBPACK_IMPORTED_MODULE_9__["default"])(e);
-            (0,_ToggleShoppingListMenuModal__WEBPACK_IMPORTED_MODULE_13__.openModal)();
+            (0,_ToggleShoppingListMenuModal__WEBPACK_IMPORTED_MODULE_13__.openModal)(e);
         }
     });
     
@@ -9458,25 +9440,35 @@ function init() {
     overlay.addEventListener('click', _ToggleShoppingListMenuModal__WEBPACK_IMPORTED_MODULE_13__.closeModal);
 
     const modalMenuItems = document.querySelectorAll('.modal-menu-items');
+    const popup = document.getElementById("prompt");
+
     modalMenuItems.forEach(item => {
         item.addEventListener('click', (e) => {
             const menuItem = e.target.textContent;
             switch (menuItem) {
                 case 'Delete All List Items':
-                    console.log('d all');
+                    console.log('all');
+                    (0,_LocalStorage_DeleteDataLocalStorage__WEBPACK_IMPORTED_MODULE_14__["default"])('all', (0,_GetActiveShoppingList__WEBPACK_IMPORTED_MODULE_15__["default"])());
                     break;
                 case 'Delete All Completed List Items':
-                    console.log('c all');
+                    console.log('completed');
+                    // deleteDataLocalStorage('all', getActiveShoppingList());
                     break;
                 case 'Delete Shopping List':
-                    (0,_DeleteShoppingListDOM__WEBPACK_IMPORTED_MODULE_14__["default"])();
+                    popup.style.display = 'block';
+                    // deleteShoppingListDOM();
                     break;
             }
         })
     })
 
+    const closeBtn = document.querySelector(".cancel-prompt");
+    closeBtn.addEventListener('click', ()=>{
+        popup.style.display = 'none';
+    });
+
     // Initialize all default settings and display the correct shopping list info on webpage load.
-    ;(0,_CreateDefaultShoppingList__WEBPACK_IMPORTED_MODULE_11__["default"])();
+    (0,_CreateDefaultShoppingList__WEBPACK_IMPORTED_MODULE_11__["default"])();
     (0,_DisplayShoppingLists__WEBPACK_IMPORTED_MODULE_10__["default"])();
     (0,_DisplayListItems__WEBPACK_IMPORTED_MODULE_8__["default"])('Default Shopping List');
     (0,_DisplayZeroItemsMessage__WEBPACK_IMPORTED_MODULE_12__["default"])();
@@ -9609,4 +9601,4 @@ document.addEventListener('DOMContentLoaded', _modules_UI_UserInterface__WEBPACK
 
 /******/ })()
 ;
-//# sourceMappingURL=bundled652c65aff9004404573.js.map
+//# sourceMappingURL=bundle92b06b7a3fe3b99a452b.js.map

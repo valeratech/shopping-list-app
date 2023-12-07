@@ -1,9 +1,9 @@
 import shoppingList from "../Data/TestShoppingListData";
-import getListsItemsLocalStorage from "./GetListsItemsLocalStorage";
+import getListItemsLocalStorage from "./GetListItemsLocalStorage";
 
 function addListLocalStorage(listName) {
 
-    const listsItemsStorage = getListsItemsLocalStorage();
+    const listsItemsStorage = getListItemsLocalStorage();
     listsItemsStorage[listName] = [];
 
     localStorage.setItem('shopping-list', JSON.stringify(listsItemsStorage));

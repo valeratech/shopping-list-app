@@ -1,8 +1,8 @@
-import getListsItemsLocalStorage from "./GetListsItemsLocalStorage";
+import getListItemsLocalStorage from "./GetListItemsLocalStorage";
 import getActiveShoppingList from "../UI/GetActiveShoppingList";
 
 function updateItemLocalStorage(event) {
-    const listsItemsStorage = getListsItemsLocalStorage();
+    const listsItemsStorage = getListItemsLocalStorage();
     const activeList = getActiveShoppingList();
     console.log(activeList)
     const shoppingList = listsItemsStorage[activeList];

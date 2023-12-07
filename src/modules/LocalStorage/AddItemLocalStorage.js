@@ -1,9 +1,9 @@
 import shoppingList from "../Data/TestShoppingListData";
-import getListsItemsLocalStorage from "./GetListsItemsLocalStorage";
+import getListItemsLocalStorage from "./GetListItemsLocalStorage";
 import displayItemCount from "../UI/DisplayItemCount";
 
 function addItemLocalStorage(shoppingList, item, completed, date) {
-    const itemsFromStorage = getListsItemsLocalStorage();
+    const itemsFromStorage = getListItemsLocalStorage();
     const newItem = {
         item,
         completed,

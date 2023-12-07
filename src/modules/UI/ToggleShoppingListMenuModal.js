@@ -1,6 +1,10 @@
 import getActiveShoppingList from "./GetActiveShoppingList";
 
-function openModal() {
+function openModal(e) {
+    const menuModal = document.querySelector('.modal-menu-container');
+    e.target.parentElement.innerText === 'Default Shopping List' ?
+        menuModal.lastElementChild.style.display = 'none' :
+        menuModal.lastElementChild.style.display = 'block';
     toggleModal('open');
 
 };
