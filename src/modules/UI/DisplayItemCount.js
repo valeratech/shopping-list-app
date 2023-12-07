@@ -2,7 +2,7 @@ function displayItemCount() {
     const cart = document.querySelector('.count-cart');
 
     const itemCount = countListItems();
-
+    console.log(itemCount)
     // Clear the current cart count before appending a new count (number)
     cart.textContent = '';
 
@@ -27,7 +27,7 @@ function displayItemCount() {
 }
 
 function countListItems() {
-    const itemList = document.querySelectorAll('.shopping-list--item');
+    const itemList = document.querySelectorAll('.sl-list--item');
     return Array.from(itemList).length;
 }
 

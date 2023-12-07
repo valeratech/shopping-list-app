@@ -14,6 +14,7 @@ import displayZeroItemsMessage from "./DisplayZeroItemsMessage";
 import {openModal, closeModal} from "./ToggleShoppingListMenuModal";
 import deleteDataLocalStorage from "../LocalStorage/DeleteDataLocalStorage";
 import getActiveShoppingList from "./GetActiveShoppingList"
+import setDefaultShoppingListActive from "./SetDefaultShoppingListActive";
 
 function userInterface() {
     init();
@@ -63,7 +64,7 @@ function init() {
     overlay.addEventListener('click', closeModal);
 
     const modalMenuItems = document.querySelectorAll('.modal-menu-items');
-    const popup = document.getElementById("prompt");
+    const prompt = document.getElementById("prompt");
 
     modalMenuItems.forEach(item => {
         item.addEventListener('click', (e) => {
@@ -78,15 +79,15 @@ function init() {
                     deleteDataLocalStorage('completed', getActiveShoppingList());
                     break;
                 case 'Delete Shopping List':
-                    popup.style.display = 'block';
-                    deleteShoppingListDOM();
+                    // prompt.style.display = 'block';
+                    deleteDataLocalStorage('list', getActiveShoppingList());
                     break;
             }
         })
     })
 
     const closeBtn = document.querySelector(".cancel-prompt");
-    closeBtn.addEventListener('click', ()=>{
+    closeBtn.addEventListener('click', ()=> {
         popup.style.display = 'none';
     });
 

@@ -9,12 +9,12 @@ function toggleListItemStatus(event) {
     const dateStatus = event.target.parentElement.nextElementSibling.firstElementChild;
     const listItem = event.target.parentElement.parentElement;
     if (event.target.checked === true) {
-        toggleClassName(listItem, 'completed-list--item', 'shopping-list--item');
+        toggleClassName(listItem, 'cl-list--item', 'sl-list--item');
         completedContainer.insertBefore(listItem, completedContainer.firstChild);
         dateStatus.textContent = 'Completed, ';
         updateDOMItemDate(event);
     } else if (event.target.checked === false) {
-        toggleClassName(listItem, 'shopping-list--item', 'completed-list--item');
+        toggleClassName(listItem, 'sl-list--item', 'cl-list--item');
         shoppingContainer.appendChild(listItem);
         dateStatus.textContent = 'Added, '
         updateDOMItemDate(event);
