@@ -75,7 +75,7 @@ function init() {
                     break;
                 case 'Delete All Completed List Items':
                     console.log('completed');
-                    // deleteDataLocalStorage('all', getActiveShoppingList());
+                    deleteDataLocalStorage('completed', getActiveShoppingList());
                     break;
                 case 'Delete Shopping List':
                     popup.style.display = 'block';

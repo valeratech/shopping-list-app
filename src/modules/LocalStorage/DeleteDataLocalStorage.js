@@ -18,6 +18,10 @@ function deleteDataLocalStorage(type, listName) {
             localStorage.setItem('shopping-list', JSON.stringify(listItemsStorage));
             break;
         case 'completed':
+            listItemsStorage = getListItemsLocalStorage();
+            // Filter out items with completed equal to true into a new array reference value
+            listItemsStorage[shoppingList] = listItemsStorage[shoppingList].filter(item => !item.completed);
+            localStorage.setItem('shopping-list', JSON.stringify(listItemsStorage));
             break;
     }
 

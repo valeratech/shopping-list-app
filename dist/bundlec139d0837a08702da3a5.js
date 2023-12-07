@@ -8356,6 +8356,10 @@ function deleteDataLocalStorage(type, listName) {
             localStorage.setItem('shopping-list', JSON.stringify(listItemsStorage));
             break;
         case 'completed':
+            listItemsStorage = (0,_GetListItemsLocalStorage__WEBPACK_IMPORTED_MODULE_0__["default"])();
+            // Filter out items with completed equal to true into a new array reference value
+            listItemsStorage[shoppingList] = listItemsStorage[shoppingList].filter(item => !item.completed);
+            localStorage.setItem('shopping-list', JSON.stringify(listItemsStorage));
             break;
     }
 
@@ -9452,11 +9456,11 @@ function init() {
                     break;
                 case 'Delete All Completed List Items':
                     console.log('completed');
-                    // deleteDataLocalStorage('all', getActiveShoppingList());
+                    (0,_LocalStorage_DeleteDataLocalStorage__WEBPACK_IMPORTED_MODULE_14__["default"])('completed', (0,_GetActiveShoppingList__WEBPACK_IMPORTED_MODULE_15__["default"])());
                     break;
                 case 'Delete Shopping List':
                     popup.style.display = 'block';
-                    // deleteShoppingListDOM();
+                    deleteShoppingListDOM();
                     break;
             }
         })
@@ -9601,4 +9605,4 @@ document.addEventListener('DOMContentLoaded', _modules_UI_UserInterface__WEBPACK
 
 /******/ })()
 ;
-//# sourceMappingURL=bundle92b06b7a3fe3b99a452b.js.map
+//# sourceMappingURL=bundlec139d0837a08702da3a5.js.map
