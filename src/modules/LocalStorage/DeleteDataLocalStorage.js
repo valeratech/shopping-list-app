@@ -31,6 +31,7 @@ function deleteDataLocalStorage(type, listName) {
     }
 
     displayListItems(type === 'list' ? 'Default Shopping List' : shoppingList);
+    displayItemCount();
     displayZeroItemsMessage();
 }
 

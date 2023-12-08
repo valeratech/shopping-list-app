@@ -560,6 +560,7 @@ input:focus {
 
 #prompt {
     display: none;
+    z-index: 25;
 }
 .prompt-container {
     height: 100vh;
@@ -572,6 +573,7 @@ input:focus {
     position: absolute;
     top: 0;
     left: 0;
+    z-index: 20;
 }
 .prompt {
     background-color: #ffffff;

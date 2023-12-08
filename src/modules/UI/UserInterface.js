@@ -5,16 +5,14 @@ import toggleListItemStatus from "./ToggleListItemStatus";
 import {filterItems, clearFilter} from "../ItemFilter/FilterItems";
 import toggleShoppingListForm from "./ToggleShoppingListForm";
 import toggleSideBarMenu from "./ToggleSideBarMenu";
-import addItemLocalStorage from "../LocalStorage/AddItemLocalStorage";
 import displayListItems from "./DisplayListItems";
 import toggleActiveShoppingList from "./ToggleActiveShoppingList";
 import displayShoppingLists from "./DisplayShoppingLists";
 import createDefaultShoppingList from "./CreateDefaultShoppingList";
 import displayZeroItemsMessage from "./DisplayZeroItemsMessage";
 import {openModal, closeModal} from "./ToggleShoppingListMenuModal";
-import deleteDataLocalStorage from "../LocalStorage/DeleteDataLocalStorage";
-import getActiveShoppingList from "./GetActiveShoppingList"
-import setDefaultShoppingListActive from "./SetDefaultShoppingListActive";
+import deleteDataPromptDOM from "./DeleteDataPromptDOM";
+
 
 function userInterface() {
     init();
@@ -64,7 +62,6 @@ function init() {
     overlay.addEventListener('click', closeModal);
 
     const modalMenuItems = document.querySelectorAll('.modal-menu-items');
-    const prompt = document.getElementById("prompt");
 
     modalMenuItems.forEach(item => {
         item.addEventListener('click', (e) => {
@@ -72,24 +69,29 @@ function init() {
             switch (menuItem) {
                 case 'Delete All List Items':
                     console.log('all');
-                    deleteDataLocalStorage('all', getActiveShoppingList());
+                    deleteDataPromptDOM('block');
+                    // deleteDataLocalStorage('all', getActiveShoppingList());
                     break;
                 case 'Delete All Completed List Items':
                     console.log('completed');
-                    deleteDataLocalStorage('completed', getActiveShoppingList());
+                    deleteDataPromptDOM('block');
+                    // deleteDataLocalStorage('completed', getActiveShoppingList());
                     break;
                 case 'Delete Shopping List':
-                    // prompt.style.display = 'block';
-                    deleteDataLocalStorage('list', getActiveShoppingList());
+                    console.log('list');
+                    deleteDataPromptDOM('block');
+                    // deleteDataLocalStorage('list', getActiveShoppingList());
                     break;
             }
         })
     })
 
     const closeBtn = document.querySelector(".cancel-prompt");
-    closeBtn.addEventListener('click', ()=> {
-        popup.style.display = 'none';
+    closeBtn.addEventListener('click', () => {
+        deleteDataPromptDOM('none')
     });
+
+    const confirmBtn = document.querySelector(".confirm-prompt");
 
     // Initialize all default settings and display the correct shopping list info on webpage load.
     createDefaultShoppingList();

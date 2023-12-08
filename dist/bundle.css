@@ -563,6 +563,7 @@ input:focus {
 
 #prompt {
   display: none;
+  z-index: 25;
 }
 
 .prompt-container {
@@ -576,6 +577,7 @@ input:focus {
   position: absolute;
   top: 0;
   left: 0;
+  z-index: 20;
 }
 
 .prompt {

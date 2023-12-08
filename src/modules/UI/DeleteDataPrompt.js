@@ -1,3 +1,0 @@
-function deleteDataPrompt(type, message) {
-
-}
