@@ -8718,6 +8718,25 @@ function createDefaultShoppingList() {
 
 /***/ }),
 
+/***/ "./src/modules/UI/DeleteDataConfirmationDOM.js":
+/*!*****************************************************!*\
+  !*** ./src/modules/UI/DeleteDataConfirmationDOM.js ***!
+  \*****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+function deleteDataConfirmationDOM() {
+    deleteDataLocalStorage('completed', getActiveShoppingList());
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (deleteDataConfirmationDOM);
+
+/***/ }),
+
 /***/ "./src/modules/UI/DeleteDataPromptDOM.js":
 /*!***********************************************!*\
   !*** ./src/modules/UI/DeleteDataPromptDOM.js ***!
@@ -8729,10 +8748,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-function deleteDataPromptDOM(displayValue, title, message) {
+function deleteDataPromptDOM(displayValue, description) {
     console.log('cancel')
     const prompt = document.getElementById("prompt");
     prompt.style.display = displayValue;
+    displayDataPromptInfo(description);
+}
+
+function displayDataPromptInfo(description) {
+    const promptHeader = document.querySelector('.prompt-header');
+    const promptDescription = document.querySelector('.prompt-description');
+    promptHeader.textContent = 'WARNING!';
+    promptDescription.textContent = `Are you sure you want to ${description}?`;
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (deleteDataPromptDOM);
@@ -9349,6 +9376,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _DisplayZeroItemsMessage__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./DisplayZeroItemsMessage */ "./src/modules/UI/DisplayZeroItemsMessage.js");
 /* harmony import */ var _ToggleShoppingListMenuModal__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./ToggleShoppingListMenuModal */ "./src/modules/UI/ToggleShoppingListMenuModal.js");
 /* harmony import */ var _DeleteDataPromptDOM__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./DeleteDataPromptDOM */ "./src/modules/UI/DeleteDataPromptDOM.js");
+/* harmony import */ var _GetActiveShoppingList__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./GetActiveShoppingList */ "./src/modules/UI/GetActiveShoppingList.js");
+/* harmony import */ var _DeleteDataConfirmationDOM__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./DeleteDataConfirmationDOM */ "./src/modules/UI/DeleteDataConfirmationDOM.js");
+
+
 
 
 
@@ -9418,20 +9449,14 @@ function init() {
         item.addEventListener('click', (e) => {
             const menuItem = e.target.textContent;
             switch (menuItem) {
-                case 'Delete All List Items':
-                    console.log('all');
-                    (0,_DeleteDataPromptDOM__WEBPACK_IMPORTED_MODULE_13__["default"])('block');
-                    // deleteDataLocalStorage('all', getActiveShoppingList());
+                case 'Clear All List Items':
+                    (0,_DeleteDataPromptDOM__WEBPACK_IMPORTED_MODULE_13__["default"])('block', `clear ALL "${(0,_GetActiveShoppingList__WEBPACK_IMPORTED_MODULE_14__["default"])()}" list items`);
                     break;
-                case 'Delete All Completed List Items':
-                    console.log('completed');
-                    (0,_DeleteDataPromptDOM__WEBPACK_IMPORTED_MODULE_13__["default"])('block');
-                    // deleteDataLocalStorage('completed', getActiveShoppingList());
+                case 'Clear All Completed List Items':
+                    (0,_DeleteDataPromptDOM__WEBPACK_IMPORTED_MODULE_13__["default"])('block', `clear the COMPLETED "${(0,_GetActiveShoppingList__WEBPACK_IMPORTED_MODULE_14__["default"])()}" list items`);
                     break;
                 case 'Delete Shopping List':
-                    console.log('list');
-                    (0,_DeleteDataPromptDOM__WEBPACK_IMPORTED_MODULE_13__["default"])('block');
-                    // deleteDataLocalStorage('list', getActiveShoppingList());
+                    (0,_DeleteDataPromptDOM__WEBPACK_IMPORTED_MODULE_13__["default"])('block', `DELETE the "${(0,_GetActiveShoppingList__WEBPACK_IMPORTED_MODULE_14__["default"])()}" shopping list`);
                     break;
             }
         })
@@ -9443,6 +9468,7 @@ function init() {
     });
 
     const confirmBtn = document.querySelector(".confirm-prompt");
+    confirmBtn.addEventListener('click', _DeleteDataConfirmationDOM__WEBPACK_IMPORTED_MODULE_15__["default"]);
 
     // Initialize all default settings and display the correct shopping list info on webpage load.
     (0,_CreateDefaultShoppingList__WEBPACK_IMPORTED_MODULE_10__["default"])();
@@ -9578,4 +9604,4 @@ document.addEventListener('DOMContentLoaded', _modules_UI_UserInterface__WEBPACK
 
 /******/ })()
 ;
-//# sourceMappingURL=bundle17a6e19cf5ba93c1c283.js.map
+//# sourceMappingURL=bundle32a284a4a8de02116891.js.map

@@ -12,6 +12,8 @@ import createDefaultShoppingList from "./CreateDefaultShoppingList";
 import displayZeroItemsMessage from "./DisplayZeroItemsMessage";
 import {openModal, closeModal} from "./ToggleShoppingListMenuModal";
 import deleteDataPromptDOM from "./DeleteDataPromptDOM";
+import getActiveShoppingList from "./GetActiveShoppingList";
+import deleteDataConfirmationDOM from "./DeleteDataConfirmationDOM";
 
 
 function userInterface() {
@@ -67,20 +69,14 @@ function init() {
         item.addEventListener('click', (e) => {
             const menuItem = e.target.textContent;
             switch (menuItem) {
-                case 'Delete All List Items':
-                    console.log('all');
-                    deleteDataPromptDOM('block');
-                    // deleteDataLocalStorage('all', getActiveShoppingList());
+                case 'Clear All List Items':
+                    deleteDataPromptDOM('block', `clear ALL "${getActiveShoppingList()}" list items`);
                     break;
-                case 'Delete All Completed List Items':
-                    console.log('completed');
-                    deleteDataPromptDOM('block');
-                    // deleteDataLocalStorage('completed', getActiveShoppingList());
+                case 'Clear All Completed List Items':
+                    deleteDataPromptDOM('block', `clear the COMPLETED "${getActiveShoppingList()}" list items`);
                     break;
                 case 'Delete Shopping List':
-                    console.log('list');
-                    deleteDataPromptDOM('block');
-                    // deleteDataLocalStorage('list', getActiveShoppingList());
+                    deleteDataPromptDOM('block', `DELETE the "${getActiveShoppingList()}" shopping list`);
                     break;
             }
         })
@@ -92,6 +88,7 @@ function init() {
     });
 
     const confirmBtn = document.querySelector(".confirm-prompt");
+    confirmBtn.addEventListener('click', deleteDataConfirmationDOM);
 
     // Initialize all default settings and display the correct shopping list info on webpage load.
     createDefaultShoppingList();
