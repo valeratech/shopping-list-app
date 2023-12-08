@@ -15,12 +15,26 @@ import deleteDataPromptDOM from "./DeleteDataPromptDOM";
 import getActiveShoppingList from "./GetActiveShoppingList";
 import deleteDataConfirmationDOM from "./DeleteDataConfirmationDOM";
 
-
 function userInterface() {
     init();
 }
 
 function init() {
+
+    const createState = () => {
+        const state = {
+            value: ''
+        }
+
+        const setState = (newValue) => {
+            state.value = newValue;
+        };
+
+        const getState = () => state.value;
+
+        return {setState, getState};
+    };
+
 
     const formContainer = document.querySelector('.form-container');
     formContainer.addEventListener('click', toggleAddItemForm);
@@ -56,7 +70,10 @@ function init() {
             openModal(e);
         }
     });
-    
+
+    const listState = createState();
+    const typeState = createState();
+
     const btnCloseModal = document.querySelector('.close-modal');
     btnCloseModal.addEventListener('click', closeModal);
 
@@ -71,11 +88,17 @@ function init() {
             switch (menuItem) {
                 case 'Clear All List Items':
                     deleteDataPromptDOM('block', `clear ALL "${getActiveShoppingList()}" list items`);
+                    listState.setState(getActiveShoppingList());
+                    typeState.setState('all');
                     break;
                 case 'Clear All Completed List Items':
+                    listState.setState(getActiveShoppingList());
+                    typeState.setState('completed');
                     deleteDataPromptDOM('block', `clear the COMPLETED "${getActiveShoppingList()}" list items`);
                     break;
                 case 'Delete Shopping List':
+                    listState.setState(getActiveShoppingList());
+                    typeState.setState('list');
                     deleteDataPromptDOM('block', `DELETE the "${getActiveShoppingList()}" shopping list`);
                     break;
             }
@@ -88,7 +111,12 @@ function init() {
     });
 
     const confirmBtn = document.querySelector(".confirm-prompt");
-    confirmBtn.addEventListener('click', deleteDataConfirmationDOM);
+    confirmBtn.addEventListener('click', () => {
+        const deleteType = typeState.getState();
+        const shoppingList = listState.getState();
+        console.log(shoppingList, deleteType)
+        deleteDataConfirmationDOM(deleteType, shoppingList);
+    });
 
     // Initialize all default settings and display the correct shopping list info on webpage load.
     createDefaultShoppingList();

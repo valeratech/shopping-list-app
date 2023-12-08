@@ -2,7 +2,6 @@ function displayItemCount() {
     const cart = document.querySelector('.count-cart');
 
     const itemCount = countListItems();
-    console.log(itemCount)
     // Clear the current cart count before appending a new count (number)
     cart.textContent = '';
 

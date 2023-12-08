@@ -1,5 +1,4 @@
 function deleteDataPromptDOM(displayValue, description) {
-    console.log('cancel')
     const prompt = document.getElementById("prompt");
     prompt.style.display = displayValue;
     displayDataPromptInfo(description);
