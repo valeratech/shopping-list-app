@@ -526,7 +526,7 @@ input:focus {
   left: 50%;
   transform: translate(-50%, -50%);
   width: 800px;
-  background-color: white;
+  background-color: #e7e7e7;
   padding: 6rem;
   border-radius: 15px;
   box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
@@ -555,6 +555,8 @@ input:focus {
   padding: 10px 20px;
   font-size: 18px;
   margin-bottom: 10px;
+  cursor: pointer;
+  background-color: #ffffff;
 }
 
 .modal-menu-items:hover {
@@ -583,7 +585,7 @@ input:focus {
 .prompt {
   background-color: #ffffff;
   padding: 20px 30px;
-  width: 50%;
+  width: 30%;
   border-radius: 15px;
 }
 
@@ -606,6 +608,7 @@ input:focus {
 .prompt > h2 {
   font-size: 1.6rem;
   margin-bottom: 10px;
+  color: #ff0000;
 }
 
 .prompt > p {
@@ -614,18 +617,49 @@ input:focus {
 }
 
 .prompt-btn {
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
   display: inline-block;
-  text-decoration: none;
-  border: 2px solid rebeccapurple;
-  padding: 5px 15px;
-  border-radius: 20px;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 15px;
   margin: 10px 0px;
-  transition: 0.2s all ease-in;
+  width: 100px;
 }
 
-.prompt-btn:hover {
-  background-color: rebeccapurple;
+.cancel-prompt-btn {
+  background-color: #ff6a95;
+  font-weight: bold;
+  display: inline-block;
   color: #fff;
+}
+
+.cancel-prompt-btn:hover {
+  opacity: 0.7;
+  transform: scale(0.98);
+}
+
+.cancel-prompt-btn:active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.confirm-prompt-btn {
+  background-color: #13e7c6;
+  font-weight: bold;
+  display: inline-block;
+  color: #fff;
+}
+
+.confirm-prompt-btn:hover {
+  opacity: 0.7;
+  transform: scale(0.98);
+}
+
+.confirm-prompt-btn:active {
+  opacity: 1;
+  transform: scale(1);
 }
 
 /*# sourceMappingURL=bundle.css.map*/

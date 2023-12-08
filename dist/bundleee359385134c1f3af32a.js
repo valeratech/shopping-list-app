@@ -9561,9 +9561,9 @@ function init() {
             const menuItem = e.target.textContent;
             switch (menuItem) {
                 case 'Clear All List Items':
-                    (0,_DeleteDataPromptDOM__WEBPACK_IMPORTED_MODULE_13__["default"])('block', `clear ALL "${(0,_GetActiveShoppingList__WEBPACK_IMPORTED_MODULE_14__["default"])()}" list items`);
                     listState.setState((0,_GetActiveShoppingList__WEBPACK_IMPORTED_MODULE_14__["default"])());
                     typeState.setState('all');
+                    (0,_DeleteDataPromptDOM__WEBPACK_IMPORTED_MODULE_13__["default"])('block', `clear ALL "${(0,_GetActiveShoppingList__WEBPACK_IMPORTED_MODULE_14__["default"])()}" list items`);
                     break;
                 case 'Clear All Completed List Items':
                     listState.setState((0,_GetActiveShoppingList__WEBPACK_IMPORTED_MODULE_14__["default"])());
@@ -9579,17 +9579,16 @@ function init() {
         })
     })
 
-    const closeBtn = document.querySelector(".cancel-prompt");
+    const closeBtn = document.querySelector(".cancel-prompt-btn");
     closeBtn.addEventListener('click', () => {
         (0,_DeleteDataPromptDOM__WEBPACK_IMPORTED_MODULE_13__["default"])('none')
     });
 
-    const confirmBtn = document.querySelector(".confirm-prompt");
+    const confirmBtn = document.querySelector(".confirm-prompt-btn");
     confirmBtn.addEventListener('click', () => {
         const deleteType = typeState.getState();
         const shoppingList = listState.getState();
-        console.log(shoppingList, deleteType)
-        ;(0,_DeleteDataConfirmationDOM__WEBPACK_IMPORTED_MODULE_15__["default"])(deleteType, shoppingList);
+        (0,_DeleteDataConfirmationDOM__WEBPACK_IMPORTED_MODULE_15__["default"])(deleteType, shoppingList);
     });
 
     // Initialize all default settings and display the correct shopping list info on webpage load.
@@ -9726,4 +9725,4 @@ document.addEventListener('DOMContentLoaded', _modules_UI_UserInterface__WEBPACK
 
 /******/ })()
 ;
-//# sourceMappingURL=bundlecf2605e8b99e086cd198.js.map
+//# sourceMappingURL=bundleee359385134c1f3af32a.js.map

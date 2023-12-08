@@ -87,9 +87,9 @@ function init() {
             const menuItem = e.target.textContent;
             switch (menuItem) {
                 case 'Clear All List Items':
-                    deleteDataPromptDOM('block', `clear ALL "${getActiveShoppingList()}" list items`);
                     listState.setState(getActiveShoppingList());
                     typeState.setState('all');
+                    deleteDataPromptDOM('block', `clear ALL "${getActiveShoppingList()}" list items`);
                     break;
                 case 'Clear All Completed List Items':
                     listState.setState(getActiveShoppingList());
@@ -105,16 +105,15 @@ function init() {
         })
     })
 
-    const closeBtn = document.querySelector(".cancel-prompt");
+    const closeBtn = document.querySelector(".cancel-prompt-btn");
     closeBtn.addEventListener('click', () => {
         deleteDataPromptDOM('none')
     });
 
-    const confirmBtn = document.querySelector(".confirm-prompt");
+    const confirmBtn = document.querySelector(".confirm-prompt-btn");
     confirmBtn.addEventListener('click', () => {
         const deleteType = typeState.getState();
         const shoppingList = listState.getState();
-        console.log(shoppingList, deleteType)
         deleteDataConfirmationDOM(deleteType, shoppingList);
     });
 
