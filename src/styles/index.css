@@ -237,11 +237,17 @@ h3 {
 }
 
 .filter-input {
+    
     position: relative;
     display: flex;
     flex-direction: row;
     border: 1px solid #ccc;
     border-radius: 8px;
+}
+
+.filter-input:focus {
+    height: 65px;
+    border: 3px solid #f4f401;
 }
 
 input {
