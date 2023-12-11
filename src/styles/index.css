@@ -599,7 +599,7 @@ input:focus {
 .prompt {
     background-color: #ffffff;
     padding: 20px 30px;
-    width: 50%;
+    width: 40%;
     border-radius: 15px;
 }
 .close-prompt {
