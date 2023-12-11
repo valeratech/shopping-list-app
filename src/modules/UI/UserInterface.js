@@ -57,6 +57,7 @@ function init() {
 
     const shoppingLists = document.getElementById('list-sidebar');
     shoppingLists.addEventListener('click', (e) => {
+        console.log(e.target.classList.contains('fa-ellipsis-vertical'))
         if (e.target.classList.contains('list-name') ||
             e.target.parentElement.classList.contains('list-name')) {
             toggleActiveShoppingList(e);
