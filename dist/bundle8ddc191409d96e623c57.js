@@ -9244,30 +9244,27 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function toggleListItemStatus(event) {
+    if (event.target.checked === true) {
+        setTimeout(() => toggleListItemHelper('Completed, ', event), 550);
+    } else if (event.target.checked === false) {
+        setTimeout(() => toggleListItemHelper('Added, ', event), 550);
+    }
+}
+
+function toggleListItemHelper(list, event) {
     const shoppingContainer = document.querySelector('.sl-list--container');
     const completedContainer = document.querySelector('.cl-list--container');
     const dateStatus = event.target.parentElement.nextElementSibling.firstElementChild;
     const listItem = event.target.parentElement.parentElement;
-    if (event.target.checked === true) {
-        setTimeout(() => {
-            toggleClassName(listItem, 'cl-list--item', 'sl-list--item');
-            completedContainer.insertBefore(listItem, completedContainer.firstChild);
-            dateStatus.textContent = 'Completed, ';
-            (0,_UpdateDOMItemDate__WEBPACK_IMPORTED_MODULE_3__["default"])(event);
-            (0,_DisplayZeroItemsMessage__WEBPACK_IMPORTED_MODULE_2__["default"])();
-        }, 600);
-
-    } else if (event.target.checked === false) {
-        setTimeout(() => {
-            toggleClassName(listItem, 'sl-list--item', 'cl-list--item');
-            shoppingContainer.appendChild(listItem);
-            dateStatus.textContent = 'Added, '
-            ;(0,_UpdateDOMItemDate__WEBPACK_IMPORTED_MODULE_3__["default"])(event);
-            (0,_DisplayZeroItemsMessage__WEBPACK_IMPORTED_MODULE_2__["default"])();
-        },600);
-    }
+    toggleClassName(listItem, 'cl-list--item', 'sl-list--item');
+    list === 'Completed, ' ?
+        completedContainer.insertBefore(listItem, completedContainer.firstChild) :
+        shoppingContainer.appendChild(listItem);
+    dateStatus.textContent = list;
+    (0,_UpdateDOMItemDate__WEBPACK_IMPORTED_MODULE_3__["default"])(event);
     (0,_LocalStorage_UpdateItemLocalStorage__WEBPACK_IMPORTED_MODULE_1__["default"])(event);
     (0,_DisplayItemCount__WEBPACK_IMPORTED_MODULE_0__["default"])();
+    (0,_DisplayZeroItemsMessage__WEBPACK_IMPORTED_MODULE_2__["default"])();
 }
 
 function toggleClassName(item, classNameAdd, classNameRemove) {
@@ -9733,4 +9730,4 @@ document.addEventListener('DOMContentLoaded', _modules_UI_UserInterface__WEBPACK
 
 /******/ })()
 ;
-//# sourceMappingURL=bundle8fdf07a5bc705c37405d.js.map
+//# sourceMappingURL=bundle8ddc191409d96e623c57.js.map

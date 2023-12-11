@@ -82,7 +82,6 @@ aside {
 /* Upon clicking the label, input/label box gains shadow and changes (gray) color */
 #menu-list:checked + label {
   color: #13e7c6;
-  transition: all 1s ease-out;
 }
 
 .menu {
@@ -129,7 +128,6 @@ nav {
 /* upon being check sets the max-height large enough to display content */
 #toggle:checked ~ nav {
   max-height: 500px;
-  background-color: #f7f7fc;
   box-shadow: 10px 10px 10px -6px #828282;
   transition: all 0.15s 0.04s;
 }
@@ -408,6 +406,7 @@ input:focus {
 /* When the checkbox is checked, add a blue background */
 .box-container input:checked ~ .checkmark {
   background-color: #13e7c6;
+  transition: background-color 300ms;
 }
 
 /* Create the checkmark/indicator (hidden when not checked) */
@@ -604,7 +603,7 @@ input:focus {
 .prompt {
   background-color: #ffffff;
   padding: 20px 30px;
-  width: 50%;
+  width: 40%;
   border-radius: 15px;
 }
 

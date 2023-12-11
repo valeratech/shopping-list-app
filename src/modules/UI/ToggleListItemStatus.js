@@ -4,30 +4,27 @@ import displayZeroItemsMessage from "./DisplayZeroItemsMessage";
 import updateDOMItemDate from "./UpdateDOMItemDate";
 
 function toggleListItemStatus(event) {
+    if (event.target.checked === true) {
+        setTimeout(() => toggleListItemHelper('Completed, ', event), 550);
+    } else if (event.target.checked === false) {
+        setTimeout(() => toggleListItemHelper('Added, ', event), 550);
+    }
+}
+
+function toggleListItemHelper(list, event) {
     const shoppingContainer = document.querySelector('.sl-list--container');
     const completedContainer = document.querySelector('.cl-list--container');
     const dateStatus = event.target.parentElement.nextElementSibling.firstElementChild;
     const listItem = event.target.parentElement.parentElement;
-    if (event.target.checked === true) {
-        setTimeout(() => {
-            toggleClassName(listItem, 'cl-list--item', 'sl-list--item');
-            completedContainer.insertBefore(listItem, completedContainer.firstChild);
-            dateStatus.textContent = 'Completed, ';
-            updateDOMItemDate(event);
-            displayZeroItemsMessage();
-        }, 600);
-
-    } else if (event.target.checked === false) {
-        setTimeout(() => {
-            toggleClassName(listItem, 'sl-list--item', 'cl-list--item');
-            shoppingContainer.appendChild(listItem);
-            dateStatus.textContent = 'Added, '
-            updateDOMItemDate(event);
-            displayZeroItemsMessage();
-        },600);
-    }
+    toggleClassName(listItem, 'cl-list--item', 'sl-list--item');
+    list === 'Completed, ' ?
+        completedContainer.insertBefore(listItem, completedContainer.firstChild) :
+        shoppingContainer.appendChild(listItem);
+    dateStatus.textContent = list;
+    updateDOMItemDate(event);
     updateItemLocalStorage(event);
     displayItemCount();
+    displayZeroItemsMessage();
 }
 
 function toggleClassName(item, classNameAdd, classNameRemove) {
