@@ -9347,9 +9347,11 @@ __webpack_require__.r(__webpack_exports__);
 function openModal(e) {
     const menuModal = document.querySelector('.modal-menu-container');
     console.log(e.target.parentElement.innerText);
-    e.target.parentElement.innerText === 'Default Shopping List' || e.target.parentElement.innerText === undefined ?
-        menuModal.lastElementChild.style.display = 'none' :
+    if ((0,_GetActiveShoppingList__WEBPACK_IMPORTED_MODULE_0__["default"])() === 'Default Shopping List') {
+        menuModal.lastElementChild.style.display = 'none'
+    } else {
         menuModal.lastElementChild.style.display = 'block';
+    }
     toggleModal('open');
 };
 
@@ -9536,7 +9538,6 @@ function init() {
 
     const shoppingLists = document.getElementById('list-sidebar');
     shoppingLists.addEventListener('click', (e) => {
-        console.log(e.target.classList.contains('fa-ellipsis-vertical'))
         if (e.target.classList.contains('list-name') ||
             e.target.parentElement.classList.contains('list-name')) {
             (0,_ToggleActiveShoppingList__WEBPACK_IMPORTED_MODULE_8__["default"])(e);
@@ -9731,4 +9732,4 @@ document.addEventListener('DOMContentLoaded', _modules_UI_UserInterface__WEBPACK
 
 /******/ })()
 ;
-//# sourceMappingURL=bundle9403a58cc986d209a09d.js.map
+//# sourceMappingURL=bundle4c338f60254f85cc82fb.js.map

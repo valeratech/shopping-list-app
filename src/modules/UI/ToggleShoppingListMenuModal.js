@@ -3,9 +3,11 @@ import getActiveShoppingList from "./GetActiveShoppingList";
 function openModal(e) {
     const menuModal = document.querySelector('.modal-menu-container');
     console.log(e.target.parentElement.innerText);
-    e.target.parentElement.innerText === 'Default Shopping List' || e.target.parentElement.innerText === undefined ?
-        menuModal.lastElementChild.style.display = 'none' :
+    if (getActiveShoppingList() === 'Default Shopping List') {
+        menuModal.lastElementChild.style.display = 'none'
+    } else {
         menuModal.lastElementChild.style.display = 'block';
+    }
     toggleModal('open');
 };
 
