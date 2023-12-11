@@ -8673,15 +8673,18 @@ function createDOMListItem(itemText, completed, date) {
     listItem.append(
         createItemLabel(itemText, completed),
         createDateContainer(date, completed)
-        );
+    );
 
     if (completed) {
         listItem.classList.add('cl-list--item');
         compList.appendChild(listItem);
     } else {
         listItem.classList.add('sl-list--item');
-        shopList.appendChild(listItem)
+        shopList.appendChild(listItem);
     }
+
+    // Trigger animation for adding item
+    setTimeout(() => listItem.classList.add('list-item-appear'), 0);
 }
 
 function createItemLabel(itemText, completed) {
@@ -8689,13 +8692,12 @@ function createItemLabel(itemText, completed) {
     label.append(createCheckbox(completed), createSpan(), createItemText(itemText));
     label.className = 'box-container';
     return label;
-
 }
 
 function createCheckbox(completed) {
     const checkbox = document.createElement('input');
     checkbox.setAttribute('type', 'checkbox');
-    completed ? checkbox.checked = completed : checkbox.check = completed;
+    completed ? (checkbox.checked = completed) : (checkbox.check = completed);
     return checkbox;
 }
 
@@ -8740,7 +8742,7 @@ function createDate(date) {
     const span = document.createElement('span');
     span.className = 'date';
     const dateEntered = (0,date_fns__WEBPACK_IMPORTED_MODULE_0__["default"])(date);
-    const distanceToNow = (0,date_fns__WEBPACK_IMPORTED_MODULE_1__["default"])(dateEntered,{includeSeconds: true})
+    const distanceToNow = (0,date_fns__WEBPACK_IMPORTED_MODULE_1__["default"])(dateEntered, { includeSeconds: true });
     const dateInfo = document.createTextNode(distanceToNow);
     span.appendChild(dateInfo);
     return span;
@@ -9247,19 +9249,25 @@ function toggleListItemStatus(event) {
     const dateStatus = event.target.parentElement.nextElementSibling.firstElementChild;
     const listItem = event.target.parentElement.parentElement;
     if (event.target.checked === true) {
-        toggleClassName(listItem, 'cl-list--item', 'sl-list--item');
-        completedContainer.insertBefore(listItem, completedContainer.firstChild);
-        dateStatus.textContent = 'Completed, ';
-        (0,_UpdateDOMItemDate__WEBPACK_IMPORTED_MODULE_3__["default"])(event);
+        setTimeout(() => {
+            toggleClassName(listItem, 'cl-list--item', 'sl-list--item');
+            completedContainer.insertBefore(listItem, completedContainer.firstChild);
+            dateStatus.textContent = 'Completed, ';
+            (0,_UpdateDOMItemDate__WEBPACK_IMPORTED_MODULE_3__["default"])(event);
+            (0,_DisplayZeroItemsMessage__WEBPACK_IMPORTED_MODULE_2__["default"])();
+        }, 600);
+
     } else if (event.target.checked === false) {
-        toggleClassName(listItem, 'sl-list--item', 'cl-list--item');
-        shoppingContainer.appendChild(listItem);
-        dateStatus.textContent = 'Added, '
-        ;(0,_UpdateDOMItemDate__WEBPACK_IMPORTED_MODULE_3__["default"])(event);
+        setTimeout(() => {
+            toggleClassName(listItem, 'sl-list--item', 'cl-list--item');
+            shoppingContainer.appendChild(listItem);
+            dateStatus.textContent = 'Added, '
+            ;(0,_UpdateDOMItemDate__WEBPACK_IMPORTED_MODULE_3__["default"])(event);
+            (0,_DisplayZeroItemsMessage__WEBPACK_IMPORTED_MODULE_2__["default"])();
+        },600);
     }
     (0,_LocalStorage_UpdateItemLocalStorage__WEBPACK_IMPORTED_MODULE_1__["default"])(event);
     (0,_DisplayItemCount__WEBPACK_IMPORTED_MODULE_0__["default"])();
-    (0,_DisplayZeroItemsMessage__WEBPACK_IMPORTED_MODULE_2__["default"])();
 }
 
 function toggleClassName(item, classNameAdd, classNameRemove) {
@@ -9725,4 +9733,4 @@ document.addEventListener('DOMContentLoaded', _modules_UI_UserInterface__WEBPACK
 
 /******/ })()
 ;
-//# sourceMappingURL=bundleee359385134c1f3af32a.js.map
+//# sourceMappingURL=bundle8fdf07a5bc705c37405d.js.map

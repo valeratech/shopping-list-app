@@ -77,6 +77,7 @@ aside {
 /* Upon clicking the label, input/label box gains shadow and changes (gray) color */
 #menu-list:checked + label {
     color: #13e7c6;
+    transition: all 1s ease-out;
 }
 
 .menu {
@@ -242,7 +243,7 @@ h3 {
 }
 
 .filter-input {
-    
+
     position: relative;
     display: flex;
     flex-direction: row;
@@ -384,10 +385,6 @@ input:focus {
     width: 0;
 }
 
-.zero-items-message {
-    font-size: 22px;
-}
-
 /* Create a custom checkbox */
 .checkmark {
     position: absolute;
@@ -396,6 +393,7 @@ input:focus {
     height: 25px;
     width: 25px;
     background-color: #eee;
+    transition: background-color 0.3s; /* Add transition property */
 }
 
 /* On mouse-over, add a grey background color */
@@ -413,11 +411,13 @@ input:focus {
     content: "";
     position: absolute;
     display: none;
+    transition: opacity 0.3s; /* Add transition property */
 }
 
 /* Show the checkmark when checked */
 .box-container input:checked ~ .checkmark:after {
     display: block;
+    opacity: 1; /* Fade in when checked */
 }
 
 /* Style the checkmark/indicator */
@@ -431,6 +431,10 @@ input:focus {
     -webkit-transform: rotate(45deg);
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
+}
+
+.zero-items-message {
+    font-size: 22px;
 }
 
 .input-add-list-popup {
@@ -487,9 +491,15 @@ input:focus {
 .list-item {
     font-size: 19px;
     border-bottom: 1px #cccccc solid;
-    transition: 0.3s;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
     padding: 25px 20px;
-    animation: slide-in-from-left 1s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+}
+
+.list-item-appear {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .show-modal {
@@ -589,7 +599,7 @@ input:focus {
 .prompt {
     background-color: #ffffff;
     padding: 20px 30px;
-    width: 30%;
+    width: 50%;
     border-radius: 15px;
 }
 .close-prompt {

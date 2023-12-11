@@ -9,19 +9,25 @@ function toggleListItemStatus(event) {
     const dateStatus = event.target.parentElement.nextElementSibling.firstElementChild;
     const listItem = event.target.parentElement.parentElement;
     if (event.target.checked === true) {
-        toggleClassName(listItem, 'cl-list--item', 'sl-list--item');
-        completedContainer.insertBefore(listItem, completedContainer.firstChild);
-        dateStatus.textContent = 'Completed, ';
-        updateDOMItemDate(event);
+        setTimeout(() => {
+            toggleClassName(listItem, 'cl-list--item', 'sl-list--item');
+            completedContainer.insertBefore(listItem, completedContainer.firstChild);
+            dateStatus.textContent = 'Completed, ';
+            updateDOMItemDate(event);
+            displayZeroItemsMessage();
+        }, 600);
+
     } else if (event.target.checked === false) {
-        toggleClassName(listItem, 'sl-list--item', 'cl-list--item');
-        shoppingContainer.appendChild(listItem);
-        dateStatus.textContent = 'Added, '
-        updateDOMItemDate(event);
+        setTimeout(() => {
+            toggleClassName(listItem, 'sl-list--item', 'cl-list--item');
+            shoppingContainer.appendChild(listItem);
+            dateStatus.textContent = 'Added, '
+            updateDOMItemDate(event);
+            displayZeroItemsMessage();
+        },600);
     }
     updateItemLocalStorage(event);
     displayItemCount();
-    displayZeroItemsMessage();
 }
 
 function toggleClassName(item, classNameAdd, classNameRemove) {

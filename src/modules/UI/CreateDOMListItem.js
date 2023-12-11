@@ -1,4 +1,4 @@
-import {formatDistanceToNow, parseISO} from "date-fns";
+import { formatDistanceToNow, parseISO } from "date-fns";
 
 function createDOMListItem(itemText, completed, date) {
     const shopList = document.querySelector('.sl-list--container');
@@ -8,15 +8,18 @@ function createDOMListItem(itemText, completed, date) {
     listItem.append(
         createItemLabel(itemText, completed),
         createDateContainer(date, completed)
-        );
+    );
 
     if (completed) {
         listItem.classList.add('cl-list--item');
         compList.appendChild(listItem);
     } else {
         listItem.classList.add('sl-list--item');
-        shopList.appendChild(listItem)
+        shopList.appendChild(listItem);
     }
+
+    // Trigger animation for adding item
+    setTimeout(() => listItem.classList.add('list-item-appear'), 0);
 }
 
 function createItemLabel(itemText, completed) {
@@ -24,13 +27,12 @@ function createItemLabel(itemText, completed) {
     label.append(createCheckbox(completed), createSpan(), createItemText(itemText));
     label.className = 'box-container';
     return label;
-
 }
 
 function createCheckbox(completed) {
     const checkbox = document.createElement('input');
     checkbox.setAttribute('type', 'checkbox');
-    completed ? checkbox.checked = completed : checkbox.check = completed;
+    completed ? (checkbox.checked = completed) : (checkbox.check = completed);
     return checkbox;
 }
 
@@ -75,7 +77,7 @@ function createDate(date) {
     const span = document.createElement('span');
     span.className = 'date';
     const dateEntered = parseISO(date);
-    const distanceToNow = formatDistanceToNow(dateEntered,{includeSeconds: true})
+    const distanceToNow = formatDistanceToNow(dateEntered, { includeSeconds: true });
     const dateInfo = document.createTextNode(distanceToNow);
     span.appendChild(dateInfo);
     return span;
