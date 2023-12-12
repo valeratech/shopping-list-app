@@ -5,15 +5,15 @@ import displayItemCount from "./DisplayItemCount";
 import updateMainHeading from "./UpdateMainHeading";
 import displayZeroItemsMessage from "./DisplayZeroItemsMessage";
 
-function addListNameDOM(name) {
+function addListNameDOM(listName) {
     const container = document.getElementById('list-sidebar');
     const addListContainer = document.getElementById('add-list-container');
-    container.insertBefore(createNewShoppingList(name), addListContainer);
+    container.insertBefore(createNewShoppingList(listName), addListContainer);
     removeActiveListClass(true);
     addActiveListClass(addListContainer.previousElementSibling);
     displayListItems(addListContainer.previousElementSibling.firstChild.textContent);
     displayItemCount();
-    updateMainHeading(name);
+    updateMainHeading(listName);
     displayZeroItemsMessage();
 }
 

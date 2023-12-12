@@ -8,8 +8,8 @@ function toggleShoppingListForm(event) {
             showShoppingListInput();
             break;
         case "button-add-list-popup":
-            addListLocalStorage(listName);
-            addListNameDOM(listName);
+            addListLocalStorage(listName.trim());
+            addListNameDOM(listName.trim());
             clearShoppingListInput();
             hideShoppingList();
             break;

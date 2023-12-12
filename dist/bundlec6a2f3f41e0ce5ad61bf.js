@@ -8566,15 +8566,15 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-function addListNameDOM(name) {
+function addListNameDOM(listName) {
     const container = document.getElementById('list-sidebar');
     const addListContainer = document.getElementById('add-list-container');
-    container.insertBefore(createNewShoppingList(name), addListContainer);
+    container.insertBefore(createNewShoppingList(listName), addListContainer);
     (0,_RemoveActiveListClass__WEBPACK_IMPORTED_MODULE_0__["default"])(true);
     (0,_AddActiveListClass__WEBPACK_IMPORTED_MODULE_1__["default"])(addListContainer.previousElementSibling);
     (0,_DisplayListItems__WEBPACK_IMPORTED_MODULE_2__["default"])(addListContainer.previousElementSibling.firstChild.textContent);
     (0,_DisplayItemCount__WEBPACK_IMPORTED_MODULE_3__["default"])();
-    (0,_UpdateMainHeading__WEBPACK_IMPORTED_MODULE_4__["default"])(name);
+    (0,_UpdateMainHeading__WEBPACK_IMPORTED_MODULE_4__["default"])(listName);
     (0,_DisplayZeroItemsMessage__WEBPACK_IMPORTED_MODULE_5__["default"])();
 }
 
@@ -9303,8 +9303,8 @@ function toggleShoppingListForm(event) {
             showShoppingListInput();
             break;
         case "button-add-list-popup":
-            (0,_LocalStorage_AddListLocalStorage__WEBPACK_IMPORTED_MODULE_0__["default"])(listName);
-            (0,_AddListNameDOM__WEBPACK_IMPORTED_MODULE_1__["default"])(listName);
+            (0,_LocalStorage_AddListLocalStorage__WEBPACK_IMPORTED_MODULE_0__["default"])(listName.trim());
+            (0,_AddListNameDOM__WEBPACK_IMPORTED_MODULE_1__["default"])(listName.trim());
             clearShoppingListInput();
             hideShoppingList();
             break;
@@ -9736,4 +9736,4 @@ document.addEventListener('DOMContentLoaded', _modules_UI_UserInterface__WEBPACK
 
 /******/ })()
 ;
-//# sourceMappingURL=bundled780148d02a36dd23d59.js.map
+//# sourceMappingURL=bundlec6a2f3f41e0ce5ad61bf.js.map
