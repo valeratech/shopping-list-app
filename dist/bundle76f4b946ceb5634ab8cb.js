@@ -8634,8 +8634,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 function clearListItems() {
-    removeAllChildren('.sl-list--container');
-    removeAllChildren('.cl-list--container');
+    removeAllChildren('.sl-list-container');
+    removeAllChildren('.cl-list-container');
 }
 
 function removeAllChildren(containerClassName) {
@@ -8667,8 +8667,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function createDOMListItem(itemText, completed, date) {
-    const shopList = document.querySelector('.sl-list--container');
-    const compList = document.querySelector('.cl-list--container');
+    const shopList = document.querySelector('.sl-list-container');
+    const compList = document.querySelector('.cl-list-container');
     const listItem = document.createElement('li');
     listItem.classList.add('list-item');
     listItem.append(
@@ -8677,10 +8677,10 @@ function createDOMListItem(itemText, completed, date) {
     );
 
     if (completed) {
-        listItem.classList.add('cl-list--item');
+        listItem.classList.add('cl-list-item');
         compList.appendChild(listItem);
     } else {
-        listItem.classList.add('sl-list--item');
+        listItem.classList.add('sl-list-item');
         shopList.appendChild(listItem);
     }
 
@@ -9005,7 +9005,7 @@ function zeroListItemsMessage(text) {
 
 function checkShoppingList() {
     // Checks for items in shopping-list container - Display no list items message if none
-    const slContainer = document.querySelector('.sl-list--container');
+    const slContainer = document.querySelector('.sl-list-container');
     if (slContainer.firstChild === null) {
         slContainer.appendChild(zeroListItemsMessage('Add items to your shopping-list'));
     } else if (slContainer.firstElementChild.textContent === 'Add items to your shopping-list') {
@@ -9015,7 +9015,7 @@ function checkShoppingList() {
 
 function checkCompletedList() {
     // Checks for items in completed-list container - Display no list items message if none
-    const clContainer = document.querySelector('.cl-list--container');
+    const clContainer = document.querySelector('.cl-list-container');
     if (clContainer.firstChild === null) {
         clContainer.appendChild(zeroListItemsMessage('No completed items'));
     } else if (clContainer.childElementCount === 2
@@ -9253,8 +9253,8 @@ function toggleListItemStatus(event) {
 }
 
 function toggleListItemHelper(list, event) {
-    const shoppingContainer = document.querySelector('.sl-list--container');
-    const completedContainer = document.querySelector('.cl-list--container');
+    const shoppingContainer = document.querySelector('.sl-list-container');
+    const completedContainer = document.querySelector('.cl-list-container');
     const dateStatus = event.target.parentElement.nextElementSibling.firstElementChild;
     const listItem = event.target.parentElement.parentElement;
     toggleClassName(listItem, 'cl-list--item', 'sl-list--item');
@@ -9733,4 +9733,4 @@ document.addEventListener('DOMContentLoaded', _modules_UI_UserInterface__WEBPACK
 
 /******/ })()
 ;
-//# sourceMappingURL=bundle1ce07a54711a3cc72009.js.map
+//# sourceMappingURL=bundle76f4b946ceb5634ab8cb.js.map

@@ -1,8 +1,8 @@
 import { formatDistanceToNow, parseISO } from "date-fns";
 
 function createDOMListItem(itemText, completed, date) {
-    const shopList = document.querySelector('.sl-list--container');
-    const compList = document.querySelector('.cl-list--container');
+    const shopList = document.querySelector('.sl-list-container');
+    const compList = document.querySelector('.cl-list-container');
     const listItem = document.createElement('li');
     listItem.classList.add('list-item');
     listItem.append(
@@ -11,10 +11,10 @@ function createDOMListItem(itemText, completed, date) {
     );
 
     if (completed) {
-        listItem.classList.add('cl-list--item');
+        listItem.classList.add('cl-list-item');
         compList.appendChild(listItem);
     } else {
-        listItem.classList.add('sl-list--item');
+        listItem.classList.add('sl-list-item');
         shopList.appendChild(listItem);
     }
 

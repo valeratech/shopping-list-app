@@ -15,7 +15,7 @@ function zeroListItemsMessage(text) {
 
 function checkShoppingList() {
     // Checks for items in shopping-list container - Display no list items message if none
-    const slContainer = document.querySelector('.sl-list--container');
+    const slContainer = document.querySelector('.sl-list-container');
     if (slContainer.firstChild === null) {
         slContainer.appendChild(zeroListItemsMessage('Add items to your shopping-list'));
     } else if (slContainer.firstElementChild.textContent === 'Add items to your shopping-list') {
@@ -25,7 +25,7 @@ function checkShoppingList() {
 
 function checkCompletedList() {
     // Checks for items in completed-list container - Display no list items message if none
-    const clContainer = document.querySelector('.cl-list--container');
+    const clContainer = document.querySelector('.cl-list-container');
     if (clContainer.firstChild === null) {
         clContainer.appendChild(zeroListItemsMessage('No completed items'));
     } else if (clContainer.childElementCount === 2

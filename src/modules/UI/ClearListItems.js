@@ -1,6 +1,6 @@
 function clearListItems() {
-    removeAllChildren('.sl-list--container');
-    removeAllChildren('.cl-list--container');
+    removeAllChildren('.sl-list-container');
+    removeAllChildren('.cl-list-container');
 }
 
 function removeAllChildren(containerClassName) {

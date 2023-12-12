@@ -486,9 +486,9 @@ input:focus {
   opacity: 0.7;
 }
 
-.sl-list--container, .cl-list--container {
+.sl-list-container, .cl-list-container {
   overflow: auto;
-  max-height: 30vw;
+  max-height: 50vw;
 }
 
 .list-item {

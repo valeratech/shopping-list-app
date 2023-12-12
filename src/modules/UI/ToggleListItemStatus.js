@@ -12,8 +12,8 @@ function toggleListItemStatus(event) {
 }
 
 function toggleListItemHelper(list, event) {
-    const shoppingContainer = document.querySelector('.sl-list--container');
-    const completedContainer = document.querySelector('.cl-list--container');
+    const shoppingContainer = document.querySelector('.sl-list-container');
+    const completedContainer = document.querySelector('.cl-list-container');
     const dateStatus = event.target.parentElement.nextElementSibling.firstElementChild;
     const listItem = event.target.parentElement.parentElement;
     toggleClassName(listItem, 'cl-list--item', 'sl-list--item');
