@@ -26,7 +26,7 @@ function displayItemCount() {
 }
 
 function countListItems() {
-    const itemList = document.querySelectorAll('.sl-list--item');
+    const itemList = document.querySelectorAll('.sl-list-item');
     return Array.from(itemList).length;
 }
 

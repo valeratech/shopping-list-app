@@ -16,10 +16,13 @@ function toggleListItemHelper(list, event) {
     const completedContainer = document.querySelector('.cl-list-container');
     const dateStatus = event.target.parentElement.nextElementSibling.firstElementChild;
     const listItem = event.target.parentElement.parentElement;
-    toggleClassName(listItem, 'cl-list--item', 'sl-list--item');
-    list === 'Completed, ' ?
-        completedContainer.insertBefore(listItem, completedContainer.firstChild) :
+    if (list === 'Completed, ') {
+        completedContainer.insertBefore(listItem, completedContainer.firstChild);
+        toggleClassName(listItem, 'cl-list-item', 'sl-list-item');
+    } else {
         shoppingContainer.appendChild(listItem);
+        toggleClassName(listItem, 'sl-list-item','cl-list-item');
+    }
     dateStatus.textContent = list;
     updateDOMItemDate(event);
     updateItemLocalStorage(event);
