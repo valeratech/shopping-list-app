@@ -8515,6 +8515,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function addItemDom(event) {
+    console.log('hello');
     const item = getItemValue(event);
 
     const currentDate = new Date();
@@ -9732,4 +9733,4 @@ document.addEventListener('DOMContentLoaded', _modules_UI_UserInterface__WEBPACK
 
 /******/ })()
 ;
-//# sourceMappingURL=bundle4c338f60254f85cc82fb.js.map
+//# sourceMappingURL=bundle1ce07a54711a3cc72009.js.map

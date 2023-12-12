@@ -7,6 +7,7 @@ import displayListItems from "./DisplayListItems";
 import displayItemCount from "./DisplayItemCount";
 
 function addItemDom(event) {
+    console.log('hello');
     const item = getItemValue(event);
 
     const currentDate = new Date();

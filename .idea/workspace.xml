@@ -5,7 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="155b8fc2-f810-41cc-93d6-ac777cec3577" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/bundle4c338f60254f85cc82fb.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/bundle4c338f60254f85cc82fb.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/dist/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/UI/AddItemDOM.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/UI/AddItemDOM.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,7 +40,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "shopping-list-ui",
-    "last_opened_file_path": "/home/ryanv/JavaScript/Projects/Vanilla-JS/shopping-list-app",
+    "last_opened_file_path": "/home/ryanv/JavaScript/Exercises/React/react-state-management-exercises/1react-state-context-API-WORKER",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -84,6 +87,7 @@
       <workItem from="1699731203373" duration="1007000" />
       <workItem from="1700165980611" duration="27000" />
       <workItem from="1701743413422" duration="4797000" />
+      <workItem from="1701896940018" duration="77346000" />
     </task>
     <servers />
   </component>
